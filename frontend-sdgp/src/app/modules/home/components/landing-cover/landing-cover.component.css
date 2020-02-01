@@ -1,0 +1,15 @@
+.main-heading {
+  background: url("../../../../../assets/images/homepage-cover.jpg") no-repeat center;
+  background-size: cover;
+  height: 94vh;
+
+}
+
+.main-title {
+  color: black;
+  font-family: Impact;
+  font-size: 60px;
+  position: absolute;
+  top: 25%;
+  left: 16%;
+}

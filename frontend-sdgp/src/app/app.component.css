@@ -1,16 +1,19 @@
-.main-heading {
-  background: url("../assets/images/homepage-cover.jpg") no-repeat center;
-  background-size: cover;
-  height: 100vh;
-
-
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0 ;
+  right: 0  ;
+  left: 0;
 }
 
-.main-title {
-  color: black;
-  font-family: Impact;
-  font-size: 60px;
-  position: absolute;
-  top: 25%;
-  left: 16%;
+
+.container .mat-drawer {
+  min-width: 200px;
+}
+
+
+.container .mat-drawer .mat-button {
+  display: block;
+  width: 100%;
+  text-align: left;
 }
