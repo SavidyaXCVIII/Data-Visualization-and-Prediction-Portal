@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {CategoryComponent} from "./modules/home/pages/category/category.component";
 
 
 const routes: Routes = [
@@ -9,16 +10,15 @@ const routes: Routes = [
   },
   {
     path:'home',
-    loadChildren: './modules/home/home.module#HomeModule'
+    loadChildren: './modules/home/home.module#HomeModule',
+
   },
   {
     path:'about-us',
-    loadChildren: './modules/pages/about-us/about-us.module#AboutUsModule'
+    loadChildren: './modules/pages/aboutus/aboutus.module#AboutUsModule',
+
   },
-  {
-    path:'home',
-    loadChildren: './modules/home/home.module#HomeModule'
-  },
+
   {
     path: '',
     redirectTo: '',

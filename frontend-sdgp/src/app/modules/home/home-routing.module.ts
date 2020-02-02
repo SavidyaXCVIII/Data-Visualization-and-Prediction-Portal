@@ -8,16 +8,13 @@ import {CategoryComponent} from "./pages/category/category.component";
 const routes: Routes = [
   {
     path: '',
-    component: LandingCoverComponent
+    component: LandingCoverComponent,
   },
   {
-    path: '',
+    path: '/aboutus',
     component: AboutUsComponent
-  },
-  {
-    path: '',
-    component : CategoryComponent
   }
+
 ];
 
 @NgModule({
