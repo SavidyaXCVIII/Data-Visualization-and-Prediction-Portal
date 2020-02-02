@@ -4,11 +4,30 @@
   bottom: 0 ;
   right: 0  ;
   left: 0;
+
+}
+
+.side-container {
+  margin: 3%;
+  background: rgba(255, 255, 255, 0.3);
+
+}
+
+h2 {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.expansion {
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 
+
 .container .mat-drawer {
-  min-width: 200px;
+  min-width: 260px;
+  background: rgb(182, 235, 255);
 }
 
 
@@ -16,4 +35,17 @@
   display: block;
   width: 100%;
   text-align: left;
+}
+
+.site-logo {
+  padding-left: 50%;
+}
+
+.item-logo {
+  margin-right: 10px;
+}
+
+.cat-logo {
+ margin-left: -6px;
+  padding-right: 8px;
 }

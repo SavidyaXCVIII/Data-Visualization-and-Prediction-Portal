@@ -2,17 +2,39 @@
 
   <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav">
-      <mat-sidenav-container>
+      <mat-sidenav-container class="side-container">
 
           <mat-nav-list>
 
-            <h2 matSubheader> DataShaft </h2>
+            <h2 matSubheader> DataShaft <mat-icon class="site-logo">assessment</mat-icon> </h2>
 
-            <a mat-list-item  routerLink="/home" ><mat-icon>home</mat-icon>Home</a>
-            <a mat-list-item  routerLink="/home/category" >Categories</a>
-            <a mat-list-item  routerLink="/upload-dataset" >Upload Dataset</a>
-            <a mat-list-item  routerLink="/upload-dataset" >Create Account</a>
-            <a mat-list-item  routerLink="/home/aboutus" >About us</a>
+            <mat-divider class="divider"></mat-divider>
+
+            <a class="mat-item" mat-list-item  routerLink="/home" ><mat-icon class="item-logo">home</mat-icon>Home</a>
+
+            <mat-expansion-panel class="expansion mat-elevation-z0">
+              <mat-expansion-panel-header>
+                <mat-list-item><mat-icon class="cat-logo">view_module</mat-icon>Category</mat-list-item>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>one</a>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>two</a>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>three</a>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>four</a>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>five</a>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>six</a>
+              <mat-divider></mat-divider>
+              <a routerLink="/upload-dataset" mat-button>seven</a>
+              <mat-divider></mat-divider>
+            </mat-expansion-panel>
+            <a mat-list-item  routerLink="/upload-dataset" ><mat-icon class="item-logo">cloud_upload</mat-icon>Upload Dataset</a>
+            <a mat-list-item  routerLink="/upload-dataset" ><mat-icon class="item-logo">create</mat-icon>Create Account</a>
+            <a mat-list-item  routerLink="/home/aboutus" ><mat-icon class="item-logo">people</mat-icon>About us</a>
 
           </mat-nav-list>
 
