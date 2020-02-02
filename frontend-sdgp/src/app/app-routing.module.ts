@@ -4,21 +4,32 @@ import {CategoryComponent} from "./modules/home/pages/category/category.componen
 
 
 const routes: Routes = [
-  {
-    path:'category',
-    loadChildren: './modules/search/search.module#SearchModule'
-  },
+
   {
     path:'home',
     loadChildren: './modules/home/home.module#HomeModule',
 
   },
   {
-    path:'about-us',
-    loadChildren: './modules/pages/aboutus/aboutus.module#AboutUsModule',
-
+    path: 'account',
+    loadChildren: '/modules/account/account.module#AccountModule'
   },
-
+  {
+    path: 'feature-prediction',
+    loadChildren: '/modules/featurePrediction/featurePrediction.module#FeaturePredictionModule'
+  },
+  {
+    path: 'search',
+    loadChildren: '/modules/search/search.module#SearchModule'
+  },
+  {
+    path: 'upload-dataset',
+    loadChildren: '/modules/uploaddataset/uploaddataset.module#UploadDatasetModule'
+  },
+  {
+    path: 'view-graph',
+    loadChildren: '/modules/viewGraph/viewGraph.module#ViewGraphModule'
+  },
   {
     path: '',
     redirectTo: '',

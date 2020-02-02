@@ -11,8 +11,12 @@ const routes: Routes = [
     component: LandingCoverComponent,
   },
   {
-    path: '/aboutus',
+    path: 'aboutus',
     component: AboutUsComponent
+  },
+  {
+    path: 'category',
+    component: CategoryComponent
   }
 
 ];

@@ -7,9 +7,9 @@
 
 .main-title {
   color: black;
-  font-family: Impact;
+  font-family: Impact, sans-serif;
   font-size: 60px;
   position: absolute;
   top: 25%;
-  left: 16%;
+  margin: 5%;
 }
