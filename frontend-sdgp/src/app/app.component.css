@@ -23,7 +23,9 @@ h2 {
   margin: 0;
 }
 
-
+.mat-item {
+  font-size: 15px;
+}
 
 .container .mat-drawer {
   min-width: 260px;
