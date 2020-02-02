@@ -12,23 +12,23 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: '/modules/account/account.module#AccountModule'
+    loadChildren: './modules/account/account.module#AccountModule'
   },
   {
     path: 'feature-prediction',
-    loadChildren: '/modules/featurePrediction/featurePrediction.module#FeaturePredictionModule'
+    loadChildren: './modules/featurePrediction/featurePrediction.module#FeaturePredictionModule'
   },
   {
     path: 'search',
-    loadChildren: '/modules/search/search.module#SearchModule'
+    loadChildren: './modules/search/search.module#SearchModule'
   },
   {
     path: 'upload-dataset',
-    loadChildren: '/modules/uploaddataset/uploaddataset.module#UploadDatasetModule'
+    loadChildren: './modules/uploaddataset/uploaddataset.module#UploadDatasetModule'
   },
   {
     path: 'view-graph',
-    loadChildren: '/modules/viewGraph/viewGraph.module#ViewGraphModule'
+    loadChildren: './modules/viewGraph/viewGraph.module#ViewGraphModule'
   },
   {
     path: '',

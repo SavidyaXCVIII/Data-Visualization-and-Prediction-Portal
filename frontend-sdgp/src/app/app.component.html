@@ -44,10 +44,16 @@
     </mat-drawer>
 
     <div class="sidenav-content">
+        <mat-toolbar>
           <button mat-icon-button (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
           </button>
-      <router-outlet></router-outlet>
+          <span>DataShaft</span>
+          <span class="spacer"></span>
+          <button class="toolbar-button" mat-stroked-button>Log In</button>
+          <button class="toolbar-button" mat-stroked-button>Create Account</button>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
     </div>
   </mat-drawer-container>
 

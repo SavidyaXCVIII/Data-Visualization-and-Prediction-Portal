@@ -1,15 +1,17 @@
 .main-heading {
-  background: url("../../../../../assets/images/homepage-cover.jpg") no-repeat center;
+  background: url("../../../../../assets/images/Main page 3 png.png") no-repeat center;
   background-size: cover;
-  height: 94vh;
+  height: 91.5vh;
 
 }
 
 .main-title {
-  color: black;
+  color: #1c5d99;
   font-family: Impact, sans-serif;
-  font-size: 60px;
+  font-size: 40px;
   position: absolute;
-  top: 25%;
+  top: 15%;
   margin: 5%;
+  padding: 5px;
+  border-radius: 5px;
 }

@@ -51,3 +51,19 @@ h2 {
  margin-left: -6px;
   padding-right: 8px;
 }
+
+mat-toolbar {
+  height: 50px;
+  background-color: #1c5d99;
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  margin-left: 5px;
+  color: #bbcde5;
+;
+}
