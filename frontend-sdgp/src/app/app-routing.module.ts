@@ -32,8 +32,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path: '**',
+    loadChildren: './modules/home/home.module#HomeModule'
   }
 
 ];
