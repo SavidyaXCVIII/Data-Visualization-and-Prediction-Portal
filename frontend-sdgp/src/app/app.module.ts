@@ -11,10 +11,19 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { LogInComponent } from './shared/components/log-in/log-in.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { CreateAccountComponent } from './shared/components/create-account/create-account.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogInComponent,
+    CreateAccountComponent
+  ],
+  entryComponents: [
+    LogInComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +35,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatToolbarModule,
     MatListModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

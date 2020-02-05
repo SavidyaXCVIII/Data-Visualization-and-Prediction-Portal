@@ -29,7 +29,7 @@ h2 {
 
 .container .mat-drawer {
   min-width: 210px;
-  background: rgb(182, 235, 255);
+  background-color: #222222;
 }
 
 
@@ -53,8 +53,8 @@ h2 {
 }
 
 mat-toolbar {
-  height: 50px;
-  background-color: #1c5d99;
+  /*height: 50px;*/
+  background-color: #222222;
   color: white;
 }
 
@@ -64,6 +64,9 @@ mat-toolbar {
 
 .toolbar-button {
   margin-left: 5px;
-  color: #bbcde5;
+  background-color: #131A1E;
+  color: white;
 ;
 }
+
+

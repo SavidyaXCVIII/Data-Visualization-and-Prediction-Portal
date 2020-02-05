@@ -1,17 +1,43 @@
 .main-heading {
   background: url("../../../../../assets/images/Main page 3 png.png") no-repeat center;
   background-size: cover;
-  height: 91.5vh;
+  height: 90vh;
+  background-color: #131A1E;
 
 }
 
 .main-title {
-  color: #1c5d99;
-  font-family: Impact, sans-serif;
-  font-size: 40px;
+  color: #44ffe1;
+  font-family: montserrat, sans-serif;
   position: absolute;
-  top: 15%;
+  top: 20%;
   margin: 5%;
   padding: 5px;
   border-radius: 5px;
+}
+
+.title-sub-one {
+  color: #1c5d99;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 1.5;
+}
+
+.title-sub-two {
+  color: white;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 1.5;
+
+}
+.title-sub-three {
+  color: white;
+  font-size: 20px;
+  line-height: 1.5;
+
+}
+
+.title-sub-sub {
+  font-size: 50px;
+
 }
