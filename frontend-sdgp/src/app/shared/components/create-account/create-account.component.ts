@@ -7,7 +7,6 @@ import {MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-
   constructor(public dialog: MatDialogRef<CreateAccountComponent>) { }
 
   ngOnInit() {
