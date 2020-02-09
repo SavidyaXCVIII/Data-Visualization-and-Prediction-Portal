@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'feature-prediction',
-    loadChildren: './modules/featurePrediction/featurePrediction.module#FeaturePredictionModule'
+    loadChildren: '/modules/featurePrediction/featurePrediction.module#FeaturePredictionModule'
   },
   {
     path: 'search',

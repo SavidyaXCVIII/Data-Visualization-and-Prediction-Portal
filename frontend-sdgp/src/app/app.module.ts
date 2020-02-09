@@ -16,6 +16,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { CreateAccountComponent } from './shared/components/create-account/create-account.component';
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatExpansionModule,
     MatDialogModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

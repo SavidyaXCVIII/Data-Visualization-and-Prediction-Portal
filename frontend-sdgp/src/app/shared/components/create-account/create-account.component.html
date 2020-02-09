@@ -1,30 +1,44 @@
-<mat-form-field appearance="outline">
-  <mat-label>First Name</mat-label>
-  <label>
-    <input matInput placeholder="First Name">
-  </label>
-</mat-form-field>
-<br>
- <mat-form-field appearance="outline">
-   <mat-label>Last Name</mat-label>
-   <label><input matInput placeholder="Last Name"></label>
- </mat-form-field>
-
-
-<table class="form-names-input" cellspacing="0">
-  <tr>
+<h1>Sign up</h1>
+<div class =form-create-account>
+  <mat-form-field class="example-full-width">
+    <mat-label>Full Name</mat-label>
+    <input matInput placeholder="Full name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email ">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+  <table class="example-full-width" cellspacing="0"><tr>
     <td>
       <mat-form-field class="example-full-width">
-        <mat-label >Full Name</mat-label>
-    <input matInput placeholder="Full name">
-    </mat-form-field>
-      <mat-form-field class="example-full-width">
-      <input matInput placeholder="Last Name ">
-    </mat-form-field>
+        <mat-label>Company Name</mat-label>
+        <input matInput placeholder="Company Name">
+      </mat-form-field>
     </td>
-
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+94 &nbsp;</span>
+        <input type="tel" matInput placeholder="71-121-121">
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+    </td>
   </tr>
-</table>
+  </table>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput placeholder="Password">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Confirm Password</mat-label>
+    <input type="password" matInput placeholder="Confirm Password">
+  </mat-form-field>
+  <mat-checkbox>I agree to the <b>Terms of User</b></mat-checkbox>
+  <br><br>
+  <button mat-raised-button color="primary">Sign up</button>
+</div>
+
 
 
 
