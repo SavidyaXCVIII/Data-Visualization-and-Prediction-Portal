@@ -17,11 +17,6 @@ const routes: Routes = [
   {
     path: 'category',
     component: CategoryComponent
-  },
-  {
-    path: 'about-us',
-    component: AboutUsComponent
-
   }
 
 ];

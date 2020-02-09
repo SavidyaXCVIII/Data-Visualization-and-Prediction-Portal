@@ -14,6 +14,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import { LogInComponent } from './shared/components/log-in/log-in.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { CreateAccountComponent } from './shared/components/create-account/create-account.component';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { CreateAccountComponent } from './shared/components/create-account/creat
     MatListModule,
     MatSelectModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

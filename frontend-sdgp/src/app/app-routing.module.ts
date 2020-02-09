@@ -31,10 +31,6 @@ const routes: Routes = [
     loadChildren: './modules/viewGraph/viewGraph.module#ViewGraphModule'
   },
   {
-    path: 'about-us',
-    loadChildren: './modules/home/home.module#HomeModule'
-  },
-  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
