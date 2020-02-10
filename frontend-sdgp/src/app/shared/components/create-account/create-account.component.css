@@ -1,14 +1,20 @@
-.form-create-account {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-  ;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
 }
-
 
 .example-full-width {
   width: 100%;
 }
+.form-title{
+  text-align: center;
+}
+
+.button {
+  margin: 40px;
+}
+
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
@@ -18,6 +24,8 @@
 td {
   padding-right: 8px;
 }
+
 h1{
   text-align: center;
+  font-size: 40px;
 }

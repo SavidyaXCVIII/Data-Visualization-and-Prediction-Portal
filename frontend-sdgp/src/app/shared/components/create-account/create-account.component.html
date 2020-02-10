@@ -1,44 +1,44 @@
-<h1>Sign up</h1>
-<div class =form-create-account>
+
+<div class ="form-container">
+
+  <mat-card-title class="form-title">Create Account</mat-card-title>
+
   <mat-form-field class="example-full-width">
-    <mat-label>Full Name</mat-label>
-    <input matInput placeholder="Full name">
+    <input matInput type="text" placeholder="Full Name" required>
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="Email ">
+    <input matInput type="email" placeholder="Email"  required>
     <mat-icon matSuffix>email</mat-icon>
   </mat-form-field>
-  <table class="example-full-width" cellspacing="0"><tr>
+
+  <table class="example-full-width" cellspacing="1"><tr>
     <td>
       <mat-form-field class="example-full-width">
-        <mat-label>Company Name</mat-label>
-        <input matInput placeholder="Company Name">
+        <input matInput placeholder="Company Name" >
       </mat-form-field>
     </td>
     <td>
       <mat-form-field class="example-full-width">
         <mat-label>Telephone</mat-label>
         <span matPrefix>+94 &nbsp;</span>
-        <input type="tel" matInput placeholder="71-121-121">
+        <input type="tel" matInput placeholder="71-121-121" >
         <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
     </td>
   </tr>
   </table>
   <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
     <input type="password" matInput placeholder="Password">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-label>Confirm Password</mat-label>
     <input type="password" matInput placeholder="Confirm Password">
-  </mat-form-field>
-  <mat-checkbox>I agree to the <b>Terms of User</b></mat-checkbox>
-  <br><br>
-  <button mat-raised-button color="primary">Sign up</button>
-</div>
+  </mat-form-field><br>
 
+  <mat-checkbox color="primary">I agree to the <b>Terms of User</b></mat-checkbox>
+</div>
+  <button mat-raised-button color="primary" type="submit"> Sign up</button>
+  <button class="button close" mat-button mat-raised-button (click)="onClose()">Close</button>
 
 
 

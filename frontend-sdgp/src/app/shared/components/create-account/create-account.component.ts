@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatDialogRef} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-create-account',
@@ -12,4 +13,7 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClose() {
+    this.dialog.close();
+  }
 }
