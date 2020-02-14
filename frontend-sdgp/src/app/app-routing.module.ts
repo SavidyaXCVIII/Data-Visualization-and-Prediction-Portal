@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'feature-prediction',
-    loadChildren: './modules/featurePrediction/featurePrediction.module#FeaturePredictionModule'
+    loadChildren: './modules/feature-prediction/feature-prediction.module#FeaturePredictionModule'
   },
   {
     path: 'search',
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'upload-dataset',
-    loadChildren: './modules/uploadDataset/uploadDataset.module#UploadDatasetModule'
+    loadChildren: './modules/upload-dataset/upload-dataset.module#UploadDatasetModule'
   },
   {
     path: 'view-graph',
