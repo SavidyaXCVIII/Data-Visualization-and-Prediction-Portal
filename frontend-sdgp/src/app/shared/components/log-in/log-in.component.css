@@ -1,0 +1,27 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+.form-title{
+  text-align: center;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.signup{
+  margin-left: 50px;
+}
+
+.close {
+  margin-left: 30px;
+  color:black;
+}
+
+.close:hover {
+  background-color: #000000  ;
+  color: white;
+}
+

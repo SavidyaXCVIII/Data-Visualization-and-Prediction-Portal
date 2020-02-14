@@ -1,1 +1,24 @@
-<p>log-in works!</p>
+
+<div class ="form-container" >
+
+  <mat-card-title class="form-title">Sign In</mat-card-title>
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="email" placeholder="Username/email"  required>
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input type="password" matInput placeholder="Password" required>
+    <mat-icon matSuffix>vpn_key</mat-icon>
+  </mat-form-field><br>
+
+</div>
+<button mat-raised-button class="button signup" color="primary" type="submit">Login</button>
+<button mat-raised-button class="button close"  mat-button  (click)="onClose()">Close</button>
+
+
+
+
+
+

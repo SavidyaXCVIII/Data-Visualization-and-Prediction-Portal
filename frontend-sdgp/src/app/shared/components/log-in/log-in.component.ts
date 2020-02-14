@@ -12,5 +12,8 @@ export class LogInComponent implements OnInit {
 
   ngOnInit() {
   }
+  onClose() {
+    this.dialog.close();
+  }
 
 }

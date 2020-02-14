@@ -3,29 +3,25 @@
   flex-direction: column;
   padding: 50px;
 }
-
-.example-full-width {
-  width: 100%;
-}
 .form-title{
   text-align: center;
 }
 
-.button {
-  margin: 40px;
+.example-full-width {
+  width: 100%;
 }
 
-.example-button-row button,
-.example-button-row a {
-  margin-right: 8px;
-  alignment: center;
+.signup{
+  margin-left: 50px;
 }
 
-td {
-  padding-right: 8px;
+.close {
+  margin-left: 30px;
+  color:black;
 }
 
-h1{
-  text-align: center;
-  font-size: 40px;
+.close:hover {
+  background-color: #000000  ;
+  color: white;
 }
+
