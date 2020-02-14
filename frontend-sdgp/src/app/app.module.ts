@@ -18,6 +18,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatCardModule} from "@angular/material/card";
     MatInputModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

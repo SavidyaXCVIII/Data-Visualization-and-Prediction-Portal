@@ -1,60 +1,60 @@
 
 
-  <mat-drawer-container class="container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-      <mat-sidenav-container class="side-container">
+<mat-drawer-container class="container" autosize>
+<mat-drawer #drawer class="sidenav" mode="side">
+  <mat-sidenav-container class="side-container">
 
-          <mat-nav-list>
+      <mat-nav-list>
 
-            <h2 matSubheader> DataShaft <mat-icon class="site-logo">assessment</mat-icon> </h2>
+        <h2 matSubheader> DataShaft <mat-icon class="site-logo">assessment</mat-icon> </h2>
 
-            <mat-divider class="divider"></mat-divider>
+        <mat-divider class="divider"></mat-divider>
 
-            <a class="mat-item" mat-list-item  routerLink="/home" ><mat-icon class="item-logo">home</mat-icon>Home</a>
+        <a class="mat-item" mat-list-item  routerLink="/home" ><mat-icon class="item-logo">home</mat-icon>Home</a>
 
-            <mat-expansion-panel class="expansion mat-elevation-z0">
-              <mat-expansion-panel-header>
-                <mat-list-item class="mat-item"><mat-icon class="cat-logo">view_module</mat-icon>Category</mat-list-item>
-              </mat-expansion-panel-header>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>one</a>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>two</a>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>three</a>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>four</a>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>five</a>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>six</a>
-              <mat-divider></mat-divider>
-              <a routerLink="/upload-dataset" mat-button>seven</a>
-              <mat-divider></mat-divider>
-            </mat-expansion-panel>
-            <a class="mat-item" mat-list-item  routerLink="/upload-dataset" ><mat-icon class="item-logo">cloud_upload</mat-icon>Upload Dataset</a>
-            <a class="mat-item" mat-list-item  routerLink="/home/aboutus" ><mat-icon class="item-logo">people</mat-icon>About us</a>
+        <mat-expansion-panel class="expansion mat-elevation-z0">
+          <mat-expansion-panel-header>
+            <mat-list-item class="mat-item"><mat-icon class="cat-logo">view_module</mat-icon>Category</mat-list-item>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Education</a>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Economic</a>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Health</a>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Travel</a>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Information Technology</a>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Transport</a>
+          <mat-divider></mat-divider>
+          <a routerLink="/upload-dataset" mat-button>Demography</a>
+          <mat-divider></mat-divider>
+        </mat-expansion-panel>
+        <a class="mat-item" mat-list-item  routerLink="/upload-dataset" ><mat-icon class="item-logo">cloud_upload</mat-icon>Upload Dataset</a>
+        <a class="mat-item" mat-list-item  routerLink="/home/aboutus" ><mat-icon class="item-logo">people</mat-icon>About us</a>
 
-          </mat-nav-list>
+      </mat-nav-list>
 
 
-      </mat-sidenav-container>
+  </mat-sidenav-container>
 
-    </mat-drawer>
+</mat-drawer>
 
-    <div class="sidenav-content">
-        <mat-toolbar class="mat-elevation-z6">
-          <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <span>DataShaft</span>
-          <span class="spacer"></span>
-          <button class="toolbar-button" mat-button (click)="openLogInDialog()">Log In</button>
-          <button class="toolbar-button" mat-button (click)="openCreateAccountDialog()">Create Account</button>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-    </div>
-  </mat-drawer-container>
+<div class="sidenav-content">
+    <mat-toolbar class="mat-elevation-z6">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>DataShaft</span>
+      <span class="spacer"></span>
+      <button class="toolbar-button" mat-button (click)="openLogInDialog()">Log In</button>
+      <button class="toolbar-button" mat-button (click)="openCreateAccountDialog()">Create Account</button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>
+</mat-drawer-container>
 
 
 

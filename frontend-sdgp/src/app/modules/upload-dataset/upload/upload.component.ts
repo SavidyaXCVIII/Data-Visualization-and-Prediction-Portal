@@ -9,6 +9,10 @@ export class UploadComponent implements OnInit {
 
   constructor() { }
 
+  csvInputChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files[0]);
+  }
+
   ngOnInit() {
   }
 

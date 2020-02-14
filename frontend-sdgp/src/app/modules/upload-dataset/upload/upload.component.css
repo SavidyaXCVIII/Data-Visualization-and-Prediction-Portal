@@ -1,0 +1,50 @@
+.main {
+  height: 100vh;
+  margin: 3%;
+  color: black;
+}
+
+.heading {
+  font-size: 30px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.upload-form {
+  min-width: 600px;
+}
+
+
+mat-form-field {
+  width: 60%;
+}
+
+.date-picker {
+  width: 27%;
+}
+
+.right {
+  margin-left: 6%;
+}
+
+.button {
+  margin-right: 10px;
+}
+
+.upload {
+  margin: 5px 0 30px 0;
+}
+
+
+.close {
+  margin-left: 30px;
+  color:black;
+}
+
+.close:hover {
+  background-color: #000000  ;
+  color: white;
+}
+
+
