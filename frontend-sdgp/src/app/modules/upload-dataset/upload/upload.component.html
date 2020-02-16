@@ -10,7 +10,7 @@
 
     <mat-form-field>
       <mat-label>Publisher</mat-label>
-      <input matInput type="text" required>
+      <input matInput type="text">
     </mat-form-field>
 
     <br>
@@ -50,7 +50,7 @@
     <br>
 
     <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>
-    <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Upload Dataset (CSV)</button>
+    <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
     {{csvInput.value}}
 
     <br>

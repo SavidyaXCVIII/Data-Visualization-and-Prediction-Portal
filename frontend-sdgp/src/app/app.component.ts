@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {LogInComponent} from "./shared/components/log-in/log-in.component";
-import {CreateAccountComponent} from "./shared/components/create-account/create-account.component";
+import {MatDialog} from '@angular/material/dialog';
+import {LogInComponent} from './shared/components/log-in/log-in.component';
+import {CreateAccountComponent} from './shared/components/create-account/create-account.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import {CreateAccountComponent} from "./shared/components/create-account/create-
 export class AppComponent implements OnInit{
   title = 'frontend-sdgp';
 
-constructor(public dialog:MatDialog) {
+constructor(public dialog: MatDialog) {
 }
 
   ngOnInit(): void {
