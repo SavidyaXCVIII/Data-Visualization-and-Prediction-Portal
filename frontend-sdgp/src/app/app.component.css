@@ -8,7 +8,7 @@
 }
 
 .side-container {
-  background: #9249ff;
+  background: white;
 
 }
 
@@ -24,11 +24,12 @@ h2 {
 
 .mat-item {
   font-size: 15px;
+  color: black;
 }
 
 .container .mat-drawer {
   min-width: 210px;
-  background-color: #9249ff;
+  background-color: white;
 }
 
 
@@ -55,7 +56,9 @@ mat-toolbar {
   /*height: 50px;*/
   background-color: #222222;
   color: white;
+  /*#352961*/
 }
+
 
 .spacer {
   flex: 1 1 auto;
@@ -81,4 +84,5 @@ mat-toolbar {
 .nav-header {
   color: white;
   font-size: large;
+  background-color: #222222;
 }
