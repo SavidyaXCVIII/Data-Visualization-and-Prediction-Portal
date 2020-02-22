@@ -19,7 +19,12 @@
 mat-form-field {
   width: 60%;
 }
-
+mat-card{
+  width: 110vh;
+  height: 1vh;
+  border: 1px solid #A9A9A9;
+  box-shadow: none !important;
+}
 .date-picker {
   width: 27%;
 }
@@ -34,6 +39,8 @@ mat-form-field {
 
 .upload {
   margin: 5px 0 30px 0;
+  height: auto;
+
 }
 
 
