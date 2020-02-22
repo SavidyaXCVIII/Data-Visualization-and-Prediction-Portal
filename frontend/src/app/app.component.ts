@@ -9,7 +9,7 @@ import {CreateAccountComponent} from './shared/components/create-account/create-
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'frontend-sdgp';
+  title = 'frontend';
 
 constructor(public dialog: MatDialog) {
 }
