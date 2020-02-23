@@ -38,7 +38,6 @@ const routes: Routes = [
     path: '**',
     loadChildren: './modules/home/home.module#HomeModule'
   }
-
 ];
 
 @NgModule({
