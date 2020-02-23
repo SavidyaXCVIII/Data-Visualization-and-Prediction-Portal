@@ -50,7 +50,8 @@
     <br>
     <br>
     <mat-card-subtitle>Choose file</mat-card-subtitle>
-    <input #csvInput type="file" name="csvreport" id="csvreport" (change)="fileUpload($event.target.files)" accept=".csv">
+    <br>
+    <input hidden="true" class="upload"  #csvInput type="file"  id="csvreport" (change)="fileUpload($event.target.files)" accept=".csv">
 <!--    <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>-->
 
     <mat-card >{{csvInput.value}}</mat-card>
