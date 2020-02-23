@@ -8,12 +8,15 @@
 }
 .top-left {
   position: absolute;
-  top: 70px;
-  left: 50px;
-  font-size: 50px;
+  bottom: 350px;
+  right: 60px;
+  font-size: 80px;
+  text-align: end;
+  color: white;
 }
 .heading {
   font-size: 50px;
+  font-weight: bold;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -26,10 +29,17 @@
   width: 100%;
   border-radius: 4px;
   }
+.description{
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+}
 
  table{
     margin: auto;
   }
  mat-card{
    margin: 30px;
+ }
+ img{
  }

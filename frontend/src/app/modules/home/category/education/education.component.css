@@ -1,0 +1,19 @@
+mat-grid-tile {
+  background: #44ffe1;
+  border-radius: 10px;
+}
+
+.cards {
+  margin-bottom: 50px;
+}
+
+.main-container {
+  width: 60%;
+  margin: auto;
+}
+
+.header {
+  background: blue;
+  height: 100px;
+  margin-bottom: 30px;
+}
