@@ -48,13 +48,14 @@
     </mat-form-field>
 
     <br>
-
-    <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>
-    <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
-    {{csvInput.value}}
-
     <br>
+    <mat-card-subtitle>Choose file</mat-card-subtitle>
+    <input #csvInput type="file" name="csvreport" id="csvreport" (change)="fileUpload($event.target.files)" accept=".csv">
+<!--    <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>-->
 
+    <mat-card >{{csvInput.value}}</mat-card>
+    <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
+    <br>
     <button mat-raised-button class="button"  color="primary" type="submit">Submit</button>
     <button mat-raised-button class="button"  type="reset"  mat-button>Reset</button>
   </div>

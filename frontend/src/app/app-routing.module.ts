@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'feature-prediction',
-    loadChildren: '/modules/feature-prediction/feature-prediction.module#FeaturePredictionModule'
+    loadChildren: './modules/feature-prediction/feature-prediction.module#FeaturePredictionModule'
   },
   {
     path: 'search',
@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'view-graph',
-    loadChildren: '/modules/viewGraph/viewGraph.module#ViewGraphModule'
+    loadChildren: './modules/viewGraph/viewGraph.module#ViewGraphModule'
   },
   {
     path: '',
