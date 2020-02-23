@@ -3,6 +3,7 @@
 /.idea
 data-science/.idea
 frontend/.idea
+backend/.idea
 
 # Ignore node_modules folder
 node_modules/
