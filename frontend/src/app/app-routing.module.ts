@@ -26,7 +26,7 @@ const routes: Routes = [
     loadChildren: './modules/upload-dataset/upload-dataset.module#UploadDatasetModule'
   },
   {
-    path: 'view-graph',
+    path: '.view-graph',
     loadChildren: '/modules/viewGraph/viewGraph.module#ViewGraphModule'
   },
   {
