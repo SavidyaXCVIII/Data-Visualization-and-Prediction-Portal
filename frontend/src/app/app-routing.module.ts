@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {CategoryComponent} from './modules/home/pages/category/category.component';
 
 
 const routes: Routes = [
@@ -28,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'view-graph',
-    loadChildren: './modules/viewGraph/viewGraph.module#ViewGraphModule'
+    loadChildren: '/modules/viewGraph/viewGraph.module#ViewGraphModule'
   },
   {
     path: '',
