@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'view-graph',
-    loadChildren: '/modules/viewGraph/viewGraph.module#ViewGraphModule'
+    loadChildren: './modules/viewGraph/viewGraph.module#ViewGraphModule'
   },
   {
     path: '',
