@@ -5,5 +5,13 @@ data-science/.idea
 frontend/.idea
 backend/.idea
 
+# Ignore user-specific stuff
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/misc.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+
 # Ignore node_modules folder
 node_modules/
