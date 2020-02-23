@@ -1,6 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 /.idea
+data-science/.idea
+frontend/.idea
+backend/.idea
 
 # Ignore user-specific stuff
 .idea/workspace.xml
