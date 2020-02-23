@@ -4,6 +4,8 @@
 data-science/.idea
 frontend/.idea
 backend/.idea
+backend-spring/.idea
+backend-spring/.mvn
 
 # Ignore user-specific stuff
 .idea/workspace.xml
