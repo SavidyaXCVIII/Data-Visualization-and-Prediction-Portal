@@ -1,0 +1,6 @@
+<div class="main-container">
+  <mat-grid-list cols="1" rowHeight="5em">
+    <mat-grid-tile>Education</mat-grid-tile>
+    <mat-grid-tile *ngFor="let color of colors">{{color|json}}</mat-grid-tile>
+  </mat-grid-list>
+</div>
