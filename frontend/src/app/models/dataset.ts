@@ -1,4 +1,4 @@
-export class UploadDetails {
+export class Dataset {
   datasetName: string;
   publisher: string;
   year: Date;

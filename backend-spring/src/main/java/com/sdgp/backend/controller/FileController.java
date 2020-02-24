@@ -1,6 +1,7 @@
 package com.sdgp.backend.controller;
 
 import com.sdgp.backend.dto.ResponseDTO;
+import com.sdgp.backend.model.DataSet;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +22,7 @@ public class FileController {
 
 
     @PostMapping("/files")
-    ResponseEntity<ResponseDTO> saveFile(@RequestParam("file") MultipartFile dataFile) {
+    ResponseEntity<ResponseDTO> saveFile(@RequestParam("file") MultipartFile dataFile, @RequestBody DataSet dataSet) {
 
         try {
 //            InputStream inputStream = dataFile.getInputStream();

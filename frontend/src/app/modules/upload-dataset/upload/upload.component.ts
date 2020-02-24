@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UploadDetails} from '../../../models/upload-details';
+import {Dataset} from '../../../models/dataset';
 
 @Component({
   selector: 'app-upload',
@@ -12,7 +12,7 @@ export class UploadComponent implements OnInit {
 
   uploadDetailsFormGroup: FormGroup;
   uploadInProgress = false;
-  uploadDetails = new UploadDetails();
+  dataset = new Dataset();
   uploadFile = new FormData();
 
   constructor(private http: HttpClient) {
@@ -45,6 +45,6 @@ export class UploadComponent implements OnInit {
 
   uploadDataset() {
     this.uploadInProgress = true;
-    this.uploadDetails = {...this.uploadDetailsFormGroup.value};
+    this.dataset = {...this.uploadDetailsFormGroup.value};
   }
 }
