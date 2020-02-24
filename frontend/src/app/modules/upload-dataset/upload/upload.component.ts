@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UploadDetails} from '../../../models/upload-details';
 
 @Component({
   selector: 'app-upload',
@@ -8,26 +10,41 @@ import {HttpClient} from '@angular/common/http';
 })
 export class UploadComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  uploadDetailsFormGroup: FormGroup;
+  uploadInProgress = false;
+  uploadDetails = new UploadDetails();
+  uploadFile = new FormData();
 
-  csvInputChange(fileInputEvent: any) {
-    console.log(fileInputEvent.target.files[0]);
-  }
-  fileUpload(files: FileList) {
-    if (files && files.length > 0) {
-      const file: File = files.item(0);
-      const fileReader: FileReader = new FileReader();
-      fileReader.readAsText(file);
-      fileReader.onload = ev => {
-        const csvdata = fileReader.result.toString();
-        const body = {data: csvdata};
-        return this.http.post('http://localhost:4000/dataset', body)
-            .subscribe((data: any) => console.log(JSON.stringify(data.json)));
-      };
-    }
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+
+    this.uploadDetailsFormGroup = new FormGroup({
+      datasetName: new FormControl({value: '', disabled: this.uploadInProgress}, Validators.required),
+      publisher: new FormControl({value: '', disabled: this.uploadInProgress}),
+      year: new FormControl({value: undefined, disabled: this.uploadInProgress}, Validators.required),
+      releasedDate: new FormControl({value: undefined, disabled: this.uploadInProgress}),
+      category: new FormControl({value: undefined, disabled: this.uploadInProgress}, Validators.required),
+      description: new FormControl({value: '', disabled: this.uploadInProgress}),
+      csvFile: new FormControl({value: '', disabled: this.uploadInProgress}, Validators.required)
+    });
   }
 
+  validateFile(event) {
+    if (event.target.files && event.target.files) {
+
+      this.uploadDetailsFormGroup.controls.csvFile.setValue(event.target.files[0].name);
+      this.uploadFile.append('file', event.target.files[0]);
+
+    } else {
+
+    }
+  }
+
+
+  uploadDataset() {
+    this.uploadInProgress = true;
+    this.uploadDetails = {...this.uploadDetailsFormGroup.value};
+  }
 }
