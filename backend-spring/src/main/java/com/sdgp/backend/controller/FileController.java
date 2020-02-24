@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 @RestController
 @CrossOrigin(origins = "*")
 public class FileController {
-//hello
+
 	public static byte[] bytes;
 
 	@GetMapping("/files")

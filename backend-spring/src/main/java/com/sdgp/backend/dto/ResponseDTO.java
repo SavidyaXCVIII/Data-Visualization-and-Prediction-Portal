@@ -30,6 +30,7 @@ public class ResponseDTO<T> implements Serializable
 		this.status = status;
 		this.data = data;
 		this.responseType = responseType;
+//
 	}
 
 
