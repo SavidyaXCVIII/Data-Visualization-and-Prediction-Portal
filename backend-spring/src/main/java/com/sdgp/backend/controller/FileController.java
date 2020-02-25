@@ -2,20 +2,24 @@ package com.sdgp.backend.controller;
 
 import com.sdgp.backend.dto.ResponseDTO;
 import com.sdgp.backend.model.DataSet;
+import com.sdgp.backend.service.FileService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
-import java.util.Date;
+
 
 @RestController
 @CrossOrigin(origins = "*")
 public class FileController {
 
 	public static byte[] bytes;
+
+	@Autowired
+	private FileService fileService;
 
 	@GetMapping("/files")
 	public String getDataset(){
@@ -24,7 +28,7 @@ public class FileController {
 
 
     @PostMapping("/files")
-    ResponseEntity<ResponseDTO> saveFile(@RequestParam("file") MultipartFile dataFile,
+    ResponseEntity<ResponseDTO> saveDataset(@RequestParam("file") MultipartFile dataFile,
 										 @RequestParam String datasetName,
 										 @RequestParam String publisher,
 										 @RequestParam String year,
@@ -50,6 +54,19 @@ public class FileController {
 			System.out.println(releasedDate);
 			System.out.println(category);
 			System.out.println(description);
+
+			DataSet dataSet = new DataSet();
+			dataSet.setDatasetName(datasetName);
+			dataSet.setPublisher(publisher);
+			dataSet.setYear(year);
+			dataSet.setReleasedDate(releasedDate);
+			dataSet.setCategory(category);
+			dataSet.setDescription(description);
+			dataSet.setDataFile(bytes);
+
+			fileService.saveDataset(dataSet);
+			System.out.println(dataSet);
+
 
         } catch (IOException e) {
             e.printStackTrace();
