@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 
 @RestController
@@ -22,9 +23,9 @@ public class FileController {
 	private FileService fileService;
 
 	@GetMapping("/files")
-	public String getDataset(){
-		return new String(bytes, StandardCharsets.UTF_8);
-	}
+	public List<DataSet> getAllDataSets() {
+	    return fileService.getDataSets();
+    }
 
 
     @PostMapping("/files")

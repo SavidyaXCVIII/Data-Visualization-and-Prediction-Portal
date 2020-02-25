@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.xml.crypto.Data;
 import javax.xml.ws.Response;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class FileService {
@@ -25,6 +27,9 @@ public class FileService {
     }
 
 
-
-
+    public List<DataSet> getDataSets() {
+        List<DataSet> dataSets = new ArrayList<>();
+        dataSets.addAll(dataSetRepository.findAll());
+        return dataSets;
+    }
 }
