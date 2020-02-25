@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DataSetRepository extends MongoRepository<DataSet,String> {
+    DataSet findFirstById(String id);
+//    DataSet findFirstByCategory(String category);
+
 }

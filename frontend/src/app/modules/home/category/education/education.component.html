@@ -2,6 +2,6 @@
 
   <mat-toolbar class="header">Education</mat-toolbar>
   <mat-grid-list cols="1" rowHeight="13em" gutterSize="1em">
-    <mat-grid-tile class="cards" *ngFor="let color of colors">{{color|json}}</mat-grid-tile>
+    <mat-grid-tile class="cards" *ngFor="let dataset of dataSets">{{dataset.datasetName}}</mat-grid-tile>
   </mat-grid-list>
 </div>
