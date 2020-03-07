@@ -9,6 +9,7 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @Setter
 @Getter
@@ -21,10 +22,23 @@ public class DataSet {
     private String id;
     private String datasetName;
     private String publisher;
-    private LocalDate year;
-    private LocalDate releasedDate;
+    private String year;
+    private String releasedDate;
     private String category;
     private String description;
+    private byte[] dataFile;
 
-
+    @Override
+    public String toString() {
+        return "DataSet{" +
+                "id='" + id + '\'' +
+                ", datasetName='" + datasetName + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", year='" + year + '\'' +
+                ", releasedDate='" + releasedDate + '\'' +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
+                ", dataFile=" + Arrays.toString(dataFile) +
+                '}';
+    }
 }

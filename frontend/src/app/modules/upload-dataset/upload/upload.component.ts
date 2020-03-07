@@ -47,7 +47,7 @@ export class UploadComponent implements OnInit {
   }
 
   uploadDataset() {
-    this.uploadInProgress = false;
+    this.uploadInProgress = true;
     this.dataset = {...this.uploadDetailsFormGroup.value};
     const year: string = this.datePipe.transform(this.uploadDetailsFormGroup.value.year, 'yyyy');
     const releaseDate: string = this.datePipe.transform(this.uploadDetailsFormGroup.value.releasedDate, 'dd-MM-yyyy');

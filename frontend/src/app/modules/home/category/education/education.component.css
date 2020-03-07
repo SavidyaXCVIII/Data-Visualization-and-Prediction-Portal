@@ -1,6 +1,11 @@
 mat-grid-tile {
-  background: #44ffe1;
-  border-radius: 10px;
+  background: whitesmoke;
+  border-radius: 5px;
+}
+
+mat-toolbar {
+  padding-left: 46%;
+  font-size: xx-large;
 }
 
 .cards {
@@ -8,12 +13,47 @@ mat-grid-tile {
 }
 
 .main-container {
-  width: 60%;
+  width: 70%;
   margin: auto;
+  padding-top: 5%;
 }
 
 .header {
-  background: blue;
-  height: 100px;
-  margin-bottom: 30px;
+  background: whitesmoke;
+  margin-bottom: 60px;
+}
+ .sub-header {
+   background: black;
+ }
+
+ table {
+   height: 13em;
+   width: 100vw;
+   border-collapse: collapse;
+ }
+
+ td {
+   padding-left: 2%;
+   color: black;
+ }
+
+ .header {
+   background: #222222;
+   height: 50px;
+
+ }
+
+.datasetName {
+  padding-left: 2%;
+  font-size: x-large;
+  font-weight: 500;
+  color: white;
+}
+
+.description {
+
+}
+
+span {
+  font-weight: bold;
 }
