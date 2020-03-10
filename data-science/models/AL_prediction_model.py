@@ -10,16 +10,25 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 
-df_new = pd.read_csv("2015_to_2018_AL.csv")
+import statsmodels.api as sm
 
-df_new
-x1 = df_new[["num_sat","fail_all","fail_all_perc"]]
-y1 = df_new[["pass_all_perc"]]
+if __name__ == "__main__": #testing sample models
+    df_new = pd.read_csv("2015_to_2018_AL.csv")
 
-regr2 = linear_model.LinearRegression(True)
-regr2.fit(x1,y1)
-print(regr2.score(x1,y1))
-df_2016 = pd.read_csv("2018_AL.csv")
-x3 = df_2016[["num_sat","fail_all","fail_all_perc"]]
-y3 = df_2016[["pass_all_perc"]]
-print(regr2.score(x3,y3))
+    df_new
+    x1 = df_new[["num_sat", "fail_all", "fail_all_perc"]]
+    y1 = df_new[["pass_all_perc"]]
+
+    regr2 = linear_model.LinearRegression(True)
+    regr2.fit(x1, y1)
+    print(regr2.score(x1, y1))
+    df_2016 = pd.read_csv("2018_AL.csv")
+    x3 = df_2016[["num_sat", "fail_all", "fail_all_perc"]]
+    y3 = df_2016[["pass_all_perc"]]
+    print(regr2.score(x3, y3))
+
+    #model report
+    x1_with_intercept = sm.add_constant(x1)
+    est = sm.OLS(y1, x1_with_intercept)
+    est2 = est.fit()
+    print(est2.summary())
