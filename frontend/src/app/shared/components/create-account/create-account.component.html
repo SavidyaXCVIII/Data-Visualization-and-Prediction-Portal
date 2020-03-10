@@ -2,13 +2,13 @@
 <div class ="form-container" >
 
   <mat-card-title class="form-title">Create Account</mat-card-title>
-
+  <form [formGroup]="createAccountFormGroup">
   <mat-form-field class="example-full-width">
-    <input  matInput type="text" placeholder="Full Name" required>
+    <input  matInput type="text" placeholder="Full Name" required formControlName="name">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput type="email" placeholder="Email"  required>
+    <input matInput type="email" placeholder="Email"  required formControlName="email">
     <mat-icon matSuffix>email</mat-icon>
   </mat-form-field>
 
@@ -30,14 +30,15 @@
   </table>
 
   <mat-form-field class="example-full-width">
-    <input type="password" matInput placeholder="Password" required>
+    <input type="password" matInput placeholder="Password" required formControlName="password">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input type="password" matInput placeholder="Confirm Password" required>
+    <input type="password" matInput placeholder="Confirm Password" required formControlName="confirmPassword">
   </mat-form-field><br>
 
   <mat-checkbox color="primary">I agree to the <b>Terms of User</b></mat-checkbox>
+  </form>
 </div>
 
 <button type="button" class="button signup" color="primary" mat-button mat-raised-button >Sign up</button>
