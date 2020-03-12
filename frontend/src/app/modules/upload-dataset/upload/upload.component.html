@@ -2,63 +2,63 @@
 
   <div class="upload-form">
     <mat-card-title class="heading">Upload Dataset</mat-card-title> <br>
+      <form [formGroup]="uploadDetailsFormGroup">
+        <mat-form-field>
+          <mat-label>Dataset Name</mat-label>
+          <input matInput type="text" required formControlName="datasetName">
+        </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Dataset Name</mat-label>
-      <input matInput type="text" required>
-    </mat-form-field>
+        <mat-form-field>
+          <mat-label>Publisher</mat-label>
+          <input matInput type="text" formControlName="publisher">
+        </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Publisher</mat-label>
-      <input matInput type="text">
-    </mat-form-field>
+        <br>
 
-    <br>
+        <mat-form-field class="date-picker">
+          <mat-label>Year</mat-label>
+          <input matInput  [matDatepicker]="year" required formControlName="year">
+          <mat-datepicker-toggle matSuffix [for]="year"></mat-datepicker-toggle>
+          <mat-datepicker #year></mat-datepicker>
+        </mat-form-field>
 
-    <mat-form-field class="date-picker">
-      <mat-label>Year</mat-label>
-      <input matInput  [matDatepicker]="year" required>
-      <mat-datepicker-toggle matSuffix [for]="year"></mat-datepicker-toggle>
-      <mat-datepicker #year></mat-datepicker>
-    </mat-form-field>
+        <mat-form-field class="date-picker right">
+          <mat-label>Released date</mat-label>
+          <input matInput [matDatepicker]="release" required formControlName="releasedDate">
+          <mat-datepicker-toggle matSuffix [for]="release"></mat-datepicker-toggle>
+          <mat-datepicker #release></mat-datepicker>
+        </mat-form-field>
 
-    <mat-form-field class="date-picker right">
-      <mat-label>Released date</mat-label>
-      <input matInput [matDatepicker]="release" required>
-      <mat-datepicker-toggle matSuffix [for]="release"></mat-datepicker-toggle>
-      <mat-datepicker #release></mat-datepicker>
-    </mat-form-field>
+        <br>
 
-    <br>
+        <mat-form-field>
+          <mat-label>Select Category</mat-label>
+          <mat-select required formControlName="category">
+            <mat-option value="Education">Education</mat-option>
+            <mat-option value="Economic">Economic</mat-option>
+            <mat-option value="Health">Health</mat-option>
+            <mat-option value="Travel">Travel</mat-option>
+            <mat-option value="Information Technology">Information Technology</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Select Category</mat-label>
-      <mat-select required>
-        <mat-option value="Education">Education</mat-option>
-        <mat-option value="Economic">Economic</mat-option>
-        <mat-option value="Health">Health</mat-option>
-        <mat-option value="Travel">Travel</mat-option>
-        <mat-option value="Information Technology">Information Technology</mat-option>
-      </mat-select>
-    </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Description</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-
-    <br>
-    <br>
-    <mat-card-subtitle>Choose file</mat-card-subtitle>
-    <br>
-    <input hidden="true" class="upload"  #csvInput type="file"  id="csvreport" (change)="fileUpload($event.target.files)" accept=".csv">
-<!--    <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>-->
-
-    <mat-card >{{csvInput.value}}</mat-card>
-    <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
-    <br>
-    <button mat-raised-button class="button"  color="primary" type="submit">Submit</button>
-    <button mat-raised-button class="button"  type="reset"  mat-button>Reset</button>
+        <br>
+        <br>
+        <mat-card-subtitle>Choose file</mat-card-subtitle>
+        <input hidden="true" class="upload" accept="text/csv, .csv"  type="file" #csvInput id="csvreport" (change)="validateFile($event)">
+        <mat-card>
+          <input matInput name="fileHidden" formControlName="csvFile">
+        </mat-card>
+      </form>
+      <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
+      <br>
+      <button mat-raised-button class="button"  color="primary" (click)="uploadDataset()" [disabled]="this.uploadInProgress || this.uploadDetailsFormGroup.invalid">Submit</button>
+      <button mat-raised-button class="button"  type="reset"  mat-button>Reset</button>
   </div>
 
   </div>
