@@ -23,13 +23,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
 import {MatGridListModule} from '@angular/material';
+import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     CreateAccountComponent,
-    ShowDatasetComponent
+    ShowDatasetComponent,
+    FeaturePredictionComponent
   ],
   entryComponents: [
     LogInComponent,
