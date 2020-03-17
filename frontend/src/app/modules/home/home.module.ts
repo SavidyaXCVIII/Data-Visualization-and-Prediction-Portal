@@ -8,7 +8,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { EducationComponent } from './category/education/education.component';
 import { EconomicComponent } from './category/economic/economic.component';
-import {MatDividerModule, MatToolbarModule} from '@angular/material';
+import {MatDividerModule, MatProgressSpinnerModule, MatToolbarModule} from '@angular/material';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import {MatDividerModule, MatToolbarModule} from '@angular/material';
         MatGridListModule,
         MatCardModule,
         MatToolbarModule,
-        MatDividerModule
+        MatDividerModule,
+        MatProgressSpinnerModule
     ]
 })
 export class HomeModule { }
