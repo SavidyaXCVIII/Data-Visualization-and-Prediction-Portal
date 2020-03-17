@@ -11,6 +11,7 @@ export class EducationComponent implements OnInit {
 
   readonly ROOT_URL = 'http://localhost:8080';
   dataSets: any;
+  showSpinner = true;
 
 
 getDataSets() {
@@ -23,6 +24,7 @@ getDataSets() {
 
 this.getDataSets().subscribe( response => {
   this.dataSets = response;
+  this.showSpinner = false;
 });
 
   }
