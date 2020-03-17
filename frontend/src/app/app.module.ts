@@ -21,16 +21,19 @@ import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
+import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
+import {MatGridListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    ShowDatasetComponent
   ],
   entryComponents: [
     LogInComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import {DatePipe} from '@angular/common';
     MatCardModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatGridListModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
