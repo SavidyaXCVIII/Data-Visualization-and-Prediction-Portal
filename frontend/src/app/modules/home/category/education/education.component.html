@@ -1,13 +1,25 @@
 <mat-toolbar class="header" class="mat-elevation-z6">Education</mat-toolbar>
 <div class="main-container">
+
+  <mat-spinner *ngIf="showSpinner"></mat-spinner>
   <mat-grid-list cols="1" rowHeight="13em" gutterSize="4em">
-    <mat-grid-tile class="cards" *ngFor="let dataset of dataSets" class="mat-elevation-z6">
-      <table>
-        <tr class="header"><td colspan="2" class="datasetName">{{dataset.datasetName}} - {{dataset.year}}</td></tr>
-        <tr><td colspan="2"><span>Description:</span> {{dataset.description}}</td></tr>
-        <tr><td><span>Publisher:</span> {{dataset.publisher}}</td></tr>
-        <tr><td width="50%"><span>Category:</span> {{dataset.category}}</td> <td width="50%"> Dataset Released Date: {{dataset.releasedDate}}</td></tr>
-      </table>
-    </mat-grid-tile>
+
+      <mat-grid-tile *ngFor="let dataset of dataSets" class="mat-elevation-z6 cards" routerLink="/show-dataset">
+        <table>
+          <tr class="header">
+            <td colspan="2" class="datasetName">{{dataset.datasetName}} - {{dataset.year}}</td>
+          </tr>
+          <tr>
+            <td colspan="2"><span>Description:</span> {{dataset.description}}</td>
+          </tr>
+          <tr>
+            <td><span>Publisher:</span> {{dataset.publisher}}</td>
+          </tr>
+          <tr>
+            <td width="50%"><span>Category:</span> {{dataset.category}}</td>
+            <td width="50%"> Dataset Released Date: {{dataset.releasedDate}}</td>
+          </tr>
+        </table>
+      </mat-grid-tile>
   </mat-grid-list>
 </div>

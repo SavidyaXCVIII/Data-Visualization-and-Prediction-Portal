@@ -8,8 +8,15 @@ mat-toolbar {
   font-size: xx-large;
 }
 
+mat-spinner {
+  left: 45%;
+  position: absolute;
+  z-index: 5;
+}
+
 .cards {
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
 .main-container {
