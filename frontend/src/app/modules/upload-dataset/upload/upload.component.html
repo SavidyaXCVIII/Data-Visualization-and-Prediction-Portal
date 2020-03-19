@@ -50,7 +50,6 @@
         <br>
         <br>
         <mat-card-subtitle>Choose file</mat-card-subtitle>
-        <br>
         <input hidden="true" class="upload" accept="text/csv, .csv"  type="file" #csvInput id="csvreport" (change)="validateFile($event)">
         <mat-card>
           <input matInput name="fileHidden" formControlName="csvFile">
@@ -59,7 +58,7 @@
       <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
       <br>
       <button mat-raised-button class="button"  color="primary" (click)="uploadDataset()" [disabled]="this.uploadInProgress || this.uploadDetailsFormGroup.invalid">Submit</button>
-      <button mat-raised-button class="button"  type="reset"  mat-button>Reset</button>
+      <button mat-raised-button class="button"  type="reset"  mat-button (click)="onReset()" >Reset</button>
   </div>
 
   </div>

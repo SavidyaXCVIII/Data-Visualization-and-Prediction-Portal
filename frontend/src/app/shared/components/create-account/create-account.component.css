@@ -17,6 +17,10 @@
 .close {
   color:black;
 }
+.reset:hover{
+  background-color: seagreen;
+  color: white;
+}
 
 .close:hover {
   background-color: #000000  ;
