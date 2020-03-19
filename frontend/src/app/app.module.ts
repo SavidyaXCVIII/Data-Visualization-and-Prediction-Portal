@@ -24,6 +24,7 @@ import {DatePipe} from '@angular/common';
 import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
 import {MatGridListModule} from '@angular/material';
 import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
+import {GlobalService} from './services/global.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { FeaturePredictionComponent } from './shared/components/feature-predicti
     HttpClientModule,
     MatGridListModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
