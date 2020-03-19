@@ -1,7 +1,6 @@
 package com.sdgp.backend.service;
 
 import com.google.gson.JsonObject;
-import com.mongodb.DBCollection;
 import com.sdgp.backend.model.DataSet;
 import com.sdgp.backend.repository.DataSetRepository;
 import org.bson.Document;
@@ -31,6 +30,7 @@ public class FileService {
     }
 
 
+
     public void saveDataset(DataSet dataSet) {
 
         dataSetRepository.save(dataSet);
@@ -44,7 +44,7 @@ public class FileService {
         return dataSets;
     }
 
-    public void bytesToJson(byte[] bytes) throws IOException {
+    public void bytesToJson(byte[] bytes, String datasetName) throws IOException {
         ByteArrayInputStream inputFilestream = new ByteArrayInputStream(bytes);
 
 //        creating a JsonObject of a dataset
@@ -57,6 +57,7 @@ public class FileService {
         for (int i = 0; i < numberOfColumns; i++) {
             arrayOfColumns[i] = arrayOfColumns[i].replace(".", "");
         }
+
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             Document object = new Document();
@@ -64,16 +65,10 @@ public class FileService {
                 String[] data = line.split(",", -2);
                 object.append(arrayOfColumns[i], data[i]);
             }
-            DBCollection collection = null;
-            mongoTemplate.save(object, "test11");
+            mongoTemplate.save(object, datasetName);
             System.out.println(line);
             System.out.println("inserted");
         }
     }
 
-    public void save() {
-        Document student = new Document();
-        student.append("name", "savidya");
-        mongoTemplate.save(student, "hello");
-    }
 }
