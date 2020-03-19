@@ -20,11 +20,11 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 
-	@GetMapping("/files")
-	public List<DataSet> getAllDataSets() {
-		fileService.save();
-	    return fileService.getDataSets();
-    }
+//	@GetMapping("/files")
+//	public List<DataSet> getAllDataSets() {
+//		fileService.save();
+//	    return fileService.getDataSets();
+//    }
 
 
     @PostMapping("/files")
@@ -37,8 +37,6 @@ public class FileController {
 										 @RequestParam String description) {
 
         try {
-
-
 //            InputStream inputStream = dataFile.getInputStream();
 //            int data = inputStream.read();
 //            System.out.println(data);
