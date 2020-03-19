@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -23,5 +23,8 @@ export class CreateAccountComponent implements OnInit {
 
   onClose() {
     this.dialog.close();
+  }
+  onReset() {
+    this.createAccountFormGroup.reset();
   }
 }
