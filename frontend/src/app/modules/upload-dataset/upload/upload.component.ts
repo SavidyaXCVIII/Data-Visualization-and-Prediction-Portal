@@ -58,4 +58,8 @@ export class UploadComponent implements OnInit {
       console.log(val);
     });
   }
+
+  onReset() {
+    this.uploadDetailsFormGroup.reset();
+  }
 }
