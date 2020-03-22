@@ -1,0 +1,9 @@
+<mat-grid-list cols="1" rowHeight="13em" gutterSize="4em">
+  <mat-grid-tile *ngFor="let data of dataset" class="mat-elevation-z6 cards">
+    <table>
+      <tr class="header">
+        <td colspan="2" class="datasetName">{{data | json}}</td>
+      </tr>
+    </table>
+  </mat-grid-tile>
+</mat-grid-list>

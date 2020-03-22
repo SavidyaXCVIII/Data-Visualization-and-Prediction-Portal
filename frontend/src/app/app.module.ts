@@ -25,6 +25,7 @@ import {ShowDatasetComponent} from './shared/components/show-dataset/show-datase
 import {MatGridListModule} from '@angular/material';
 import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
 import {GlobalService} from './services/global.service';
+import { DataSetComponent } from './shared/components/data-set/data-set.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {GlobalService} from './services/global.service';
     LogInComponent,
     CreateAccountComponent,
     ShowDatasetComponent,
-    FeaturePredictionComponent
+    FeaturePredictionComponent,
+    DataSetComponent
   ],
   entryComponents: [
     LogInComponent,

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
 import {FeaturePredictionComponent} from './shared/components/feature-prediction/feature-prediction.component';
+import {Dataset} from './models/dataset';
+import {DataSetComponent} from './shared/components/data-set/data-set.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,10 @@ const routes: Routes = [
   {
     path: 'show-dataset',
     component: ShowDatasetComponent
+  },
+  {
+    path: 'data-set',
+    component: DataSetComponent
   },
   {
     path: 'feature-prediction',
