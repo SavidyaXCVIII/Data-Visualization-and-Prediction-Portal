@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalService} from '../../../services/global.service';
+import {Dataset} from '../../../models/dataset';
 
 @Component({
   selector: 'app-show-dataset',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowDatasetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globalService: GlobalService) { }
+
+  dataset = new Dataset();
 
   ngOnInit() {
+    this.dataset = this.globalService.getSampleData();
   }
 
 }
