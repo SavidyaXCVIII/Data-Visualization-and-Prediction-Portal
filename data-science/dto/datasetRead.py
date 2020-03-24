@@ -9,10 +9,6 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
 client = MongoClient("mongodb+srv://user_91:enigma@cluster0-zjhs0.mongodb.net/test?retryWrites=true&w=majority")
 db = client.Datasets.data
 
-"""def transform(text_file_contents):
-    return text_file_contents.replace("=", ",") """
-
-
 
 @app.route('/')
 def form():
