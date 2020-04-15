@@ -1,13 +1,40 @@
-<div class="main-container">
-  <div class="sub-container">
 
-    {{dataset.datasetName}}
-    <h1>Example dataset</h1>
-    <mat-grid-list cols="4" rowHeight="2:1">
-      <mat-grid-tile><button mat-stroked-button color="primary">Download</button></mat-grid-tile>
-      <mat-grid-tile><button mat-stroked-button color="primary">View Graph</button></mat-grid-tile>
-      <mat-grid-tile><button mat-stroked-button color="primary" routerLink="/data-set">View Dataset</button></mat-grid-tile>
-      <mat-grid-tile><button mat-stroked-button color="primary" routerLink="/feature-prediction">Feature Prediction</button></mat-grid-tile>
-    </mat-grid-list>
+<div class="header">
+  <h1>{{dataset.datasetName}} - {{dataset.year}}</h1>
+</div>
+<div class="container">
+  <div class="data-info ">
+    <table class="dataTable">
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Publisher</td>
+        <td>{{dataset.publisher}}</td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>{{dataset.category}}</td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>{{dataset.description}}</td>
+      </tr>
+      <tr>
+        <td>Released Date</td>
+        <td>{{dataset.releasedDate}}</td>
+      </tr>
+    </table>
+
   </div>
+  <div class="sidebar">
+    <ul>
+      <li class="sidenav-button"><button mat-stroked-button >Download</button></li>
+      <li class="sidenav-button"><button mat-stroked-button >View Graph</button></li>
+      <li class="sidenav-button"><button mat-stroked-button >View Dataset</button></li>
+      <li class="sidenav-button"><button mat-stroked-button routerLink="/feature-prediction">Feature Prediction</button></li>
+    </ul>
+  </div>
+
 </div>

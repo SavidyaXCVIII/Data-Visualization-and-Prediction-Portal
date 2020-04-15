@@ -50,3 +50,8 @@
 .mat-card-subtitle{
   font-size:25px;
 }
+
+.mat-card-image {
+  object-fit: cover;
+  height: 500px;
+}
