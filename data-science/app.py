@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request, jsonify
 from mongodb_connection import MongoDBConnection
 from models import AL_prediction_model
 app = Flask(__name__)
@@ -18,13 +18,14 @@ import statsmodels.api as sm
 @app.route('/add')
 def hello_world():
     mongodb_connection = MongoDBConnection()
-    mongodb_connection.insert_record()
     return 'Hello World! my name is randika '
 
 
 @app.route('/test',methods=['GET'])
 def test_con():
-    return {"result" : "45123"}
+    result = AL_prediction_model.run_linear_reg_test()
+    result = str(result)
+    return {"result" : result}
 
 @app.route('/linear',methods=['GET'])
 def test_linear():
@@ -32,6 +33,48 @@ def test_linear():
 
     df_new
     x1 = df_new[["num_sat", "fail_all", "fail_all_perc"]]
+    y1 = df_new[["pass_all_perc"]]
+
+    regr2 = linear_model.LinearRegression(True)
+    regr2.fit(x1, y1)
+    print(regr2.score(x1, y1))
+
+    df_2016 = pd.read_csv("2018_AL.csv")
+    x3 = df_2016[["num_sat", "fail_all", "fail_all_perc"]]
+    y3 = df_2016[["pass_all_perc"]]
+    result = (regr2.score(x3, y3))
+
+    # model report
+    x1_with_intercept = sm.add_constant(x1)
+    est = sm.OLS(y1, x1_with_intercept)
+    est2 = est.fit()
+    print(est2.summary())
+    return str(result)
+
+################################################################################
+""" testing api with request parameters"""
+
+csv_details = [
+    {
+        "dataset_id": "2",
+        "features": ["num_sat", "fail_all", "fail_all_perc"],
+        "predictor": ["pass_all_perc"]
+    },
+    {
+        "dataset_id": "Batnan",
+        "features": ["Tim sfgsg", "Morgan Freeman", "Bob Gunton", "William Sadler"],
+        "predictor": ["Drama"]
+    }
+]
+
+@app.route('/linearapi/<int:index>',methods=['GET'])
+def test_linear_api(index):
+    df_new = pd.read_csv("2015_to_2018_AL.csv")
+
+    df_new
+
+    #eatures = jsonify(csv_details[index]['features'])
+    x1 = df_new[csv_details[index]['features']]
     y1 = df_new[["pass_all_perc"]]
 
     regr2 = linear_model.LinearRegression(True)

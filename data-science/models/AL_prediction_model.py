@@ -36,8 +36,6 @@ def run_linear_reg_test():
     print(est2.summary())
     return result
 
-def test_simple_func():
-    return {"rest": "year works"}
 
 
 if __name__ == "__main__":
