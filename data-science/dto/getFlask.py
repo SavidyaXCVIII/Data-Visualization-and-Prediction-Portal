@@ -22,5 +22,4 @@ def import_csvfile(filepath):
  db_cm.remove()
  db_cm.insert(data_json)
 if __name__ == "__main__":
- filepath = '/path/to/csv' # pass csv file path
- import_csvfile(filepath)
+ app.run()
