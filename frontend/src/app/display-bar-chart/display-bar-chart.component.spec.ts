@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DisplayBarChartComponent } from './display-bar-chart.component';
 
 describe('DisplayBarChartComponent', () => {
