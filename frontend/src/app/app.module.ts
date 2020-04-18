@@ -21,12 +21,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    BarChartComponent
   ],
   entryComponents: [
     LogInComponent,
