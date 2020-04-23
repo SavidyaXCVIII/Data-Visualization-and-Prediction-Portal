@@ -1,9 +1,11 @@
-<mat-grid-list cols="1" rowHeight="13em" gutterSize="4em">
-  <mat-grid-tile *ngFor="let data of dataset" class="mat-elevation-z6 cards">
-    <table>
-      <tr class="header">
-        <td colspan="2" class="datasetName">{{data | json}}</td>
-      </tr>
-    </table>
-  </mat-grid-tile>
-</mat-grid-list>
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+  <!-- Symbol Column -->
+  <ng-container [matColumnDef]="header" *ngFor="let header of columnHeaders">
+    <th mat-header-cell *matHeaderCellDef > {{header}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[header]}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnHeaders;"></tr>
+</table>
