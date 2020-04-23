@@ -12,7 +12,7 @@ export class DataSetComponent implements OnInit {
   }
 
   readonly ROOT_URL = 'http://localhost:8080';
-  dataset: any;
+  dataset: [];
 
   ngOnInit() {
     this.getData().subscribe(response => {
