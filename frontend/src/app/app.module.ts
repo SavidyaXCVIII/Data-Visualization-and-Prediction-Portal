@@ -22,7 +22,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
-import {MatGridListModule} from '@angular/material';
+import {MatGridListModule, MatTableModule} from '@angular/material';
 import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
 import {GlobalService} from './services/global.service';
 import { DataSetComponent } from './shared/components/data-set/data-set.component';
@@ -58,7 +58,8 @@ import { DataSetComponent } from './shared/components/data-set/data-set.componen
     MatCardModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [DatePipe, GlobalService],
   bootstrap: [AppComponent]
