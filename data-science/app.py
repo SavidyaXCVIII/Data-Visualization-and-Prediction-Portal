@@ -1,12 +1,13 @@
-from flask import Flask,request, jsonify
+from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from mongodb_connection import MongoDBConnection
 from models import AL_prediction_model
-app = Flask(__name__)
 import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression
+
 
 from scipy import stats
 from sklearn import preprocessing
@@ -15,10 +16,29 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import statsmodels.api as sm
 
-@app.route('/add')
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.route('/')
 def hello_world():
     mongodb_connection = MongoDBConnection()
     return 'Hello World! my name is randika '
+    # mongodb_connection = MongoDBConnection()
+    # mongodb_connection.insert_record()
+    return 'Hello World!'
+
+
+@app.route('/select_features_predictors', methods=['POST'])
+@cross_origin()
+def select():
+    data = request.get_json()
+    dataset_name = data['dataset_name']
+    algorithm = data['algorithm']
+    prediction_column = data['prediction_column']
+    column_list = data['column_list']
+    resp = jsonify(data)
+    resp.status_code = 200
+    return resp
 
 
 @app.route('/test',methods=['GET'])
@@ -94,4 +114,4 @@ def test_linear_api(index):
     return str(result)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
