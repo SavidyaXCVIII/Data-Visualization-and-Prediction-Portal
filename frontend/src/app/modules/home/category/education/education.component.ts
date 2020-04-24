@@ -22,8 +22,7 @@ getDataSets() {
 }
 
 
-
-  ngOnInit() {
+ngOnInit() {
 
 this.getDataSets().subscribe( response => {
   this.dataSets = response;

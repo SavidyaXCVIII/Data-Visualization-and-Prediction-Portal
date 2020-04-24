@@ -12,7 +12,8 @@ from sklearn.compose import ColumnTransformer
 
 import statsmodels.api as sm
 
-if __name__ == "__main__": #testing sample models
+
+def run_linear_reg_test():
     df_new = pd.read_csv("2015_to_2018_AL.csv")
 
     df_new
@@ -22,13 +23,20 @@ if __name__ == "__main__": #testing sample models
     regr2 = linear_model.LinearRegression(True)
     regr2.fit(x1, y1)
     print(regr2.score(x1, y1))
+
     df_2016 = pd.read_csv("2018_AL.csv")
     x3 = df_2016[["num_sat", "fail_all", "fail_all_perc"]]
     y3 = df_2016[["pass_all_perc"]]
-    print(regr2.score(x3, y3))
+    result = (regr2.score(x3, y3))
 
     #model report
     x1_with_intercept = sm.add_constant(x1)
     est = sm.OLS(y1, x1_with_intercept)
     est2 = est.fit()
     print(est2.summary())
+    return result
+
+
+
+if __name__ == "__main__":
+    print(run_linear_reg_test())
