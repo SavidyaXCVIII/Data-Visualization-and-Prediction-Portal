@@ -1,13 +1,12 @@
 
 
 <mat-drawer-container class="container" autosize>
-<mat-drawer #drawer class="sidenav" mode="side">
+<mat-drawer #drawer class="sidenav" mode="side" opened="true">
+  <a class="home-page" routerLink="/home"><h2 matSubheader class="nav-header"><img class="logo" src="../assets/images/logo.png" alt="Logo"> DataShaft </h2>
+  </a>
   <mat-sidenav-container class="side-container">
 
       <mat-nav-list>
-
-        <h2 matSubheader class="nav-header"> <img class="logo" src="../assets/images/logo.png" alt="Logo"> DataShaft  </h2>
-
 
         <mat-divider class="divider"></mat-divider>
 
@@ -44,10 +43,7 @@
 </mat-drawer>
 
 <div class="sidenav-content">
-    <mat-toolbar class="mat-elevation-z6">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
+    <mat-toolbar class="main-toolbar" >
       <span class="site-name"></span>
       <span class="spacer"></span>
       <button class="toolbar-button" mat-button (click)="openLogInDialog()">Log In</button>

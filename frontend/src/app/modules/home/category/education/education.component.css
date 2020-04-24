@@ -1,11 +1,12 @@
-mat-grid-tile {
-  background: whitesmoke;
-  border-radius: 5px;
+.main-heading {
+  height: 10vh;
+  font-size: 2.5em;
+  color: white;
 }
 
-mat-toolbar {
-  padding-left: 46%;
-  font-size: xx-large;
+mat-grid-tile {
+  background: whitesmoke;
+  border-radius: 10px;
 }
 
 mat-spinner {
@@ -30,7 +31,7 @@ mat-spinner {
   margin-bottom: 60px;
 }
  .sub-header {
-   background: black;
+   background: white;
  }
 
  table {
@@ -45,7 +46,7 @@ mat-spinner {
  }
 
  .header {
-   background: #222222;
+   background: #474747;
    height: 50px;
 
  }
@@ -66,4 +67,16 @@ mat-spinner {
 
 span {
   font-weight: bold;
+}
+
+.top {
+  height: 80vh;
+  background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+  position: relative;
+}
+
+.bottom {
+  position: absolute;
+  top: 10px;
+  width: 100%;
 }
