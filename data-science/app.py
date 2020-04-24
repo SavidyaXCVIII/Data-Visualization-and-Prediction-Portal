@@ -7,13 +7,16 @@ import numpy as np
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression
-
+from sklearn.metrics import classification_report
 from scipy import stats
+from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import statsmodels.api as sm
+from sklearn import svm
+from sklearn import metrics
 
 @app.route('/add')
 def hello_world():
@@ -66,6 +69,33 @@ csv_details = [
         "predictor": ["Drama"]
     }
 ]
+@app.route('/svmapi/',methods=['GET'])
+def trainSVM():
+    df = pd.read_csv("train.csv")
+    X = df[['Pclass', 'Age', 'SibSp', 'Parch', 'Fare']].values
+    X = np.nan_to_num(X)
+    scaler = StandardScaler()
+    X = scaler.fit_transform(X)
+    Y = df["Survived"].values
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.33, random_state=42)
+    clf = svm.SVC()
+    clf.fit(X_train, Y_train)
+    predicted=clf.predict(X_test)
+    no_white_predicted = []
+    for element in predicted:
+        no_white_predicted.append(str(element).strip())
+    results_array = {
+        "accuracy" : str(metrics.accuracy_score(Y_test, predicted)),
+        "f1 score macro": str(metrics.f1_score(Y_test, predicted, average='macro')),
+        "f1 score micro": str(metrics.f1_score(Y_test, predicted, average='micro')),
+        "precision score": str(metrics.precision_score(Y_test, predicted, average='macro')),
+        "recall score": str(metrics.recall_score(Y_test, predicted, average='macro')),
+        "hamming_loss": str(metrics.hamming_loss(Y_test, predicted)),
+        "prediction": no_white_predicted
+    }
+    print(no_white_predicted)
+    print("classification_report", metrics.classification_report(Y_test, predicted))
+    return results_array
 
 @app.route('/linearapi/<int:index>',methods=['GET'])
 def test_linear_api(index):
@@ -73,7 +103,6 @@ def test_linear_api(index):
 
     df_new
 
-    #eatures = jsonify(csv_details[index]['features'])
     x1 = df_new[csv_details[index]['features']]
     y1 = df_new[["pass_all_perc"]]
 
@@ -90,8 +119,25 @@ def test_linear_api(index):
     x1_with_intercept = sm.add_constant(x1)
     est = sm.OLS(y1, x1_with_intercept)
     est2 = est.fit()
-    print(est2.summary())
-    return str(result)
+
+    y3_pred = regr2.predict(x3)
+    y3_pred = np.array(y3_pred).flatten()
+    mean_sq_err = mean_squared_error(y3,y3_pred)
+    res_r2_score = r2_score(y3,y3_pred)
+    print(mean_sq_err,res_r2_score)
+    results_array = {
+            "score" : str(regr2.score(x1,y1)),
+            "coef ": str(regr2.coef_),
+            "intercept" : str(regr2.intercept_),
+            "predictions" : str(regr2.predict(x1)),
+            "mse:" : str(mean_sq_err),
+            "rsquared:" : str(est2.rsquared),
+            "tvalues  #####": str(est2.tvalues),
+            "sderrors":str(est2.bse)
+
+        }
+
+    return results_array
 
 if __name__ == '__main__':
     app.run()
