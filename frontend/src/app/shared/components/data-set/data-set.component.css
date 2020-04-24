@@ -1,0 +1,21 @@
+.header{
+  text-align: center;
+}
+h1{
+  font-size: 3rem;
+  color: #352961;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+table{
+  margin: 60px auto 20px;
+  width: 80%;
+  border: 1px solid black;
+}
+th{
+  color: #352961;
+  font-weight: bold;
+  font-size: 25px;
+}
+
