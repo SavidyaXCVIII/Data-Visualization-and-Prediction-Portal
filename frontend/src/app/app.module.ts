@@ -26,6 +26,7 @@ import {MatGridListModule, MatTableModule} from '@angular/material';
 import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
 import {GlobalService} from './services/global.service';
 import { DataSetComponent } from './shared/components/data-set/data-set.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { DataSetComponent } from './shared/components/data-set/data-set.componen
     MatNativeDateModule,
     HttpClientModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule
   ],
   providers: [DatePipe, GlobalService],
   bootstrap: [AppComponent]

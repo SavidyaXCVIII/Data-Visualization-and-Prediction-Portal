@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Dataset} from '../../../models/dataset';
+import {GlobalService} from '../../../services/global.service';
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-data-set',
@@ -8,16 +11,18 @@ import {HttpClient} from '@angular/common/http';
 })
 export class DataSetComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private globalService: GlobalService) {
   }
-
+  chosenDataset = new Dataset();
   readonly ROOT_URL = 'http://localhost:8080';
   data: any;
   dataset: any[];
   mappedArray: any[] = [];
   columnHeaders: string[];
+  dataSource = new MatTableDataSource(this.data);
 
   ngOnInit() {
+    this.chosenDataset = this.globalService.getSampleData();
     this.getData().subscribe(response => {
       this.data = response;
     });
@@ -45,6 +50,10 @@ export class DataSetComponent implements OnInit {
       console.log('Column Headers', this.columnHeaders);
 
     });
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getData() {
