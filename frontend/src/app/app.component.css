@@ -97,3 +97,15 @@ mat-toolbar {
 .home-page {
   text-decoration: none;
 }
+
+mat-expansion-panel-header{
+  padding: 5px;
+}
+mat-nav-list a{
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+mat-expansion-panel-header{
+   margin-bottom: 10px;
+ }
