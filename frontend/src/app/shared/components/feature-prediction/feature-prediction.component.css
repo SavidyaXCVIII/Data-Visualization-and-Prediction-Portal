@@ -1,0 +1,10 @@
+.top {
+  position: relative;
+  height: 70vh;
+  background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+}
+
+.bottom {
+  position: absolute;
+  top: 20vh;
+}
