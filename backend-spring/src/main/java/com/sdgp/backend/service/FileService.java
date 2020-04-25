@@ -24,6 +24,8 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 @Component
 public class FileService {
 
+    private static int number;
+
     @Autowired
     private DataSetRepository dataSetRepository;
 
@@ -41,7 +43,7 @@ public class FileService {
 
 
     public void saveDataset(DataSet dataSet) {
-
+        dataSet.setId(number);
         dataSetRepository.save(dataSet);
 
     }
@@ -74,7 +76,7 @@ public class FileService {
         }
 
         Mongo mongo = mongoCollectionRepository.findFirstById(1);
-        int number = Integer.parseInt(mongo.getCount());
+        number = Integer.parseInt(mongo.getCount());
         number++;
         String countString = String.valueOf(number);
         mongo.setCount(countString);

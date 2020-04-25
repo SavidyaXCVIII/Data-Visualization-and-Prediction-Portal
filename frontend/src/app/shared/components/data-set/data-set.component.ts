@@ -13,7 +13,9 @@ export class DataSetComponent implements OnInit {
   constructor(private httpClient: HttpClient, private globalService: GlobalService) {
     this.dataSource = new MatTableDataSource(this.dataSource);
   }
+
   chosenDataset = new Dataset();
+  datasetId;
   readonly ROOT_URL = 'http://localhost:8080';
   dataSource: any;
   dataset: any[];
@@ -21,7 +23,9 @@ export class DataSetComponent implements OnInit {
   columnHeaders: string[];
 
   ngOnInit() {
+
     this.chosenDataset = this.globalService.getSampleData();
+    this.datasetId = this.chosenDataset.id;
     this.getData().subscribe(response => {
       this.dataSource = response;
     });
@@ -30,10 +34,10 @@ export class DataSetComponent implements OnInit {
       console.log('Original Dataset', this.dataset[0]);
 
       let count = 1;
-      this.dataset[0].forEach( x => {
+      this.dataset[0].forEach(x => {
 
         let keyValueArray = [];
-        keyValueArray = Object.keys(x).map( key => [String(key), x[key]]);
+        keyValueArray = Object.keys(x).map(key => [String(key), x[key]]);
         console.log('keyValueArray ' + count, keyValueArray);
         this.mappedArray.push(keyValueArray);
         ++count;
@@ -41,22 +45,23 @@ export class DataSetComponent implements OnInit {
       console.log('mapped Array: item 1', this.mappedArray[0]);
 
       console.log('Items in Mapped Array item 01');
-      this.mappedArray[0].forEach( x => console.log( x[0] + ' : ' + x[1]));
+      this.mappedArray[0].forEach(x => console.log(x[0] + ' : ' + x[1]));
 
-      this.columnHeaders = this.mappedArray[0].map( x => x[0]);
-      this.columnHeaders = this.columnHeaders.filter( x => x !== '_id');
+      this.columnHeaders = this.mappedArray[0].map(x => x[0]);
+      this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
 
       console.log('Column Headers', this.columnHeaders);
 
     });
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getData() {
-    return this.httpClient.get(this.ROOT_URL + '/filesArray');
+    return this.httpClient.get(this.ROOT_URL + '/filesArray?id=' + this.datasetId);
   }
 
 }
