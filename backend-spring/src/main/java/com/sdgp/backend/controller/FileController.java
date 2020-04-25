@@ -32,6 +32,11 @@ public class FileController {
         return fileService.getDataSets();
     }
 
+    @PostMapping("/filesArray")
+    ResponseEntity<ResponseDTO> getDatasetName(@RequestParam String datasetName){
+        return ResponseEntity.ok(new ResponseDTO<>(Boolean.FALSE, "Dataset Name Received"));
+    }
+
     @GetMapping("/filesArray")
     public List<Document> getDataset() {
         List<Document> dataSets = new ArrayList<>();
