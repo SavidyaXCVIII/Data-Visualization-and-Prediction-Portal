@@ -18,7 +18,7 @@ export class BarChartCompileComponent implements OnChanges {
   data: DataModel[];
 
   //allign chart here
-  margin = {top: 100, right: 20, bottom: 30, left: 400};
+  margin = {top: 200, right: 20, bottom: 30, left: 250};
 
   constructor() { }
 
