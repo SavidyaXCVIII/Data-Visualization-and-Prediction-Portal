@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataModel } from 'src/app/models/dataset';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-bar-chart',
+  selector: 'bar-chart-root',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css']
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent {
 
-  constructor() { }
+  data: Observable<DataModel>;
 
-  ngOnInit() {
+  constructor(private http: HttpClient) {
+    this.data = this.http.get<DataModel>('./assets/data.json');
   }
 
 }
