@@ -5,3 +5,13 @@
 body{
   font-family: Roboto, Arial, sans-serif;
 }
+#particles-js{
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
