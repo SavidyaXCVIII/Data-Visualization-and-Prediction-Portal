@@ -1,0 +1,202 @@
+[
+ {
+   "District": "Ratnapura",
+   "number_sat": 11147,
+   "passed_all": 7700,
+   "passed_all_subject_perc": 69.08,
+   "failed_all": 731,
+   "failed_all_subject_perc": 6.56
+ },
+ {
+   "District": "Mannar",
+   "number_sat": 1337,
+   "passed_all": 883,
+   "passed_all_subject_perc": 66.04,
+   "failed_all": 91,
+   "failed_all_subject_perc": 6.81
+ },
+ {
+   "District": "Jaffna",
+   "number_sat": 6925,
+   "passed_all": 4567,
+   "passed_all_subject_perc": 65.95,
+   "failed_all": 495,
+   "failed_all_subject_perc": 7.15
+ },
+ {
+   "District": "Colombo",
+   "number_sat": 26255,
+   "passed_all": 17287,
+   "passed_all_subject_perc": 65.84,
+   "failed_all": 1955,
+   "failed_all_subject_perc": 7.45
+ },
+ {
+   "District": "Monaragala",
+   "number_sat": 4642,
+   "passed_all": 3012,
+   "passed_all_subject_perc": 64.89,
+   "failed_all": 344,
+   "failed_all_subject_perc": 7.41
+ },
+ {
+   "District": "Matara",
+   "number_sat": 9919,
+   "passed_all": 6363,
+   "passed_all_subject_perc": 64.15,
+   "failed_all": 871,
+   "failed_all_subject_perc": 8.78
+ },
+ {
+   "District": "Kilinochchi",
+   "number_sat": 1216,
+   "passed_all": 780,
+   "passed_all_subject_perc": 64.14,
+   "failed_all": 95,
+   "failed_all_subject_perc": 7.81
+ },
+ {
+   "District": "Kalutara",
+   "number_sat": 11567,
+   "passed_all": 7398,
+   "passed_all_subject_perc": 63.96,
+   "failed_all": 1019,
+   "failed_all_subject_perc": 8.81
+ },
+ {
+   "District": "Hambantota",
+   "number_sat": 6939,
+   "passed_all": 4437,
+   "passed_all_subject_perc": 63.94,
+   "failed_all": 614,
+   "failed_all_subject_perc": 8.85
+ },
+ {
+   "District": "Matale",
+   "number_sat": 4930,
+   "passed_all": 3151,
+   "passed_all_subject_perc": 63.91,
+   "failed_all": 396,
+   "failed_all_subject_perc": 8.03
+ },
+ {
+   "District": "Kegalle",
+   "number_sat": 9351,
+   "passed_all": 5948,
+   "passed_all_subject_perc": 63.61,
+   "failed_all": 756,
+   "failed_all_subject_perc": 8.08
+ },
+ {
+   "District": "Batticaloa",
+   "number_sat": 4749,
+   "passed_all": 3017,
+   "passed_all_subject_perc": 63.53,
+   "failed_all": 321,
+   "failed_all_subject_perc": 6.76
+ },
+ {
+   "District": "Galle",
+   "number_sat": 12762,
+   "passed_all": 8094,
+   "passed_all_subject_perc": 63.42,
+   "failed_all": 1152,
+   "failed_all_subject_perc": 9.03
+ },
+ {
+   "District": "Nuwara Eliya",
+   "number_sat": 6110,
+   "passed_all": 3873,
+   "passed_all_subject_perc": 63.39,
+   "failed_all": 502,
+   "failed_all_subject_perc": 8.22
+ },
+ {
+   "District": "Puttalam",
+   "number_sat": 6162,
+   "passed_all": 3894,
+   "passed_all_subject_perc": 63.19,
+   "failed_all": 497,
+   "failed_all_subject_perc": 8.07
+ },
+ {
+   "District": "Gampaha",
+   "number_sat": 19432,
+   "passed_all": 12175,
+   "passed_all_subject_perc": 62.65,
+   "failed_all": 1671,
+   "failed_all_subject_perc": 8.6
+ },
+ {
+   "District": "Mullativu",
+   "number_sat": 1074,
+   "passed_all": 672,
+   "passed_all_subject_perc": 62.57,
+   "failed_all": 108,
+   "failed_all_subject_perc": 10.06
+ },
+ {
+   "District": "Badulla",
+   "number_sat": 9751,
+   "passed_all": 6098,
+   "passed_all_subject_perc": 62.54,
+   "failed_all": 771,
+   "failed_all_subject_perc": 7.91
+ },
+ {
+   "District": "Ampara",
+   "number_sat": 6510,
+   "passed_all": 3997,
+   "passed_all_subject_perc": 61.4,
+   "failed_all": 580,
+   "failed_all_subject_perc": 8.91
+ },
+ {
+   "District": "Trincomalee",
+   "number_sat": 3720,
+   "passed_all": 2278,
+   "passed_all_subject_perc": 61.24,
+   "failed_all": 354,
+   "failed_all_subject_perc": 9.52
+ },
+ {
+   "District": "Kurunegala",
+   "number_sat": 17671,
+   "passed_all": 10767,
+   "passed_all_subject_perc": 60.93,
+   "failed_all": 1623,
+   "failed_all_subject_perc": 9.18
+ },
+ {
+   "District": "Kandy",
+   "number_sat": 15614,
+   "passed_all": 9500,
+   "passed_all_subject_perc": 60.84,
+   "failed_all": 1304,
+   "failed_all_subject_perc": 8.35
+ },
+ {
+   "District": "Anuradhapura",
+   "number_sat": 8822,
+   "passed_all": 5273,
+   "passed_all_subject_perc": 59.77,
+   "failed_all": 907,
+   "failed_all_subject_perc": 10.28
+ },
+ {
+   "District": "Vavuniya",
+   "number_sat": 1775,
+   "passed_all": 1053,
+   "passed_all_subject_perc": 59.32,
+   "failed_all": 159,
+   "failed_all_subject_perc": 8.96
+ },
+ {
+   "District": "Polonnaruwa",
+   "number_sat": 3485,
+   "passed_all": 2021,
+   "passed_all_subject_perc": 57.99,
+   "failed_all": 386,
+   "failed_all_subject_perc": 11.08
+ }
+]
