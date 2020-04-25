@@ -15,6 +15,8 @@ export class UploadComponent implements OnInit {
   uploadInProgress = false;
   dataset = new Dataset();
   uploadFile = new FormData();
+  miniCurrentDate = new Date();
+  date = new FormControl(new Date());
 
   constructor(private http: HttpClient,
               private datePipe: DatePipe) {

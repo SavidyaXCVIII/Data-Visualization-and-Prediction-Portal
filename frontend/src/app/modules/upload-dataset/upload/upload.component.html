@@ -1,5 +1,7 @@
+<div class="top"></div>
+<div class="bottom">
+  <mat-card class="mat-card-background">
 <div class="main">
-
   <div class="upload-form">
     <mat-card-title class="heading">Upload Dataset</mat-card-title> <br>
       <form [formGroup]="uploadDetailsFormGroup">
@@ -17,16 +19,21 @@
 
         <mat-form-field class="date-picker">
           <mat-label>Year</mat-label>
-          <input matInput  [matDatepicker]="year" required formControlName="year">
+
+          <input matInput [max]="miniCurrentDate" [formControl]="date" [matDatepicker]="year" required formControlName="year">
           <mat-datepicker-toggle matSuffix [for]="year"></mat-datepicker-toggle>
-          <mat-datepicker #year></mat-datepicker>
+          <mat-datepicker #year
+                          startView="multi-year"
+                          panelClass="example-month-picker"></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field class="date-picker right">
           <mat-label>Released date</mat-label>
-          <input matInput [matDatepicker]="release" required formControlName="releasedDate">
+          <input matInput [max]="date.value" [matDatepicker]="release" required formControlName="releasedDate">
           <mat-datepicker-toggle matSuffix [for]="release"></mat-datepicker-toggle>
-          <mat-datepicker #release></mat-datepicker>
+          <mat-datepicker #release
+                          startView="multi-year"
+                          panelClass="example-month-picker"></mat-datepicker>
         </mat-form-field>
 
         <br>
@@ -51,15 +58,17 @@
         <br>
         <mat-card-subtitle>Choose file</mat-card-subtitle>
         <input hidden="true" class="upload" accept="text/csv, .csv"  type="file" #csvInput id="csvreport" (change)="validateFile($event)">
-        <mat-card>
+        <mat-card class="upload-file">
           <input matInput name="fileHidden" formControlName="csvFile">
         </mat-card>
       </form>
-      <button mat-raised-button class="upload" color="accent" (click)="csvInput.click()">Select Dataset (CSV)</button>
+      <button mat-raised-button class="upload" (click)="csvInput.click()">Select Dataset (CSV)</button>
       <br>
       <button mat-raised-button class="button"  color="primary" (click)="uploadDataset()" [disabled]="this.uploadInProgress || this.uploadDetailsFormGroup.invalid">Submit</button>
       <button mat-raised-button class="button"  type="reset"  mat-button (click)="onReset()" >Reset</button>
   </div>
 
   </div>
+  </mat-card>
+</div>
 
