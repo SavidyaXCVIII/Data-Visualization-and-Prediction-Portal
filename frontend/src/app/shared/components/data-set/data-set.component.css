@@ -11,13 +11,18 @@ h1{
 }
 
 th{
-  color: #352961;
+  color: #006286;
   font-weight: bold;
+  text-align: center !important;
   font-size: 1em;
+}
+tr{
+  align-content: center;
 }
 
 table {
   padding: 10px;
+  text-align: center !important;
 }
 .example-container{
   display: flex;
