@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {LogInComponent} from './shared/components/log-in/log-in.component';
 import {CreateAccountComponent} from './shared/components/create-account/create-account.component';
-declare var particlesJS: any;
 
 @Component({
   selector: 'app-root',
@@ -12,11 +11,11 @@ declare var particlesJS: any;
 export class AppComponent implements OnInit {
   title = 'frontend';
 
-constructor(public dialog: MatDialog) {
-}
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
-    particlesJS.load('particles-js', 'assets/data/particles.json', null);
+
   }
 
   openLogInDialog(): void {
