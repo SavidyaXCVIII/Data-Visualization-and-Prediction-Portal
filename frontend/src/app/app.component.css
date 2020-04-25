@@ -99,12 +99,10 @@ mat-toolbar {
 }
 
 mat-expansion-panel-header{
-  padding: 5px;
+  padding-left: 5px;
 }
 mat-nav-list a{
   margin-bottom: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 mat-expansion-panel-header{
    margin-bottom: 5px;
