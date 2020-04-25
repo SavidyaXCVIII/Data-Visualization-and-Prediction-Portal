@@ -8,7 +8,8 @@
 <!--    <input class="filter"  matInput (keyup)="applyFilter($event)" placeholder="Filter">-->
 <!--  </label>-->
 <!--</mat-form-field>-->
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
+<div class="example-container">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  >
 
   <!-- Symbol Column -->
   <ng-container [matColumnDef]="header" *ngFor="let header of columnHeaders">
@@ -19,3 +20,4 @@
   <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
   <tr mat-row *matRowDef="let row; columns: columnHeaders;"></tr>
 </table>
+</div>

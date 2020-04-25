@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dataset} from '../../../models/dataset';
 import {GlobalService} from '../../../services/global.service';
-import {MatTableDataSource} from "@angular/material/table";
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-data-set',
@@ -10,21 +10,20 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrls: ['./data-set.component.css']
 })
 export class DataSetComponent implements OnInit {
-
   constructor(private httpClient: HttpClient, private globalService: GlobalService) {
+    this.dataSource = new MatTableDataSource(this.dataSource);
   }
   chosenDataset = new Dataset();
   readonly ROOT_URL = 'http://localhost:8080';
-  data: any;
+  dataSource: any;
   dataset: any[];
   mappedArray: any[] = [];
   columnHeaders: string[];
-  dataSource = new MatTableDataSource(this.data);
 
   ngOnInit() {
     this.chosenDataset = this.globalService.getSampleData();
     this.getData().subscribe(response => {
-      this.data = response;
+      this.dataSource = response;
     });
     this.getData().subscribe(response => {
       this.dataset = Array.of(response);
