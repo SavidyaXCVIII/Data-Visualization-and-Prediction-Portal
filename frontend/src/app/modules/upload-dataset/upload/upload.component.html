@@ -29,7 +29,7 @@
 
         <mat-form-field class="date-picker right">
           <mat-label>Released date</mat-label>
-          <input matInput [max]="date.value" [matDatepicker]="release" required formControlName="releasedDate">
+          <input matInput [min]="date.value" [matDatepicker]="release" required formControlName="releasedDate">
           <mat-datepicker-toggle matSuffix [for]="release"></mat-datepicker-toggle>
           <mat-datepicker #release
                           startView="multi-year"
