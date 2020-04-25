@@ -7,3 +7,8 @@ export class Dataset {
   category: string;
   description: string;
 }
+
+export interface DataModel {
+  District: string;
+  number_sat: number;
+}
