@@ -66,9 +66,10 @@ h1{
   alignment: left;
 }
 button{
-  color: #006286;
+  background-color: #006286;
   text-transform: uppercase;
   font-weight: 900;
+  color: #f8f9fa;
   border-color: #f8f9fa;
   padding: 10px;
   width: 200px;
