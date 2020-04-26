@@ -70,3 +70,4 @@ def linear_model_prediction(x):
     load_model = joblib.load(filename)
     result = load_model.predict(x)
     print(result)
+    return result
