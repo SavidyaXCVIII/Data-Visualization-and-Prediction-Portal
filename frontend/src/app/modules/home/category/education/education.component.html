@@ -1,8 +1,13 @@
-<mat-toolbar class="header" class="mat-elevation-z6">Education</mat-toolbar>
-<div class="main-container">
 
-  <mat-spinner *ngIf="showSpinner"></mat-spinner>
-  <mat-grid-list cols="1" rowHeight="13em" gutterSize="4em">
+
+<div class="top">
+</div>
+<div class="bottom">
+  <div class="main-container">
+    <div class="main-heading">Education</div>
+
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <mat-grid-list cols="1" rowHeight="13em" gutterSize="4em">
 
       <mat-grid-tile *ngFor="let dataset of dataSets" class="mat-elevation-z6 cards" routerLink="/show-dataset" (click)="addSampleData(dataset)">
         <table>
@@ -21,5 +26,6 @@
           </tr>
         </table>
       </mat-grid-tile>
-  </mat-grid-list>
+    </mat-grid-list>
+  </div>
 </div>

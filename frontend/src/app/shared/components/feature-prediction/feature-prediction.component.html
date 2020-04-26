@@ -1,1 +1,35 @@
-<p>feature-prediction works!</p>
+<div class="top"></div>
+<div class="bottom">
+  <div class="step-one">
+    <div class="step-one-sub">
+      <form [formGroup]="selectFeatures" (ngSubmit)="onSubmit()">
+        <div class="select-algorithm">
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="algorithm" required formControlName="algorithm">
+            <mat-radio-button value="svm">Support Vector Machine</mat-radio-button>
+            <mat-radio-button value="linear-regression">Linear Regression</mat-radio-button>
+            <mat-radio-button value="random-forest">Random Forest</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="select-predictor">
+          <mat-form-field>
+            <mat-label>Favorite food</mat-label>
+            <mat-select [(ngModel)]="column" required formControlName="column">
+              <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
+                {{columns}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+      <button mat-button (click)="onSubmit()">Submit</button>
+      <!--      <div class="user-input">-->
+      <!--        <form class="user-input-form" [formGroup]="userInput">-->
+      <!--          <mat-form-field class="field" *ngFor="let columns of columnHeaders">-->
+      <!--            <mat-label>{{columns}}</mat-label>-->
+      <!--            <input matInput placeholder=""/>-->
+      <!--          </mat-form-field>-->
+      <!--        </form>-->
+      <!--      </div>-->
+    </div>
+  </div>
+</div>

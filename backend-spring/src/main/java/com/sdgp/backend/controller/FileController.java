@@ -19,6 +19,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class FileController {
 
+    private static String datasetId;
+
     public static byte[] bytes;
 
     @Autowired
@@ -33,9 +35,10 @@ public class FileController {
     }
 
     @GetMapping("/filesArray")
-    public List<Document> getDataset() {
+    public List<Document> getDataset(@RequestParam int id) {
+
         List<Document> dataSets = new ArrayList<>();
-        MongoCollection<Document> collection = mongoTemplate.getCollection("adi");
+        MongoCollection<Document> collection = mongoTemplate.getCollection(String.valueOf(id));
         MongoCursor<Document> cursor = collection.find().iterator();
         try {
             while (cursor.hasNext()) {

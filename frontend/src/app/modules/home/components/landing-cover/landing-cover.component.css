@@ -1,9 +1,7 @@
 .main-heading {
-  background: url("../../../../../assets/images/Main page 4 png.png") no-repeat center;
+  background: url("../../../../../assets/images/Main page 4.png") no-repeat center;
   background-size: cover;
-  height: 90vh;
-  background-color: white;
-
+  height: 100vh;
 }
 
 .main-title {
@@ -14,7 +12,7 @@
   margin: 3%;
   padding: 5px;
   border-radius: 5px;
-  font-size: 45px;
+  font-size: 2.5em;
 }
 
 .title-sub-one {
@@ -40,3 +38,9 @@
 /*  line-height: 0.5;*/
 
 /*}*/
+.background {
+  background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+}
+
+.particles {
+}

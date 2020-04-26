@@ -12,6 +12,15 @@
 
 }
 
+.sidenav-content {}
+
+.main-toolbar {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
 h2 {
   background: transparent;
 }
@@ -28,7 +37,7 @@ h2 {
 }
 
 .container .mat-drawer {
-  min-width: 210px;
+  min-width: 250px;
   background-color: white;
 }
 
@@ -71,17 +80,30 @@ mat-toolbar {
 }
 
 .logo {
-  padding-left: 5px;
-  padding-right: 25px;
   height: 30px;
+  margin: 10px;
 }
 
-.site-name {
-  margin-left: 30px;
-}
+/*.site-name {*/
+/*  margin-left: 30px;*/
+/*}*/
 
 .nav-header {
-  color: white;
-  font-size: large;
-  background-color: #222222;
+  margin: 10px;
+  color: black;
+  font-size: 1.5em;
 }
+
+.home-page {
+  text-decoration: none;
+}
+
+mat-expansion-panel-header{
+  padding-left: 5px;
+}
+mat-nav-list a{
+  margin-bottom: 5px;
+}
+mat-expansion-panel-header{
+   margin-bottom: 5px;
+ }

@@ -1,4 +1,14 @@
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
+<div class="header">
+  <h1>{{chosenDataset.datasetName}} - {{chosenDataset.year}}</h1>
+</div>
+
+<!--<mat-form-field >-->
+<!--  <label>-->
+<!--    <input class="filter"  matInput (keyup)="applyFilter($event)" placeholder="Filter">-->
+<!--  </label>-->
+<!--</mat-form-field>-->
+<div class="example-container mat-elevation-z6">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  >
 
   <!-- Symbol Column -->
   <ng-container [matColumnDef]="header" *ngFor="let header of columnHeaders">
@@ -9,3 +19,4 @@
   <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
   <tr mat-row *matRowDef="let row; columns: columnHeaders;"></tr>
 </table>
+</div>

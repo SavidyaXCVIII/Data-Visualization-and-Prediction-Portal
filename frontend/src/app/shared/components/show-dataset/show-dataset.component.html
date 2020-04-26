@@ -1,9 +1,10 @@
 
 <div class="header">
   <h1>{{dataset.datasetName}} - {{dataset.year}}</h1>
+  <mat-divider></mat-divider>
 </div>
 <div class="container">
-  <div class="data-info ">
+  <div class="data-info mat-elevation-z6">
     <table class="dataTable">
       <tr>
         <th>Field</th>
@@ -28,10 +29,10 @@
     </table>
 
   </div>
-  <div class="sidebar">
+  <div class="sidebar mat-elevation-z6">
     <ul>
       <li class="sidenav-button"><button mat-stroked-button >Download</button></li>
-      <li class="sidenav-button"><button mat-stroked-button >View Graph</button></li>
+      <li class="sidenav-button"><button mat-stroked-button routerLink="/view-graph">View Graph</button></li>
       <li class="sidenav-button"><button mat-stroked-button routerLink="/data-set" >View Dataset</button></li>
       <li class="sidenav-button"><button mat-stroked-button routerLink="/feature-prediction">Feature Prediction</button></li>
     </ul>

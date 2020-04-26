@@ -8,13 +8,14 @@ import {CreateAccountComponent} from './shared/components/create-account/create-
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'frontend';
 
-constructor(public dialog: MatDialog) {
-}
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
+
   }
 
   openLogInDialog(): void {

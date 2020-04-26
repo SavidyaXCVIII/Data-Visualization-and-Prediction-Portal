@@ -19,7 +19,7 @@ import java.util.Arrays;
 @TypeAlias("Dataset")
 public class DataSet {
     @Id
-    private String id;
+    private int id;
     private String datasetName;
     private String publisher;
     private String year;

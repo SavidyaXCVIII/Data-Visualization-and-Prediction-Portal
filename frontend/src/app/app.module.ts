@@ -15,17 +15,19 @@ import { LogInComponent } from './shared/components/log-in/log-in.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateAccountComponent } from './shared/components/create-account/create-account.component';
 import {MatInputModule} from '@angular/material/input';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
-import {MatGridListModule, MatTableModule} from '@angular/material';
+import {MatGridListModule, MatRadioModule, MatTableModule} from '@angular/material';
 import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
 import {GlobalService} from './services/global.service';
 import { DataSetComponent } from './shared/components/data-set/data-set.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,11 @@ import { DataSetComponent } from './shared/components/data-set/data-set.componen
     MatNativeDateModule,
     HttpClientModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatRadioModule,
+    FormsModule
   ],
   providers: [DatePipe, GlobalService],
   bootstrap: [AppComponent]

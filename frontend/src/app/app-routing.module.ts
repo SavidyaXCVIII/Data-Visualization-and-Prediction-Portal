@@ -51,6 +51,10 @@ const routes: Routes = [
     component: FeaturePredictionComponent
   },
   {
+    path: 'view-graph',
+    loadChildren: 'src/app/modules/view-graph/view-graph.module#ViewGraphModule'
+  },
+  {
     path: '**',
     loadChildren: 'src/app/modules/home/home.module#HomeModule'
   }
