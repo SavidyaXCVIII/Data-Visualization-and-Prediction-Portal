@@ -34,3 +34,14 @@ table {
   width: 90%;
   border-radius: 5px;
 }
+.top {
+  height: 70vh;
+  background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+  position: relative;
+}
+.bottom {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  height: 90vh;
+}

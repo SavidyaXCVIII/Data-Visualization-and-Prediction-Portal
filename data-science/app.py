@@ -3,7 +3,7 @@ from flask import Flask,request, jsonify
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-
+import ast
 from mongodb_connection import MongoDBConnection
 from models import AL_prediction_model
 app = Flask(__name__)
@@ -50,35 +50,40 @@ def select():
 
     dataset_name = request.args.get('dataset_name')
     algorithm = request.args.get('algorithm')
-    prediction_column = request.args.get('prediction_column')
-    column_list = request.args.get('column_list')
-
-    #test = json_normalize(data['column_list'])
-    resp = jsonify(data)
-
-    resp.status_code = 200
+    prediction_column = request.args.get("prediction_column")
+    column_list = request.args.get("column_list")
 
 
+
+
+    new_column_list = column_list.split(",")
+    new_prediction_column = prediction_column.split(",")
+    print(new_column_list,new_prediction_column)
     if(algorithm ==  "linear"):
-        res = linear_regression_anaylsis(column_list,prediction_column)
+         res = linear_regression_anaylsis(new_column_list,new_prediction_column)
     elif(algorithm == "svm"):
-        res = trainSVM(column_list,prediction_column)
-
+         res = trainSVM(new_column_list,new_prediction_column)
+    res = jsonify(res)
+    res.status_code = 200
     return res
 
 
-@app.route('/get_prediction', methods=['POST'])
+@app.route('/get_prediction', methods=['GET'])
 @cross_origin()
 def get_prediction():
-    data = request.get_json()
-    if(data["algorithm"] == "svm"):
-        x = data['values']
+    dataset_type = request.args.get('dataset_type')
+    values = request.args.get("values").split(",")
+    if(dataset_type == "svm"):
+        x = [values]
+        x = np.asfarray(x, float)
         res = svm_model_prediction(x)
-    elif(data["algorithm"] == "linear"):
-        x = data['values']
+    elif(dataset_type == "linear"):
+        x = [values]
+        x = np.asfarray(x, float)
         res = linear_model_prediction(x)
-    print(res)
-    return str(res)
+
+    string_result = str(res[0]).strip("[").strip("]")
+    return string_result
 
 
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ export class FeaturePredictionComponent implements OnInit {
     // this.sendFeaturesPredictors();
   }
 
-  readonly ROOT_URL_FLASK = 'http://127.0.0.1:5000/select_features_predictors';
+  readonly ROOT_URL_FLASK = 'http://127.0.0.1:5000';
   readonly ROOT_URL = 'http://localhost:8080';
   chosenDataset = new Dataset();
   datasetId;
@@ -24,17 +24,10 @@ export class FeaturePredictionComponent implements OnInit {
   dataset: any[];
   mappedArray: any[] = [];
   columnHeaders: string[];
-
-
-  userInput: any;
-  selectFeatures = new FormGroup({
-    algorithm: new FormControl(undefined, Validators.required),
-    column: new FormControl(undefined, Validators.required),
-  });
-  algorithm: string;
-  column: string;
   private data: { prediction_column: string; dataset_name: string; column_list: string[]; algorithm: string };
-
+  accuracy: any;
+  sendDataFormGroup: FormGroup;
+  userInput: FormGroup;
 
   ngOnInit() {
     this.chosenDataset = this.globalService.getSampleData();
@@ -42,6 +35,12 @@ export class FeaturePredictionComponent implements OnInit {
     this.getData().subscribe(response => {
       this.dataSource = response;
     });
+
+    this.sendDataFormGroup = new FormGroup({
+      selectAlgorithm: new FormControl(undefined, Validators.required),
+      column: new FormControl(undefined, Validators.required)
+    });
+
     this.getData().subscribe(response => {
       this.dataset = Array.of(response);
       console.log('Original Dataset', this.dataset[0]);
@@ -63,9 +62,13 @@ export class FeaturePredictionComponent implements OnInit {
       this.columnHeaders = this.mappedArray[0].map(x => x[0]);
       this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
 
-      console.log('Column Headers', this.columnHeaders);
+      this.userInput = new FormGroup({});
+
+      this.columnHeaders.forEach(element => this.userInput.addControl(element, new FormControl(undefined, [Validators.required])));
 
     });
+
+
   }
 
 
@@ -73,16 +76,41 @@ export class FeaturePredictionComponent implements OnInit {
     return this.http.get(this.ROOT_URL + '/filesArray?id=' + this.datasetId);
   }
 
+
   onSubmit() {
     this.data = {
-      dataset_name : this.datasetId,
-      algorithm : this.algorithm,
-      prediction_column : this.column,
-      column_list: this.columnHeaders
+      dataset_name: 'Testing',
+      algorithm: 'linear',
+      prediction_column: 'pass_all_perc',
+      column_list: ['num_sat', 'fail_all', 'fail_all_perc']
     };
-    this.http.post(this.ROOT_URL, this.data).subscribe(response => {
+
+    this.getAccuracyResult().subscribe(response => {
+      this.accuracy = response;
       console.log(response);
     });
-    console.log(this.selectFeatures.value);
+
+    console.log(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_name=' +
+      this.data.dataset_name + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
+      this.data.prediction_column + '&column_list=' + this.data.column_list);
+
+
+  }
+
+  getAccuracyResult() {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_name=' +
+      this.data.dataset_name + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
+      this.data.prediction_column + '&column_list=' + this.data.column_list);
+  }
+
+  onSubmitSendValues() {
+    let count = 0;
+    const inputValues = [];
+    this.columnHeaders.forEach(element => {
+      inputValues[count] = this.userInput.controls[element].value;
+      ++count;
+    });
+    console.log(inputValues);
   }
 }

@@ -31,7 +31,7 @@ export class UploadComponent implements OnInit {
       releasedDate: new FormControl({value: undefined, disabled: this.uploadInProgress}),
       category: new FormControl({value: undefined, disabled: this.uploadInProgress}, Validators.required),
       description: new FormControl({value: '', disabled: this.uploadInProgress}),
-      csvFile: new FormControl({value: '', disabled: this.uploadInProgress}, Validators.required)
+      csvFile: new FormControl({value: 'Random Forest', disabled: this.uploadInProgress}, Validators.required)
     });
   }
 
