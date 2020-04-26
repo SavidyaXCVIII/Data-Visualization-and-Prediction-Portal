@@ -4,20 +4,21 @@
 <div class="main">
   <div class="upload-form">
     <mat-card-title class="heading">Upload Dataset</mat-card-title> <br>
+    <mat-card-subtitle class="subheading" >Upload your own dataset</mat-card-subtitle>
       <form [formGroup]="uploadDetailsFormGroup">
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Dataset Name</mat-label>
           <input matInput type="text" required formControlName="datasetName">
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline" >
           <mat-label>Publisher</mat-label>
           <input matInput type="text" formControlName="publisher">
         </mat-form-field>
 
         <br>
 
-        <mat-form-field class="date-picker">
+        <mat-form-field class="date-picker" appearance="outline" >
           <mat-label>Dataset Year</mat-label>
 
           <input matInput [max]="miniCurrentDate" [formControl]="date" [matDatepicker]="year" required formControlName="year">
@@ -27,7 +28,7 @@
                           panelClass="example-month-picker"></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field class="date-picker right">
+        <mat-form-field class="date-picker right" appearance="outline" >
           <mat-label>Released date</mat-label>
           <input matInput [min]="date.value" [max]="miniCurrentDate"  [matDatepicker]="release" required formControlName="releasedDate">
           <mat-datepicker-toggle matSuffix [for]="release"></mat-datepicker-toggle>
@@ -38,7 +39,7 @@
 
         <br>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline" >
           <mat-label>Select Category</mat-label>
           <mat-select required formControlName="category">
             <mat-option value="Education">Education</mat-option>
@@ -49,12 +50,11 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline" >
           <mat-label>Description</mat-label>
           <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
 
-        <br>
         <br>
         <mat-card-subtitle>Choose file</mat-card-subtitle>
         <input hidden="true" class="upload" accept="text/csv, .csv"  type="file" #csvInput id="csvreport" (change)="validateFile($event)">

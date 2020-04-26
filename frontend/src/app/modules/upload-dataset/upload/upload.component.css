@@ -76,6 +76,9 @@ mat-form-field {
   height: 100%;
   margin: 10vh auto auto;
 }
+.subheading{
+  text-align: center;
+}
 
 
 
