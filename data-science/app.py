@@ -44,14 +44,14 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/select_features_predictors', methods=['POST'])
+@app.route('/select_features_predictors', methods=['GET'])
 @cross_origin()
 def select():
-    data = request.get_json()
-    dataset_name = data['dataset_name']
-    algorithm = data['algorithm']
-    prediction_column = data['prediction_column']
-    column_list = data['column_list']
+
+    dataset_name = request.args.get('dataset_name')
+    algorithm = request.args.get('algorithm')
+    prediction_column = request.args.get('prediction_column')
+    column_list = request.args.get('column_list')
 
     #test = json_normalize(data['column_list'])
     resp = jsonify(data)
