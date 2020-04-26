@@ -46,6 +46,10 @@
   }
  mat-card{
    margin: 30px;
+   width: 30vh;
+ }
+ mat-card img{
+   height: 50vh;
  }
 .mat-card-title,.mat-card-subtitle{
   text-align:center;
