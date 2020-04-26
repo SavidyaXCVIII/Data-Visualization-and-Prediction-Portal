@@ -30,8 +30,8 @@ import statsmodels.api as sm
 from pandas.io.json import json_normalize
 
 
-from linear_regression import linear_regression_anaylsis
-from support_vector_machine import trainSVM
+from linear_regression import linear_regression_anaylsis,linear_model_prediction
+from support_vector_machine import trainSVM,svm_model_prediction
 
 @app.route('/')
 def hello_world():
@@ -67,9 +67,18 @@ def select():
     return res
 
 
-
-
-
+@app.route('/get_prediction', methods=['POST'])
+@cross_origin()
+def get_prediction():
+    data = request.get_json()
+    if(data["algorithm"] == "svm"):
+        x = data['values']
+        res = svm_model_prediction(x)
+    elif(data["algorithm"] == "linear"):
+        x = data['values']
+        res = linear_model_prediction(x)
+    print(res)
+    return str(res)
 
 
 if __name__ == '__main__':

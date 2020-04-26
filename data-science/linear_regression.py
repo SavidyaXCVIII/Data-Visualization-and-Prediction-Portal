@@ -2,6 +2,14 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 import statsmodels.api as sm
+import joblib
+
+#score : a measure of accuracy which indicates how close the trained model predicts when data is given.
+#intercept : is the value when the x matrix of featurs is zero
+#coefficients : these values indicates how much the predictor value will change per unit increase
+#standard erros : represents the average distance that the observed values fall from the regression line. Conveniently, it tells you how wrong the regression model is on average using the units of the response variable.
+#r squared : R-squared is a statistical measure of how close the data are to the fitted regression line.
+#t values :
 
 def linear_regression_anaylsis(x,y):
     dataframe_csv = pd.read_csv("2015_to_2018_AL.csv")
@@ -53,4 +61,12 @@ def linear_regression_anaylsis(x,y):
         "sderrors": sd_errors
 
     }
+    filename = 'model.sav'
+    joblib.dump(regr2, filename)
     return results_array
+
+def linear_model_prediction(x):
+    filename = "model.sav"
+    load_model = joblib.load(filename)
+    result = load_model.predict(x)
+    print(result)
