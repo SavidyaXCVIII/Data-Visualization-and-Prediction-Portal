@@ -1,19 +1,22 @@
 .container {
-  position: relative;
   text-align: center;
+  height: 70vh;
+  background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+  position: relative;
 }
 .image-top{
-  background: url("https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center;
+  /*background: url("https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center;*/
   background-size: cover;
   height: 70vh;
   margin: auto;
   width: 100%;
   opacity:0.7;
 }
-.top-left {
+.top-text {
   position: absolute;
   bottom: 100px;
   right: 60px;
+  color: white;
   font-size: 60px;
   text-align: end;
 }
