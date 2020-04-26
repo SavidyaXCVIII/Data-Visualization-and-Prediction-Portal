@@ -1,0 +1,36 @@
+group 'com.smartdiscover'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.0.0.Final'
+    compileOnly('org.projectlombok:lombok:1.18.10')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile "io.springfox:springfox-swagger2:2.9.2"
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+
+}
