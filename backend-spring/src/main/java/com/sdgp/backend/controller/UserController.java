@@ -2,45 +2,49 @@ package com.sdgp.backend.controller;
 
 import com.sdgp.backend.model.User;
 import com.sdgp.backend.service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping("account")
 public class UserController {
-
-    public static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
-    //request method to create a new account by a guest
-    @CrossOrigin
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity<?> createUser(@RequestBody User newUser) {
-        if (userService.find(newUser.getEmail()) != null) {
-            logger.error("Email Already exist " + newUser.getEmail());
-            return new ResponseEntity(
-                    //new CustomErrorType("user with email " + newUser.getEmail() + "already exist "),
-                    HttpStatus.CONFLICT);
-        }
-        newUser.setRole("USER");
-
-        return new ResponseEntity<User>(userService.save(newUser), HttpStatus.CREATED);
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public ModelAndView signup() {
+        ModelAndView modelAndView = new ModelAndView();
+        User user = new User();
+        modelAndView.addObject("user",user);
+        modelAndView.setViewName("signup");
+        return modelAndView;
     }
 
-    // this is the login api/service
-    @CrossOrigin
-    @RequestMapping("/login")
-    public Principal user(Principal principal) {
-        logger.info("user logged "+principal);
-        return principal;
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        User userExists = userService.findUser(user.getEmail());
+        if (userExists != null) {
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "There is already a user registered with the username provided");
+        }
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("signup");
+        } else {
+            userService.saveUser(user);
+            modelAndView.addObject("successMessage", "User has been registered successfully");
+            modelAndView.addObject("user", new User());
+            modelAndView.setViewName("login");
+
+        }
+        return modelAndView;
     }
 
 }
