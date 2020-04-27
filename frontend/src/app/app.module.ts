@@ -22,12 +22,13 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {ShowDatasetComponent} from './shared/components/show-dataset/show-dataset.component';
-import {MatGridListModule, MatRadioModule, MatTableModule} from '@angular/material';
+import {MatGridListModule, MatRadioModule, MatSnackBarModule, MatTableModule} from '@angular/material';
 import { FeaturePredictionComponent } from './shared/components/feature-prediction/feature-prediction.component';
 import {GlobalService} from './services/global.service';
 import { DataSetComponent } from './shared/components/data-set/data-set.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {UploadSnackBarComponent} from './modules/upload-dataset/upload/upload-snack-bar/upload-snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +37,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CreateAccountComponent,
     ShowDatasetComponent,
     FeaturePredictionComponent,
-    DataSetComponent
+    DataSetComponent,
+    UploadSnackBarComponent
   ],
   entryComponents: [
     LogInComponent,
     CreateAccountComponent,
+    UploadSnackBarComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatButtonToggleModule,
     MatPaginatorModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [DatePipe, GlobalService],
   bootstrap: [AppComponent]

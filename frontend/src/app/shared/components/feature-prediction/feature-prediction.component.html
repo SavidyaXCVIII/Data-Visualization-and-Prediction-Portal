@@ -18,9 +18,9 @@
             </mat-radio-group>
           </div>
           <div class="select-predictor">
-            <mat-form-field>
+            <mat-form-field >
               <mat-label>Select Predictor</mat-label>
-              <mat-select required formControlName="column">
+              <mat-select required formControlName="column" >
                 <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
                   {{columns}}
                 </mat-option>
@@ -32,13 +32,13 @@
         <button mat-button (click)="onSubmit()" [disabled]="this.sendDataFormGroup.invalid">Submit</button>
       </mat-card>
     </div>
-    <div class="show-accuracy-result">
+    <div class="show-accuracy-result" *ngIf="showAccuracy">
       <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br></mat-card>
     </div>
   </div>
   <div class="step-two">
     <div class="step-two-sub">
-      <div class="user-input">
+      <div class="user-input" *ngIf="showGetPrediction">
         <mat-card class="select-features">
           <mat-card-title>Select features</mat-card-title>
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
@@ -50,7 +50,7 @@
           <button mat-button (click)="onSubmitSendValues()" [disabled]="this.userInput.invalid">Submit</button>
         </mat-card>
       </div>
-      <div class="user-result">
+      <div class="user-result" *ngIf="showPrediction">
         <mat-card> <mat-card-title>User Result</mat-card-title><br></mat-card>
       </div>
     </div>

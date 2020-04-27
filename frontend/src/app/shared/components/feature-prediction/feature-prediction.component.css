@@ -1,6 +1,6 @@
 .top {
   position: relative;
-  height: 70vh;
+  height: 80vh;
   background-color: #A9A9A9;
   background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
 }
@@ -9,6 +9,9 @@ h1{
   font-weight: 600;
   text-align: left;
   margin-left: 10%;
+}
+.step-one {
+  margin-top: 1%;
 }
 
 .bottom {
@@ -19,17 +22,30 @@ h1{
 }
 
 mat-card{
-  width: 40%;
+  width: 60%;
   height: 100%;
   margin: 8vh auto;
 }
 .select-predictor mat-form-field{
-  width: 80%;
+  width: 50%;
 }
+.select-algorithm {
+  width: 50%;
+  margin: 20px;
+}
+.select-predictor {
+  width: 50%;
+  margin: 20px;
+}
+
+.train-model {
+  margin: auto;
+}
+
 .radio-group{
   display: flex;
   flex-direction: column;
-  margin: 15px 0;
+  margin: 15px auto;
 }
 mat-radio-button{
   margin: 5px;
@@ -37,10 +53,9 @@ mat-radio-button{
 button{
   background-color: #189ad3;
   color: white;
+  margin-left: 20px;
 }
-button:hover{
- color: black;
-}
+
 .mat-card-title{
   text-align:center;
   color: #006286;
@@ -48,9 +63,16 @@ button:hover{
 }
 
 .user-input mat-form-field{
-  margin-left: 5%;
-  width: 40%;
+  width: 45%;
+  margin: 0 2.5% 0 2.5%;
 }
+
 .user-input button{
   margin-left: 5%;
 }
+
+.show-accuracy-result {
+
+}
+
+

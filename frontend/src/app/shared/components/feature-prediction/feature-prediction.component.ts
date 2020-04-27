@@ -16,6 +16,7 @@ export class FeaturePredictionComponent implements OnInit {
     // this.sendFeaturesPredictors();
   }
 
+
   readonly ROOT_URL_FLASK = 'http://127.0.0.1:5000';
   readonly ROOT_URL = 'http://localhost:8080';
   chosenDataset = new Dataset();
@@ -28,6 +29,9 @@ export class FeaturePredictionComponent implements OnInit {
   accuracy: any;
   sendDataFormGroup: FormGroup;
   userInput: FormGroup;
+  showAccuracy = false;
+  showPrediction = false;
+  showGetPrediction = false;
 
   ngOnInit() {
     this.chosenDataset = this.globalService.getSampleData();
@@ -78,6 +82,7 @@ export class FeaturePredictionComponent implements OnInit {
 
 
   onSubmit() {
+
     this.data = {
       dataset_name: 'Testing',
       algorithm: 'linear',
@@ -88,6 +93,8 @@ export class FeaturePredictionComponent implements OnInit {
     this.getAccuracyResult().subscribe(response => {
       this.accuracy = response;
       console.log(response);
+      this.showGetPrediction = true;
+      this.showAccuracy = true;
     });
 
     console.log(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_name=' +
@@ -105,6 +112,7 @@ export class FeaturePredictionComponent implements OnInit {
   }
 
   onSubmitSendValues() {
+    this.showPrediction = true;
     let count = 0;
     const inputValues = [];
     this.columnHeaders.forEach(element => {

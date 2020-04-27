@@ -1,8 +1,11 @@
-<div class="  top"></div>
+<div class="  top">
+  <mat-spinner value="100" class="spinner" color="warn" *ngIf="showSpinner"></mat-spinner>
+</div>
 <div class="bottom">
+
   <mat-card class="mat-card-background">
 <div class="main">
-  <div class="upload-form">
+  <div class="upload-form" [hidden]="showSpinner">
     <mat-card-title class="heading">Upload Dataset</mat-card-title> <br>
     <mat-card-subtitle class="subheading" >Upload your own dataset </mat-card-subtitle>
       <form [formGroup]="uploadDetailsFormGroup">
@@ -66,6 +69,7 @@
       <br>
       <button mat-raised-button class="button"  color="primary" (click)="uploadDataset()" [disabled]="this.uploadInProgress || this.uploadDetailsFormGroup.invalid">Submit</button>
       <button mat-raised-button class="button"  type="reset"  mat-button (click)="onReset()" >Reset</button>
+
   </div>
   </div>
   </mat-card>
