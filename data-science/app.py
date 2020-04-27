@@ -32,7 +32,7 @@ from pandas.io.json import json_normalize
 
 from linear_regression import linear_regression_anaylsis,linear_model_prediction
 from support_vector_machine import trainSVM,svm_model_prediction
-
+from random_forrest import train_random_forrest_model,rf_model_prediction
 @app.route('/')
 def hello_world():
 
@@ -63,6 +63,8 @@ def select():
          res = linear_regression_anaylsis(new_column_list,new_prediction_column)
     elif(algorithm == "svm"):
          res = trainSVM(new_column_list,new_prediction_column)
+    elif(algorithm == "rf"):
+         res = train_random_forrest_model(new_column_list, new_prediction_column)
     res = jsonify(res)
     res.status_code = 200
     return res
@@ -81,7 +83,10 @@ def get_prediction():
         x = [values]
         x = np.asfarray(x, float)
         res = linear_model_prediction(x)
-
+    elif(dataset_type == "rf"):
+        x = [values]
+        x = np.asfarray(x, float)
+        res = rf_model_prediction(x)
     string_result = str(res[0]).strip("[").strip("]")
     return string_result
 
