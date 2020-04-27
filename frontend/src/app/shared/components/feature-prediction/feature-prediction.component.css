@@ -19,13 +19,12 @@ h1{
 }
 
 mat-card{
-  background-color: white;
-  width: 60vh;
+  width: 40%;
   height: 100%;
-  margin: 10vh ;
+  margin: 8vh auto;
 }
 .select-predictor mat-form-field{
-  width: 100%;
+  width: 80%;
 }
 .radio-group{
   display: flex;
@@ -48,9 +47,10 @@ button:hover{
   margin-bottom: 30px;
 }
 
-table{
-  margin: auto;
+.user-input mat-form-field{
+  margin-left: 5%;
+  width: 40%;
 }
-.user-input mat-form-field, button{
-  margin-left: 35px;
+.user-input button{
+  margin-left: 5%;
 }

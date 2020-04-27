@@ -4,71 +4,55 @@
     <h1>Feature Prediction</h1>
     <mat-divider></mat-divider>
   </div>
-  <div class="card-container">
-  <table>
-    <tr>
-      <td>
-        <mat-card class="train-model">
-          <mat-card-title>Train Model</mat-card-title>
-          <div class="step-one">
-            <div class="step-one-sub">
-              <div class="select-algorithm">
-                <form [formGroup]="sendDataFormGroup" (ngSubmit)="onSubmit()">
-                  <div class="select-algorithm">
-                    <label id="radio-group-label"> Select an algorithm</label><br>
-                    <mat-radio-group class="radio-group" aria-label="Select an option" required formControlName="selectAlgorithm">
-                      <mat-radio-button name="algorithm" value="svm">Support Vector Machine</mat-radio-button>
-                      <mat-radio-button name="algorithm" value="linear-regression">Linear Regression</mat-radio-button>
-                      <mat-radio-button name="algorithm" value="random-forest">Random Forest</mat-radio-button>
-                    </mat-radio-group>
-                  </div>
-                  <div class="select-predictor">
-                    <mat-form-field appearance="outline">
-                      <mat-label>Select Predictor</mat-label>
-                      <mat-select required formControlName="column">
-                        <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
-                          {{columns}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                </form>
-                {{this.accuracy | json}}
-                <button mat-button (click)="onSubmit()" [disabled]="this.sendDataFormGroup.invalid">Submit</button>
-              </div>
-              <div class="show-accuracy-result"></div>
-            </div>
+  <div class="step-one">
+    <div class="step-one-sub">
+      <mat-card class="train-model">
+        <mat-card-title>Train Model</mat-card-title>
+        <form [formGroup]="sendDataFormGroup" (ngSubmit)="onSubmit()">
+          <div class="select-algorithm">
+            <label id="radio-group-label"> Select an algorithm</label><br>
+            <mat-radio-group class="radio-group" aria-label="Select an option" required formControlName="selectAlgorithm">
+              <mat-radio-button name="algorithm" value="svm">Support Vector Machine</mat-radio-button>
+              <mat-radio-button name="algorithm" value="linear-regression">Linear Regression</mat-radio-button>
+              <mat-radio-button name="algorithm" value="random-forest">Random Forest</mat-radio-button>
+            </mat-radio-group>
           </div>
-        </mat-card>
-      </td>
-      <td>
-        <mat-card> <mat-card-title>Example 1</mat-card-title><br></mat-card>
-      </td>
-    </tr>
-    <tr>
-      <td>
+          <div class="select-predictor">
+            <mat-form-field>
+              <mat-label>Select Predictor</mat-label>
+              <mat-select required formControlName="column">
+                <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
+                  {{columns}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+        {{this.accuracy | json}}
+        <button mat-button (click)="onSubmit()" [disabled]="this.sendDataFormGroup.invalid">Submit</button>
+      </mat-card>
+    </div>
+    <div class="show-accuracy-result">
+      <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br></mat-card>
+    </div>
+  </div>
+  <div class="step-two">
+    <div class="step-two-sub">
+      <div class="user-input">
         <mat-card class="select-features">
           <mat-card-title>Select features</mat-card-title>
-          <div class="step-two">
-        <div class="step-two-sub">
-          <div class="user-input">
-            <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
-              <mat-form-field class="field" *ngFor="let columns of columnHeaders" appearance="outline">
-                <mat-label>{{columns}}</mat-label>
-                <input matInput type="number" [formControlName]="columns"/>
-              </mat-form-field>
-            </form>
-            <button mat-button (click)="onSubmitSendValues()" [disabled]="this.userInput.invalid">Submit</button>
-          </div>
-          <div class="user-result"></div>
-        </div>
-      </div>
+          <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
+            <mat-form-field class="field" *ngFor="let columns of columnHeaders">
+              <mat-label>{{columns}}</mat-label>
+              <input matInput type="number" [formControlName]="columns"/>
+            </mat-form-field>
+          </form>
+          <button mat-button (click)="onSubmitSendValues()" [disabled]="this.userInput.invalid">Submit</button>
         </mat-card>
-      </td>
-      <td>
-        <mat-card> <mat-card-title>Example 2</mat-card-title><br></mat-card>
-      </td>
-    </tr>
-  </table>
+      </div>
+      <div class="user-result">
+        <mat-card> <mat-card-title>User Result</mat-card-title><br></mat-card>
+      </div>
+    </div>
   </div>
 </div>
