@@ -42,6 +42,19 @@ export class DataSetComponent implements OnInit {
         this.mappedArray.push(keyValueArray);
         ++count;
       });
+
+      const xArray = [];
+      const yArray = [];
+
+      this.dataset[0].forEach(x => {
+
+        xArray.push(x['District']);
+        yArray.push(x['1AB']);
+      });
+
+      console.log( 'xArray', xArray);
+      console.log('yArray', yArray);
+
       console.log('mapped Array: item 1', this.mappedArray[0]);
 
       console.log('Items in Mapped Array item 01');
