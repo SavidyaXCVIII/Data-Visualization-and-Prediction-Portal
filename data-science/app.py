@@ -5,7 +5,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 import ast
 from mongodb_connection import MongoDBConnection
-from models import AL_prediction_model
 app = Flask(__name__)
 
 import pandas as pd
@@ -47,7 +46,7 @@ def hello_world():
 @app.route('/select_features_predictors', methods=['GET'])
 @cross_origin()
 def select():
-
+    dataset_id = request.args.get('dataset_id')
     dataset_name = request.args.get('dataset_name')
     algorithm = request.args.get('algorithm')
     prediction_column = request.args.get("prediction_column")
@@ -60,7 +59,7 @@ def select():
     new_prediction_column = prediction_column.split(",")
     print(new_column_list,new_prediction_column)
     if(algorithm ==  "linear"):
-         res = linear_regression_anaylsis(new_column_list,new_prediction_column)
+         res = linear_regression_anaylsis(new_column_list,new_prediction_column,dataset_id)
     elif(algorithm == "svm"):
          res = trainSVM(new_column_list,new_prediction_column)
     elif(algorithm == "rf"):

@@ -11,8 +11,8 @@ import joblib
 #r squared : R-squared is a statistical measure of how close the data are to the fitted regression line.
 #t values :
 
-def linear_regression_anaylsis(x,y):
-    dataframe_csv = pd.read_csv("2015_to_2018_AL.csv")
+def linear_regression_anaylsis(x,y,dataset_id):
+    dataframe_csv = pd.read_csv("dataset"+str(dataset_id)+".csv")
     print(x)
     x = dataframe_csv[x]
     y = dataframe_csv[y]
@@ -46,16 +46,11 @@ def linear_regression_anaylsis(x,y):
     for i in range(est2.tvalues.shape[0]):
         t_values.append(float(est2.tvalues[i]))
 
-    predictions = []
-    for i in range(regr2.predict(x).shape[0]):
-        predictions.append(float(regr2.predict(x)[i]))
-
 
     results_array = {
         "score": score,
         "coef": coefficients,
         "intercept":  interecept,
-        "predictions": predictions,
         "rsquared": r_squared,
         "tvalues": t_values,
         "sderrors": sd_errors
