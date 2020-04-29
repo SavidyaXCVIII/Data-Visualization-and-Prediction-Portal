@@ -6,10 +6,11 @@ import { MapSlComponent } from './map-sl/map-sl.component';
 import { BarChartCompileComponent } from './bar-chart-compile/bar-chart-compile.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { SelectGraphComponent } from './select-graph/select-graph.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 
 @NgModule({
-  declarations: [MapSlComponent, BarChartCompileComponent, PieChartComponent, SelectGraphComponent],
+  declarations: [MapSlComponent, BarChartCompileComponent, PieChartComponent, SelectGraphComponent, BarChartComponent],
   imports: [
     CommonModule,
     ViewGraphRoutingModule
