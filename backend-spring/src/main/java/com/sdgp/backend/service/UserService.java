@@ -3,30 +3,31 @@ package com.sdgp.backend.service;
 import com.sdgp.backend.model.User;
 import com.sdgp.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
+@Service
 public class UserService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
 
-    public User save(User user) {
-        return userRepository.saveAndFlush(user);
+    public User findUser(String email) {
+
+        return userRepository.findByEmail(email);
+
     }
 
-    public User update(User user) {
-        return userRepository.save(user);
+    public void saveUser(User user) {
+        user.setEmail(user.getEmail());
+        user.setPassword(user.getPassword());
+        user.setFullName(user.getFullName());
+        user.setCompanyName(user.getCompanyName());
+        user.setPhone(user.getPhone());
+        userRepository.save(user);
     }
-
-    public User find(String email) {
-        return userRepository.findOneByEmail(email);
-    }
-
-    /*public User find(Long id) {
-        return userRepository.findOne(id);
-    }*/
 
 }

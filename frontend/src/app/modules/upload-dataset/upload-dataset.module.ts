@@ -12,7 +12,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import {MatProgressSpinnerModule} from '@angular/material';
+import { UploadSnackBarComponent } from './upload/upload-snack-bar/upload-snack-bar.component';
+import {LogInComponent} from '../../shared/components/log-in/log-in.component';
 
 @NgModule({
   declarations: [UploadComponent],
@@ -27,7 +29,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatDividerModule,
     MatDatepickerModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ]
 })
 export class UploadDatasetModule { }

@@ -80,5 +80,14 @@ mat-form-field {
   text-align: center;
 }
 
+.mat-spinner {
+  z-index: 10;
+}
 
+.spinner {
+  z-index: 10;
+  margin: auto;
+  position: sticky;
+  top: 10vh;
 
+}

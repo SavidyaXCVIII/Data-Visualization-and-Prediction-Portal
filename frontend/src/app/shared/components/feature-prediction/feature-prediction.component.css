@@ -1,10 +1,78 @@
 .top {
   position: relative;
-  height: 70vh;
+  height: 80vh;
+  background-color: #A9A9A9;
   background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+}
+h1{
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 10%;
+}
+.step-one {
+  margin-top: 1%;
 }
 
 .bottom {
   position: absolute;
-  top: 20vh;
+  top: 10px;
+  width: 100%;
+  height: 90vh;
 }
+
+mat-card{
+  width: 60%;
+  height: 100%;
+  margin: 8vh auto;
+}
+.select-predictor mat-form-field{
+  width: 50%;
+}
+.select-algorithm {
+  width: 50%;
+  margin: 20px;
+}
+.select-predictor {
+  width: 50%;
+  margin: 20px;
+}
+
+.train-model {
+  margin: auto;
+}
+
+.radio-group{
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+}
+mat-radio-button{
+  margin: 5px;
+}
+button{
+  background-color: #189ad3;
+  color: white;
+  margin-left: 20px;
+}
+
+.mat-card-title{
+  text-align:center;
+  color: #006286;
+  margin-bottom: 30px;
+}
+
+.user-input mat-form-field{
+  width: 45%;
+  margin: 0 2.5% 0 2.5%;
+}
+
+.user-input button{
+  margin-left: 5%;
+}
+
+.show-accuracy-result {
+
+}
+
+

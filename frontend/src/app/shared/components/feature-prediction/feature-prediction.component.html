@@ -1,35 +1,58 @@
 <div class="top"></div>
 <div class="bottom">
+  <div class="header">
+    <h1>Feature Prediction</h1>
+    <mat-divider></mat-divider>
+  </div>
   <div class="step-one">
     <div class="step-one-sub">
-      <form [formGroup]="selectFeatures" (ngSubmit)="onSubmit()">
-        <div class="select-algorithm">
-          <mat-radio-group aria-label="Select an option" [(ngModel)]="algorithm" required formControlName="algorithm">
-            <mat-radio-button value="svm">Support Vector Machine</mat-radio-button>
-            <mat-radio-button value="linear-regression">Linear Regression</mat-radio-button>
-            <mat-radio-button value="random-forest">Random Forest</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div class="select-predictor">
-          <mat-form-field>
-            <mat-label>Favorite food</mat-label>
-            <mat-select [(ngModel)]="column" required formControlName="column">
-              <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
-                {{columns}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </form>
-      <button mat-button (click)="onSubmit()">Submit</button>
-      <!--      <div class="user-input">-->
-      <!--        <form class="user-input-form" [formGroup]="userInput">-->
-      <!--          <mat-form-field class="field" *ngFor="let columns of columnHeaders">-->
-      <!--            <mat-label>{{columns}}</mat-label>-->
-      <!--            <input matInput placeholder=""/>-->
-      <!--          </mat-form-field>-->
-      <!--        </form>-->
-      <!--      </div>-->
+      <mat-card class="train-model">
+        <mat-card-title>Train Model</mat-card-title>
+        <form [formGroup]="sendDataFormGroup" (ngSubmit)="onSubmit()">
+          <div class="select-algorithm">
+            <label id="radio-group-label"> Select an algorithm</label><br>
+            <mat-radio-group class="radio-group" aria-label="Select an option" required formControlName="selectAlgorithm">
+              <mat-radio-button name="algorithm" value="svm">Support Vector Machine</mat-radio-button>
+              <mat-radio-button name="algorithm" value="linear-regression">Linear Regression</mat-radio-button>
+              <mat-radio-button name="algorithm" value="random-forest">Random Forest</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="select-predictor">
+            <mat-form-field >
+              <mat-label>Select Predictor</mat-label>
+              <mat-select required formControlName="column" >
+                <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
+                  {{columns}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+        {{this.accuracy | json}}
+        <button mat-button (click)="onSubmit()" [disabled]="this.sendDataFormGroup.invalid">Submit</button>
+      </mat-card>
+    </div>
+    <div class="show-accuracy-result" *ngIf="showAccuracy">
+      <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br></mat-card>
+    </div>
+  </div>
+  <div class="step-two">
+    <div class="step-two-sub">
+      <div class="user-input" *ngIf="showGetPrediction">
+        <mat-card class="select-features">
+          <mat-card-title>Select features</mat-card-title>
+          <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
+            <mat-form-field class="field" *ngFor="let columns of columnHeaders">
+              <mat-label>{{columns}}</mat-label>
+              <input matInput type="number" [formControlName]="columns"/>
+            </mat-form-field>
+          </form>
+          <button mat-button (click)="onSubmitSendValues()" [disabled]="this.userInput.invalid">Submit</button>
+        </mat-card>
+      </div>
+      <div class="user-result" *ngIf="showPrediction">
+        <mat-card> <mat-card-title>User Result</mat-card-title><br></mat-card>
+      </div>
     </div>
   </div>
 </div>
