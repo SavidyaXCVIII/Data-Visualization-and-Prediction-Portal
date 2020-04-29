@@ -11,10 +11,6 @@ export class Dataset {
 export interface DataModel {
   District: string;
   number_sat: number;
-  passed_all: number;
-  passed_all_subject_perc: number;
-  failed_all: number;
-  failed_all_subject_perc: number;
 }
 
 export interface DataModel {
