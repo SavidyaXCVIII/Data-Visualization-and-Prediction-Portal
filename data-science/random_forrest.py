@@ -4,8 +4,8 @@ import pandas as pd
 import numpy as np
 import joblib
 
-def train_random_forrest_model(X, Y):
-    df = pd.read_csv("train.csv")
+def train_random_forrest_model(X, Y,dataset_id):
+    df = pd.read_csv("dataset"+str(dataset_id)+".csv")
     rf = RandomForestClassifier(n_estimators=100, random_state=0)
     X = df[X].values
     X = np.nan_to_num(X)
