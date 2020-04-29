@@ -1,9 +1,58 @@
-.container {
-  height: 100vh;
-  width: 100vw;
 
+.top {
+  position: relative;
+  height: 80vh;
+  background-color: #A9A9A9;
+  background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
+}
+.bottom {
+  position: absolute;
+  top: 10vh;
+  width: 100%;
+  height: 90vh;
 }
 
-.button {
-  margin-top: 100px;
+.graph-type{
+  display: flex;
+}
+.line-one, .line-two, .line-three{
+  max-width: 25%;
+  flex-basis: 50%;
+  margin: auto;
+}
+mat-card{
+  margin-bottom: 10vh;
+  height: 15vh;
+}
+mat-card-title{
+  font-size: 4vh;
+  color: #006286;
+}
+.show-graph{
+  max-width: 100%;
+  background-color: #4d4d4d;
+}
+.icon{
+  margin-left: 50%;
+}
+mat-icon{
+  font-size: 12vh;
+}
+.bar{
+  color: rgba(176, 26, 21, 0.94);
+}
+.line{
+  color: #3da9b6;
+}
+.donut{
+  color: green;
+}
+.pie{
+  color: #202a78;
+}
+.polar{
+  color: purple;
+}
+.radar{
+  color: orange;
 }

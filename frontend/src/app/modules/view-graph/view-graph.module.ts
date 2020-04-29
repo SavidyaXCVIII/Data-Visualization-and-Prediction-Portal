@@ -8,6 +8,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { SelectGraphComponent } from './select-graph/select-graph.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import {ChartsModule} from 'ng2-charts';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import {ChartsModule} from 'ng2-charts';
   imports: [
     CommonModule,
     ViewGraphRoutingModule,
-    ChartsModule
+    ChartsModule,
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class ViewGraphModule { }
