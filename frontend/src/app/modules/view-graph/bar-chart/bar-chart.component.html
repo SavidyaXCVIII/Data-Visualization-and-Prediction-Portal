@@ -1,1 +1,9 @@
-<p>bar-chart works!</p>
+<div class="chart-main">
+  <canvas height="40vh" width="80vw" baseChart
+          [datasets]="barChartData"
+          [labels]="barChartsLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+</div>
+

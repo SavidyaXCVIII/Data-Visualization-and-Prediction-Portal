@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MapSlComponent} from './map-sl/map-sl.component';
 import {PieChartComponent} from './pie-chart/pie-chart.component';
 import {SelectGraphComponent} from './select-graph/select-graph.component';
+import {BarChartComponent} from './bar-chart/bar-chart.component';
 
 
 const routes: Routes = [
@@ -11,8 +11,8 @@ const routes: Routes = [
     component: SelectGraphComponent
   },
   {
-    path: 'map',
-    component: MapSlComponent
+    path: 'bar',
+    component: BarChartComponent
   },
   {
     path: 'pie-chart',
