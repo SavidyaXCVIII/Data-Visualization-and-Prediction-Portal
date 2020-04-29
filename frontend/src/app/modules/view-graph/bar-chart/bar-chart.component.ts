@@ -11,9 +11,10 @@ import { HttpClient } from '@angular/common/http';
 export class BarChartComponent {
 
   data: Observable<DataModel>;
+  datasetname='./assets/data.json';
 
   constructor(private http: HttpClient) {
-    this.data = this.http.get<DataModel>('./assets/data.json');
+    this.data = this.http.get<DataModel>(this.datasetname);
   }
 
 }
