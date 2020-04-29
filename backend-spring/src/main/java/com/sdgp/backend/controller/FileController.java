@@ -81,6 +81,6 @@ public class FileController {
             e.printStackTrace();
         }
 
-        return ResponseEntity.ok(new ResponseDTO<>(Boolean.FALSE, "Name : " + dataFile.getName() + ",Size :" + dataFile.getSize() + ", ContentType : " + dataFile.getContentType()));
+        return ResponseEntity.ok(new ResponseDTO<>(Boolean.TRUE, "Name : " + dataFile.getName() + ",Size :" + dataFile.getSize() + ", ContentType : " + dataFile.getContentType()));
     }
 }

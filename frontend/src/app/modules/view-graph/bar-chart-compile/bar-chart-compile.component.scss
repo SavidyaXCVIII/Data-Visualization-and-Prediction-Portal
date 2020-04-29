@@ -1,4 +1,4 @@
-bar-chart-bar-chart-compile {
+app-bar-chart-compile {
     #chart {
         height: inherit;
         width: inherit;
@@ -6,11 +6,11 @@ bar-chart-bar-chart-compile {
         .bar {
             fill: #2565ff;
         }
-        
+
         .bar:hover {
             fill: #9249ff;
         }
-        
+
         .axis--x path {
             display: none;
         }
