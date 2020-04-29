@@ -8,10 +8,23 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { SelectGraphComponent } from './select-graph/select-graph.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import {ChartsModule} from 'ng2-charts';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
+import { RadarChartComponent } from './radar-chart/radar-chart.component';
+import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.component';
 
 
 @NgModule({
-  declarations: [MapSlComponent, BarChartCompileComponent, PieChartComponent, SelectGraphComponent, BarChartComponent],
+  declarations: [
+    MapSlComponent,
+    BarChartCompileComponent,
+    PieChartComponent,
+    SelectGraphComponent,
+    BarChartComponent,
+    LineChartComponent,
+    DoughnutChartComponent,
+    RadarChartComponent,
+    PolarAreaChartComponent],
   imports: [
     CommonModule,
     ViewGraphRoutingModule,
