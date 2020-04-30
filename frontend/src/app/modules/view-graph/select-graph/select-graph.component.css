@@ -11,7 +11,16 @@
   width: 100%;
   height: 90vh;
 }
-
+.header{
+   height: 10vh;
+ }
+h1{
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 0;
+}
 .graph-type{
   display: flex;
 }
@@ -34,30 +43,19 @@ mat-card-title{
 .icon{
   margin-left: 60%;
   margin-top: -10%;
+  color: #006286;
 }
 mat-icon{
   font-size: 14vh;
 }
 .bar{
-  color: #0B132B;
   font-size: 16vh;
 }
 .line{
   font-size: 16vh;
-  color: #13505B;
-}
-.donut{
-  color: #3A506B;
-}
-.pie{
-  color: #1e3685;
-}
-.polar{
-  color: #0C7489;
 }
 .radar{
   font-size: 16vh;
-  color: #119DA4;
 }
 .show-graph {
   background: white;

@@ -1,5 +1,9 @@
 <div class="top"></div>
 <div class="bottom">
+  <div class="header">
+    <h1>{{dataset.datasetName}} - {{dataset.year}}</h1>
+    <mat-divider></mat-divider>
+  </div>
   <div class="graph-type">
     <div class="line-one">
       <mat-card (click)="loadBarChart(); scroll(target);">
