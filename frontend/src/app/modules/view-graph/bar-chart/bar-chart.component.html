@@ -9,27 +9,38 @@
           [chartType]="barChartType">
     </canvas>
     </mat-card>
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize">
+    </mat-paginator>
   </div>
   <div class="chart-sub">
     <mat-card class="card-two">
+      <form [formGroup]="generateGraphForm">
       <mat-card-title>Select Columns</mat-card-title>
     <div class="select-column">
       <mat-form-field appearance="outline">
         <mat-label>Favorite food</mat-label>
-        <mat-select>
+        <mat-select required formControlName="xAxis" #x (selectionChange)="getValues()">
+          <mat-option *ngFor="let column of columnHeaders" [value]="column">
+            {{column}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="select-column">
       <mat-form-field appearance="outline">
         <mat-label>Favorite food</mat-label>
-        <mat-select>
+        <mat-select required formControlName="yAxis"  (selectionChange)="getValues()">
+          <mat-option *ngFor="let column of columnHeaders" [value]="column">
+            {{column}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="submit-button">
-      <button mat-button >Submit</button>
-    </div>
+<!--    <div class="submit-button">-->
+<!--      <button mat-button >Submit</button>-->
+<!--    </div>-->
+      </form>
     </mat-card>
   </div>
 
