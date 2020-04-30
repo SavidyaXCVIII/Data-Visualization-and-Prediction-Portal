@@ -24,6 +24,10 @@ mat-card{
   margin-bottom: 10vh;
   height: 15vh;
 }
+mat-card:hover{
+  box-shadow: -1px 10px 29px 0 rgba(0,0,0,0.8);
+}
+
 mat-card-title{
   font-size: 3vh;
 }
