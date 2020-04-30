@@ -14,6 +14,9 @@ import { RadarChartComponent } from './radar-chart/radar-chart.component';
 import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import {MatIconModule} from '@angular/material/icon';
     ViewGraphRoutingModule,
     ChartsModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class ViewGraphModule { }
