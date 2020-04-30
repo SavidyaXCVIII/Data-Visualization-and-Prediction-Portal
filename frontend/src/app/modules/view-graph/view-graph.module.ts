@@ -19,6 +19,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {MatPaginatorModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatDividerModule} from "@angular/material/divider";
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     MatPaginatorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule
   ]
 })
 export class ViewGraphModule { }

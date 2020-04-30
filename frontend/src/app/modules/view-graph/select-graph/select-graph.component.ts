@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {DataModel} from '../../../models/dataset';
+import {DataModel, Dataset} from '../../../models/dataset';
 import {HttpClient} from '@angular/common/http';
+import {GlobalService} from '../../../services/global.service';
 
 @Component({
   selector: 'app-select-graph',
@@ -18,11 +19,13 @@ export class SelectGraphComponent implements OnInit {
   radarChart = false;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private globalService: GlobalService) {
     // this.data = this.http.get<DataModel>('./assets/data.json');
   }
+  dataset = new Dataset();
 
   ngOnInit() {
+    this.dataset = this.globalService.getSampleData();
   }
 
   loadBarChart() {
