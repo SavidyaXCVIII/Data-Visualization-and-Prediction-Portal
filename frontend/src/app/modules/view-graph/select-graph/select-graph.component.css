@@ -56,7 +56,5 @@ mat-icon{
   color: #119DA4;
 }
 .show-graph {
-  height: 100vh;
-  display: block;
   background: white;
 }
