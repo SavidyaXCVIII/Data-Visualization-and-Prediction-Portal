@@ -25,38 +25,36 @@ mat-card{
   height: 15vh;
 }
 mat-card-title{
-  font-size: 4vh;
-  color: #006286;
-}
-.show-graph{
-  max-width: 100%;
-  background-color: #4d4d4d;
+  font-size: 3vh;
 }
 .icon{
-  margin-left: 50%;
+  margin-left: 60%;
+  margin-top: -10%;
 }
 mat-icon{
-  font-size: 12vh;
+  font-size: 14vh;
 }
 .bar{
-  color: rgba(176, 26, 21, 0.94);
+  color: #0B132B;
+  font-size: 16vh;
 }
 .line{
-  color: #3da9b6;
+  font-size: 16vh;
+  color: #13505B;
 }
 .donut{
-  color: green;
+  color: #3A506B;
 }
 .pie{
-  color: #202a78;
+  color: #1e3685;
 }
 .polar{
-  color: purple;
+  color: #0C7489;
 }
 .radar{
-  color: orange;
+  font-size: 16vh;
+  color: #119DA4;
 }
-
 .show-graph {
   height: 100vh;
   display: block;

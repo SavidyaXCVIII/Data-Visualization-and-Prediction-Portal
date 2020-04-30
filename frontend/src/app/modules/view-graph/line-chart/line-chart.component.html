@@ -1,8 +1,36 @@
-<div class="chart-main">
-  <canvas height="40vh" width="80vw" baseChart
-          [datasets]="lineChartData"
-          [labels]="lineChartsLabels"
-          [options]="lineChartOptions"
-          [legend]="lineChartLegend"
-          [chartType]="lineChartType"></canvas>
+<div class="main-container">
+  <div class="chart-main">
+    <mat-card class="card-one">
+      <canvas height="40vh" width="80vw" baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartsLabels"
+              [options]="lineChartOptions"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType">
+      </canvas>
+    </mat-card>
+  </div>
+  <div class="chart-sub">
+    <mat-card class="card-two">
+      <mat-card-title>Select Columns</mat-card-title>
+      <div class="select-column">
+        <mat-form-field appearance="outline">
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="select-column">
+        <mat-form-field appearance="outline">
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="submit-button">
+        <button mat-button >Submit</button>
+      </div>
+    </mat-card>
+  </div>
+
 </div>

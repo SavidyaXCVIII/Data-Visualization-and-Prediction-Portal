@@ -1,4 +1,29 @@
 .chart-main {
-  width: 50vw;
-  height: 50vh;
+  width: 70%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 3%;
+  margin-top: 10vh;
+}
+
+.chart-sub{
+  float: left;
+  width: 20%;
+  margin-top: 10vh;
+}
+.select-column, .submit-button{
+  margin-left: 10%;
+}
+.select-column{
+  margin-top: 10%;
+}
+button{
+  background-color: #189ad3;
+  color: white;
+}
+mat-card{
+  height: 60vh;
+}
+mat-card-title{
+  text-align: center;
 }
