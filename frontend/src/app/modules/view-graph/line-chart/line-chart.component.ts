@@ -15,7 +15,7 @@ export class LineChartComponent implements OnInit {
     responsive: true,
   };
   public lineChartLegend = true;
-  public lineChartType = 'bar';
+  public lineChartType = 'line';
 
   constructor() { }
 

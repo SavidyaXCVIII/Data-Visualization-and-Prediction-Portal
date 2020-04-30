@@ -2,39 +2,44 @@
 <div class="bottom">
   <div class="graph-type">
     <div class="line-one">
-      <mat-card>
+      <mat-card (click)="loadBarChart(); scroll(target);">
         <div class="name"><mat-card-title>Bar Chart</mat-card-title></div>
         <div class="icon"><mat-icon class="bar">bar_chart</mat-icon></div>
       </mat-card>
-      <mat-card>
+      <mat-card (click)="loadLineChart(); scroll(target);">
         <div class="name"><mat-card-title>Line Chart</mat-card-title></div>
         <div class="icon"><mat-icon class="line">timeline</mat-icon></div>
       </mat-card>
     </div>
     <div class="line-two">
-      <mat-card>
+      <mat-card (click)="loadDoughnutChart(); scroll(target);">
         <div class="name"><mat-card-title>Doughnut Chart</mat-card-title></div>
         <div class="icon"><mat-icon class="donut">trip_origin</mat-icon></div>
       </mat-card>
-      <mat-card>
+      <mat-card (click)="loadPieChart(); scroll(target);">
         <div class="name"><mat-card-title>Pie Chart</mat-card-title></div>
         <div class="icon"><mat-icon class="pie">pie_chart</mat-icon></div>
       </mat-card>
 
     </div>
     <div class="line-three">
-      <mat-card>
+      <mat-card (click)="loadPolarChart(); scroll(target);">
         <div class="name"><mat-card-title>Polar Chart</mat-card-title></div>
         <div class="icon"><mat-icon class="polar">scatter_plot</mat-icon></div>
       </mat-card>
-      <mat-card>
+      <mat-card (click)="loadRadarChart(); scroll(target);">
         <div class="name"><mat-card-title>Radar Chart</mat-card-title></div>
         <div class="icon"><mat-icon class="radar">multiline_chart</mat-icon></div>
       </mat-card>
     </div>
   </div>
-  <div class="show-graph">
-
+  <div class="show-graph" #target>
+    <app-bar-chart *ngIf="barChart"></app-bar-chart>
+    <app-line-chart *ngIf="lineChart"></app-line-chart>
+    <app-doughnut-chart *ngIf="doughnutChart"></app-doughnut-chart>
+    <app-pie-chart *ngIf="pieChart"></app-pie-chart>
+    <app-polar-area-chart *ngIf="polarChart"></app-polar-area-chart>
+    <app-radar-chart *ngIf="radarChart"></app-radar-chart>
   </div>
 </div>
 

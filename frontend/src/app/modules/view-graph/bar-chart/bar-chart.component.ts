@@ -17,17 +17,20 @@ export class BarChartComponent implements OnInit {
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
-    duration: 10000
   };
 
   public barChartLegend = true;
 
   public barChartType = 'bar';
+  show = false;
 
   constructor() {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.show = true;
+    }, 400);
   }
 
 }

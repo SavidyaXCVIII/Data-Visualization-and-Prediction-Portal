@@ -1,1 +1,10 @@
+<div class="chart-main">
+  <canvas *ngIf="show" height="40vh" width="80vw" baseChart
+          [datasets]="barChartData"
+          [labels]="barChartsLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+</div>
+
 <p>radar-chart works!</p>

@@ -1,5 +1,5 @@
 <div class="chart-main">
-  <canvas height="40vh" width="80vw" baseChart
+  <canvas *ngIf="show" height="40vh" width="80vw" baseChart
           [datasets]="barChartData"
           [labels]="barChartsLabels"
           [options]="barChartOptions"
