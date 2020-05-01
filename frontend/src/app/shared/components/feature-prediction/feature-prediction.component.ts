@@ -17,7 +17,7 @@ export class FeaturePredictionComponent implements OnInit {
   }
 
 
-  readonly ROOT_URL_FLASK = 'http://127.0.0.1:5000';
+  readonly ROOT_URL_FLASK = 'http://localhost:5000';
   readonly ROOT_URL = 'http://localhost:8080';
   chosenDataset = new Dataset();
   datasetId;
@@ -25,13 +25,15 @@ export class FeaturePredictionComponent implements OnInit {
   dataset: any[];
   mappedArray: any[] = [];
   columnHeaders: string[];
-  private data: { prediction_column: string; dataset_name: string; column_list: string[]; algorithm: string };
+  columnHeaderML: string[] = [];
+  private data: { prediction_column: string; dataset_name: string; column_list: string[]; algorithm: string; dataset_id: number };
   accuracy: any;
   sendDataFormGroup: FormGroup;
   userInput: FormGroup;
   showAccuracy = false;
   showPrediction = false;
   showGetPrediction = false;
+
 
   ngOnInit() {
     this.chosenDataset = this.globalService.getSampleData();
@@ -82,32 +84,32 @@ export class FeaturePredictionComponent implements OnInit {
 
 
   onSubmit() {
+    this.columnHeaderML = this.columnHeaders;
+    const index: number = this.columnHeaderML.indexOf(this.sendDataFormGroup.value.column);
+    if (index !== -1) {
+      this.columnHeaderML.splice(index, 1);
+    }
+    // delete this.columnHeaderML[this.sendDataFormGroup.value.column];
 
     this.data = {
+      dataset_id: 1,
       dataset_name: 'Testing',
       algorithm: 'linear',
-      prediction_column: 'pass_all_perc',
-      column_list: ['num_sat', 'fail_all', 'fail_all_perc']
+      prediction_column: 'fail_all_perc',
+      column_list: ['num_sat', 'pass_all', 'pass_all_perc', 'fail_all']
     };
 
     this.getAccuracyResult().subscribe(response => {
       this.accuracy = response;
-      console.log(response);
       this.showGetPrediction = true;
       this.showAccuracy = true;
     });
-
-    console.log(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_name=' +
-      this.data.dataset_name + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
-      this.data.prediction_column + '&column_list=' + this.data.column_list);
-
-
   }
 
   getAccuracyResult() {
     // tslint:disable-next-line:max-line-length
-    return this.http.get(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_name=' +
-      this.data.dataset_name + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
+    return this.http.get(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_id=' +
+      this.data.dataset_id + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
       this.data.prediction_column + '&column_list=' + this.data.column_list);
   }
 
@@ -121,4 +123,6 @@ export class FeaturePredictionComponent implements OnInit {
     });
     console.log(inputValues);
   }
+
+
 }
