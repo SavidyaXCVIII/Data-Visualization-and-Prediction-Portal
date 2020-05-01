@@ -15,14 +15,14 @@
   <table class="example-full-width" cellspacing="1"><tr>
     <td>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Company Name" >
+        <input matInput placeholder="Company Name" required formControlName="company">
       </mat-form-field>
     </td>
     <td>
       <mat-form-field class="example-full-width">
         <mat-label>Telephone</mat-label>
         <span matPrefix>+94 &nbsp;</span>
-        <input type="tel" matInput placeholder="71-121-121" >
+        <input type="tel" matInput placeholder="71-121-121" required formControlName="phone">
         <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
     </td>
@@ -41,7 +41,7 @@
   </form>
 </div>
 
-<button type="button" class="button signup" color="primary" mat-button mat-raised-button >Sign up</button>
+<button type="button" class="button signup" color="primary" (click)="registerUser()" mat-button mat-raised-button >Sign up</button>
 <button class="button reset"  type="reset"  mat-button (click)="onReset()" mat-raised-button >Reset</button>
 <button type="button" class="button close" mat-button mat-raised-button (click)="onClose()" >Close</button>
 

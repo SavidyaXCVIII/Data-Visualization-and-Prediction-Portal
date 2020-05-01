@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import {User} from '../../../models/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -10,7 +12,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CreateAccountComponent implements OnInit {
   createAccountFormGroup: FormGroup;
-  constructor(public dialog: MatDialogRef<CreateAccountComponent>) { }
+  uploadFile = new FormData();
+  user = new User();
+  /*constructor(private http: HttpClient,public dialog: MatDialogRef<CreateAccountComponent>) { }*/
+  constructor(private http: HttpClient, public dialog: MatDialogRef<CreateAccountComponent>) {
+  }
 
   ngOnInit() {
     this.createAccountFormGroup = new FormGroup({
@@ -21,9 +27,20 @@ export class CreateAccountComponent implements OnInit {
     });
   }
 
+  registerUser() {
+    this.user = {...this.createAccountFormGroup.value};
+    this.http.post('&email=' + this.user.email + '&name=' + this.user.fullname +
+      '&company=' + this.user.companyName + '&phone=' + this.user.phone +
+      '&password=' + this.user.password, this.uploadFile).subscribe((val) => {
+      console.log(val);
+      this.onReset();
+    });
+  }
+
   onClose() {
     this.dialog.close();
   }
+
   onReset() {
     this.createAccountFormGroup.reset();
   }
