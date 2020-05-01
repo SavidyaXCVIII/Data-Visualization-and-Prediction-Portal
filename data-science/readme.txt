@@ -5,3 +5,5 @@
 ** how to install **
 pip install pymongo
 pip install -U flask-cors
+
+pip install flask
