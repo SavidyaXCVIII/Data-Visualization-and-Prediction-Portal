@@ -11,6 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,8 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class FileController {
+
+    private static String UPLOADED_FOLDER = "F://temp//";
 
     private static String datasetId;
 
@@ -61,6 +66,10 @@ public class FileController {
                                             @RequestParam String description) {
 
         try {
+//            byte[] bytes = dataFile.getBytes();
+//            Path path = Paths.get(UPLOADED_FOLDER + dataFile.getOriginalFilename());
+//            System.out.println(path.toAbsolutePath());
+//            Files.write(path, bytes);
             bytes = dataFile.getBytes();
             fileService.bytesToJson(bytes, datasetName);
             ByteArrayInputStream inputFilestream = new ByteArrayInputStream(bytes);
