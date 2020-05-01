@@ -24,7 +24,7 @@ from scipy import stats
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
+# from sklearn.compose import ColumnTransformer
 import statsmodels.api as sm
 from pandas.io.json import json_normalize
 
@@ -42,6 +42,17 @@ def hello_world():
     # mongodb_connection.insert_record()
     return 'Hello World!'
 
+@app.route('/isuru')
+def testcsv():
+    mongodb_connection = MongoDBConnection()
+
+    # cursor = mongodb_connection.testData.find({})
+
+    return 'Hello World! my name is Isuru! '
+
+    # mongodb_connection = MongoDBConnection()
+    # mongodb_connection.insert_record()
+    return 'Hello World!'
 
 @app.route('/select_features_predictors', methods=['GET'])
 @cross_origin()
