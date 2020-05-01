@@ -3,6 +3,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 import {User} from '../../../models/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from "@angular/material";
+import {SingnupSnackBarComponent} from "./singnup-snack-bar/singnup-snack-bar.component";
 
 
 @Component({
@@ -11,11 +13,12 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
+  durationInSeconds = 5;
   createAccountFormGroup: FormGroup;
   uploadFile = new FormData();
   user = new User();
   /*constructor(private http: HttpClient,public dialog: MatDialogRef<CreateAccountComponent>) { }*/
-  constructor(private http: HttpClient, public dialog: MatDialogRef<CreateAccountComponent>) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar, public dialog: MatDialogRef<CreateAccountComponent>) {
   }
 
   ngOnInit() {
@@ -33,6 +36,7 @@ export class CreateAccountComponent implements OnInit {
       '&company=' + this.user.companyName + '&phone=' + this.user.phone +
       '&password=' + this.user.password, this.uploadFile).subscribe((val) => {
       console.log(val);
+      this.loadSnackBar();
       this.onReset();
     });
   }
@@ -43,5 +47,11 @@ export class CreateAccountComponent implements OnInit {
 
   onReset() {
     this.createAccountFormGroup.reset();
+  }
+
+  loadSnackBar() {
+    this.snackBar.openFromComponent(SingnupSnackBarComponent, {
+      duration: this.durationInSeconds * 1000
+    });
   }
 }
