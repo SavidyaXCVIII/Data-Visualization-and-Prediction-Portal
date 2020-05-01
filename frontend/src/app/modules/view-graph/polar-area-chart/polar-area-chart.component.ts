@@ -15,19 +15,19 @@ export class PolarAreaChartComponent implements OnInit {
   xArray: string[] = [];
   yArray: number[] = [];
 
-  public polarChartData = [
+  public polarAreaChartData = [
     {data: [], label: ''}
   ];
 
-  public polarChartsLabels = [];
+  public polarAreaChartsLabels = [];
 
-  public polarChartOptions = {
+  public polarAreaChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
   };
 
-  public polarChartLegend = true;
-  public polarChartType = 'polar';
+  public polarAreaChartLegend = true;
+  public polarAreaChartType = 'polarArea';
   show = false;
   length: number;
   pageSize = 10;
@@ -97,8 +97,8 @@ export class PolarAreaChartComponent implements OnInit {
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
       this.length = this.xArray.length;
-      this.polarChartsLabels = this.xArray.slice(0, 10);
-      this.polarChartData = [
+      this.polarAreaChartsLabels = this.xArray.slice(0, 10);
+      this.polarAreaChartData = [
         {data: this.yArray.slice(0, 10), label: this.generateGraphForm.value.yAxis}
       ];
     }
@@ -113,8 +113,8 @@ export class PolarAreaChartComponent implements OnInit {
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
       this.length = this.xArray.length;
-      this.polarChartsLabels = this.xArray.slice(start, end);
-      this.polarChartData = [
+      this.polarAreaChartsLabels = this.xArray.slice(start, end);
+      this.polarAreaChartData = [
         {data: this.yArray.slice(start, end), label: this.generateGraphForm.value.yAxis}
       ];
     }
