@@ -15,7 +15,6 @@
   width: 23%;
   margin-top: 10vh;
 }
-
 button{
   background-color: #189ad3;
   color: white;
@@ -26,3 +25,4 @@ mat-card{
 mat-card-title{
   text-align: center;
 }
+

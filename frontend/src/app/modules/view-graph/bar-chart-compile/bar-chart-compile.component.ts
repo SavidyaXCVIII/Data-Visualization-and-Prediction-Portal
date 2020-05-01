@@ -1,29 +1,32 @@
-import { Component, OnInit, ElementRef, Input, OnChanges, ViewChild, ViewEncapsulation, HostListener } from '@angular/core';
+import {Component, OnInit, ElementRef, Input, OnChanges, ViewChild, ViewEncapsulation, HostListener} from '@angular/core';
 import * as d3 from 'd3';
-import { DataModel } from 'src/app/models/dataset';
+import {DataModel} from 'src/app/models/dataset';
 
 @Component({
-  selector: 'bar-chart-bar-chart-compile',
+  selector: 'app-bar-chart-compile',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './bar-chart-compile.component.html',
   styleUrls: ['./bar-chart-compile.component.scss']
 })
 export class BarChartCompileComponent implements OnChanges {
   // https://github.com/angular/angular/issues/30291
-  //@ViewChild('chart', { read: typeof ElementRef, static: false })
-  @ViewChild('chart', { read: ElementRef, static: true })
+  // @ViewChild('chart', { read: typeof ElementRef, static: false })
+  @ViewChild('chart', {read: ElementRef, static: true})
   private chartContainer: ElementRef;
 
   @Input()
   data: DataModel[];
 
-  //allign chart here
+  // allign chart here
   margin = {top: 200, right: 20, bottom: 30, left: 250};
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnChanges(): void {
-    if (!this.data) { return; }
+    if (!this.data) {
+      return;
+    }
 
     this.createChart();
   }
@@ -35,13 +38,13 @@ export class BarChartCompileComponent implements OnChanges {
   private createChart(): void {
     d3.select('svg').remove();
 
-    //const element = this.chartContainer.nativeElement;
+    // const element = this.chartContainer.nativeElement;
     const element = this.chartContainer.nativeElement;
     const data = this.data;
 
     const svg = d3.select(element).append('svg')
-        .attr('width', 1000)
-        .attr('height', 600);
+      .attr('width', 1000)
+      .attr('height', 600);
 
     const contentWidth = 700;
     const contentHeight = 300;
@@ -66,31 +69,31 @@ export class BarChartCompileComponent implements OnChanges {
       .call(d3.axisBottom(x))
 
       // https://www.youtube.com/watch?v=Fjmxh-gnBM0
-      .selectAll("text")
-      .attr("transform", "rotate(-90)")
-      .attr("dx", "-4em")
-		  .attr("dy", "-.8em")
-      ;
-    
+      .selectAll('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('dx', '-4em')
+      .attr('dy', '-.8em')
+    ;
+
 
     g.append('g')
       .attr('class', 'axis axis--y')
       .call(d3.axisLeft(y).ticks(10))
       .append('text')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', 6)
-        .attr('dy', '0.71em')
-        .attr('text-anchor', 'end')
-        .text('number_sat');
+      .attr('transform', 'rotate(-90)')
+      .attr('y', 6)
+      .attr('dy', '0.71em')
+      .attr('text-anchor', 'end')
+      .text('number_sat');
 
     g.selectAll('.bar')
       .data(data)
       .enter().append('rect')
-        .attr('class', 'bar')
-        .attr('x', d => x(d.District))
-        .attr('y', d => y(d.number_sat))
-        .attr('width', x.bandwidth())
-        .attr('height', d => contentHeight - y(d.number_sat));
+      .attr('class', 'bar')
+      .attr('x', d => x(d.District))
+      .attr('y', d => y(d.number_sat))
+      .attr('width', x.bandwidth())
+      .attr('height', d => contentHeight - y(d.number_sat));
   }
 
 }

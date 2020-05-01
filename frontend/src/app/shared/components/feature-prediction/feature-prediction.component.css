@@ -4,7 +4,7 @@
   background-color: #A9A9A9;
   background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
 }
-h1{
+h1,h3{
   color: white;
   font-weight: 600;
   text-align: left;
