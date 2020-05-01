@@ -21,7 +21,7 @@
       <mat-card-title>Select Columns</mat-card-title>
     <div class="select-column">
       <mat-form-field appearance="outline">
-        <mat-label>Favorite food</mat-label>
+        <mat-label>x-Axis</mat-label>
         <mat-select required formControlName="xAxis" #x (selectionChange)="getValues()">
           <mat-option *ngFor="let column of columnHeaders" [value]="column">
             {{column}}
@@ -31,7 +31,7 @@
     </div>
     <div class="select-column">
       <mat-form-field appearance="outline">
-        <mat-label>Favorite food</mat-label>
+        <mat-label>y-Axis</mat-label>
         <mat-select required formControlName="yAxis"  (selectionChange)="getValues()">
           <mat-option *ngFor="let column of columnHeaders" [value]="column">
             {{column}}
