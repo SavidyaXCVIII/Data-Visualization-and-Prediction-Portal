@@ -3,35 +3,54 @@
     <mat-card class="card-one">
       <mat-card-title>Radar Chart</mat-card-title>
       <canvas *ngIf="show" baseChart
-              [datasets]="barChartData"
-              [labels]="barChartsLabels"
-              [options]="barChartOptions"
-              [legend]="barChartLegend"
-              [chartType]="barChartType">
+              [datasets]="radarChartData"
+              [labels]="radarChartsLabels"
+              [options]="radarChartOptions"
+              [legend]="radarChartLegend"
+              [chartType]="radarChartType">
 
       </canvas>
     </mat-card>
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize"
+                   (page)="pageEvent = $event; setMatPaginator()">
+    </mat-paginator>
   </div>
   <div class="chart-sub">
     <mat-card class="card-two">
-      <mat-card-title>Select Columns</mat-card-title>
-      <div class="select-column">
-        <mat-form-field appearance="outline">
-          <mat-label>Favorite food</mat-label>
-          <mat-select>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="select-column">
-        <mat-form-field appearance="outline">
-          <mat-label>Favorite food</mat-label>
-          <mat-select>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="submit-button">
-        <button mat-button >Submit</button>
-      </div>
+      <form [formGroup]="generateGraphForm">
+        <mat-card-title>Select Columns</mat-card-title>
+        <div class="select-column">
+          <mat-form-field appearance="outline">
+            <mat-label>x-Axis</mat-label>
+            <mat-select required formControlName="xAxis" #x (selectionChange)="getValues()">
+              <mat-option *ngFor="let column of columnHeaders" [value]="column">
+                {{column}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="select-column">
+          <mat-form-field appearance="outline">
+            <mat-label>y-Axis(Axis 1)</mat-label>
+            <mat-select required formControlName="yAxis"  (selectionChange)="getValues()">
+              <mat-option *ngFor="let column of columnHeaders" [value]="column">
+                {{column}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="select-column">
+          <mat-form-field appearance="outline">
+            <mat-label>y-Axis(Axis 2)</mat-label>
+            <mat-select required formControlName="secondYAxis"  (selectionChange)="getValuesSecond()">
+              <mat-option *ngFor="let column2 of columnHeaders" [value]="column2">
+                {{column2}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
     </mat-card>
   </div>
 

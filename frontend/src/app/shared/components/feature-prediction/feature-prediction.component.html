@@ -29,12 +29,23 @@
             </mat-form-field>
           </div>
         </form>
-        {{this.accuracy | json}}
         <button mat-button (click)="onSubmit()" [disabled]="this.sendDataFormGroup.invalid">Submit</button>
       </mat-card>
     </div>
     <div class="show-accuracy-result" *ngIf="showAccuracy">
-      <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br></mat-card>
+      <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br>
+        <p>Coefficient</p>
+        <p *ngFor="let coefNumbers of accuracy.coef">
+          {{coefNumbers}}
+        </p>
+        <p>Intercept : {{accuracy.intercept}}</p>
+        <p>R-squared : {{accuracy.rsquared}}</p>
+        <p>Score : {{accuracy.score}}</p>
+        <p>sderrros</p>
+        <p *ngFor="let errors of accuracy.sderrors">{{errors}}</p>
+        <p>tvalues</p>
+        <p *ngFor="let values of accuracy.tvalues">{{values}}</p>
+      </mat-card>
     </div>
   </div>
   <div class="step-two">
@@ -43,7 +54,7 @@
         <mat-card class="select-features">
           <mat-card-title>Select features</mat-card-title>
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
-            <mat-form-field class="field" *ngFor="let columns of columnHeaders">
+            <mat-form-field class="field" *ngFor="let columns of columnHeaderML">
               <mat-label>{{columns}}</mat-label>
               <input matInput type="number" [formControlName]="columns"/>
             </mat-form-field>
