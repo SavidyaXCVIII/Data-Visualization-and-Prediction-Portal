@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Dataset} from '../../../models/dataset';
 import {HttpClient} from '@angular/common/http';
 import {GlobalService} from '../../../services/global.service';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource, PageEvent} from '@angular/material';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -14,6 +14,7 @@ export class BarChartComponent implements OnInit {
 
   xArray: string[] = [];
   yArray: number[] = [];
+  secondYArray: number[] = [];
 
   public barChartData = [
     {data: [], label: ''}
@@ -31,7 +32,9 @@ export class BarChartComponent implements OnInit {
   public barChartType = 'bar';
   show = false;
   length: number;
-  pageSize: number;
+  pageSize = 10;
+  start: number;
+  end: number;
   chosenDataset = new Dataset();
   datasetId;
   readonly ROOT_URL = 'http://localhost:8080';
@@ -40,6 +43,7 @@ export class BarChartComponent implements OnInit {
   mappedArray: any[] = [];
   columnHeaders: string[];
   generateGraphForm: FormGroup;
+  pageEvent: PageEvent;
 
   constructor(private httpClient: HttpClient, private globalService: GlobalService) {
     this.dataSource = new MatTableDataSource(this.dataSource);
@@ -49,8 +53,9 @@ export class BarChartComponent implements OnInit {
   ngOnInit() {
     // form group settings
     this.generateGraphForm = new FormGroup({
-      xAxis: new FormControl(Validators.required),
-      yAxis: new FormControl(Validators.required)
+      xAxis: new FormControl(undefined, Validators.required),
+      yAxis: new FormControl(undefined, Validators.required),
+      secondYAxis: new FormControl(undefined)
     });
 
     // delay for graph
@@ -105,12 +110,72 @@ export class BarChartComponent implements OnInit {
         this.xArray.push(x[this.generateGraphForm.value.xAxis]);
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
-      this.barChartsLabels = this.xArray;
+      console.log('get values', +this.xArray);
+      this.length = this.xArray.length;
+      this.barChartsLabels = this.xArray.slice(0, 10);
       this.barChartData = [
-        {data: this.yArray, label: this.generateGraphForm.value.yAxis}
+        {data: this.yArray.slice(0, 10), label: this.generateGraphForm.value.yAxis}
       ];
-
     }
   }
+
+  getValuesSecond() {
+    if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis && this.generateGraphForm.value.secondYAxis) {
+      this.secondYArray = [];
+      this.xArray = [];
+      this.dataset[0].forEach(x => {
+        this.xArray.push(x[this.generateGraphForm.value.xAxis]);
+        this.secondYArray.push(x[this.generateGraphForm.value.secondYAxis]);
+      });
+      this.length = this.xArray.length;
+      this.barChartsLabels = this.xArray.slice(0, 10);
+      this.barChartData = [
+        {data: this.yArray.slice(0, 10), label: this.generateGraphForm.value.yAxis},
+        {data: this.secondYArray.slice(0, 10), label: this.generateGraphForm.value.secondYAxis}
+      ];
+    }
+  }
+
+  getValuesCustom(start, end) {
+    if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis) {
+      this.xArray = [];
+      this.yArray = [];
+      this.dataset[0].forEach(x => {
+        this.xArray.push(x[this.generateGraphForm.value.xAxis]);
+        this.yArray.push(x[this.generateGraphForm.value.yAxis]);
+      });
+      console.log('get values', +this.xArray);
+      this.length = this.xArray.length;
+      this.barChartsLabels = this.xArray.slice(start, end);
+      this.barChartData = [
+        {data: this.yArray.slice(start, end), label: this.generateGraphForm.value.yAxis}
+      ];
+    }
+  }
+
+  getValuesCustomSecond(start, end) {
+    if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis && this.generateGraphForm.value.secondYAxis) {
+      this.xArray = [];
+      this.secondYArray = [];
+      this.dataset[0].forEach(x => {
+        this.xArray.push(x[this.generateGraphForm.value.xAxis]);
+        this.secondYArray.push(x[this.generateGraphForm.value.secondYAxis]);
+      });
+      this.length = this.xArray.length;
+      this.barChartsLabels = this.xArray.slice(start, end);
+      this.barChartData = [
+        {data: this.yArray.slice(start, end), label: this.generateGraphForm.value.yAxis},
+        {data: this.secondYArray.slice(start, end), label: this.generateGraphForm.value.secondYAxis}
+      ];
+    }
+  }
+
+  setMatPaginator() {
+    this.end = (this.pageEvent.pageIndex + 1) * this.pageEvent.pageSize;
+    this.start = this.end - (this.pageEvent.pageSize);
+    this.getValuesCustom(this.start, this.end);
+    this.getValuesCustomSecond(this.start, this.end);
+  }
+
 
 }

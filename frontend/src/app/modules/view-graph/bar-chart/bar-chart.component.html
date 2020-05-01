@@ -11,7 +11,8 @@
     </canvas>
     </mat-card>
     <mat-paginator [length]="length"
-                   [pageSize]="pageSize">
+                   [pageSize]="pageSize"
+                   (page)="pageEvent = $event; setMatPaginator()">
     </mat-paginator>
   </div>
   <div class="chart-sub">
@@ -38,6 +39,18 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <div class="select-column">
+      <mat-form-field appearance="outline">
+        <mat-label>Favorite food</mat-label>
+        <mat-select required formControlName="secondYAxis"  (selectionChange)="getValuesSecond()">
+          <mat-option *ngFor="let column2 of columnHeaders" [value]="column2">
+            {{column2}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
 <!--    <div class="submit-button">-->
 <!--      <button mat-button >Submit</button>-->
 <!--    </div>-->
