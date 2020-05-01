@@ -72,17 +72,17 @@ def select():
 @app.route('/get_prediction', methods=['GET'])
 @cross_origin()
 def get_prediction():
-    dataset_type = request.args.get('dataset_type')
+    algorithm = request.args.get('algorithm')
     values = request.args.get("values").split(",")
-    if(dataset_type == "svm"):
+    if(algorithm == "svm"):
         x = [values]
         x = np.asfarray(x, float)
         res = svm_model_prediction(x)
-    elif(dataset_type == "linear"):
+    elif(algorithm == "linear"):
         x = [values]
         x = np.asfarray(x, float)
         res = linear_model_prediction(x)
-    elif(dataset_type == "rf"):
+    elif(algorithm == "rf"):
         x = [values]
         x = np.asfarray(x, float)
         res = rf_model_prediction(x)
