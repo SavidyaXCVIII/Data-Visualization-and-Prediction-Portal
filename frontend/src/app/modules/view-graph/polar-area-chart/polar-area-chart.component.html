@@ -4,11 +4,11 @@
     <mat-card class="card-one">
       <mat-card-title>Polar Chart</mat-card-title>
       <canvas *ngIf="show" baseChart
-              [datasets]="polarChartData"
-              [labels]="polarChartsLabels"
-              [options]="polarChartOptions"
-              [legend]="polarChartLegend"
-              [chartType]="polarChartType">
+              [datasets]="polarAreaChartData"
+              [labels]="polarAreaChartsLabels"
+              [options]="polarAreaChartOptions"
+              [legend]="polarAreaChartLegend"
+              [chartType]="polarAreaChartType">
       </canvas>
     </mat-card>
     <mat-paginator [length]="length"
