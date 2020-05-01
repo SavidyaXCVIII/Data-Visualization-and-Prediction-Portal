@@ -11,7 +11,7 @@ export class ShowDatasetComponent implements OnInit {
 
   constructor(private globalService: GlobalService) {
   }
-  url = '../../../../assets/2018_AL.csv';
+  url = '../../../../assets/';
   fileName: string;
   dataset = new Dataset();
 
