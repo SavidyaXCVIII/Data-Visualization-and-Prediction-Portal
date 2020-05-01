@@ -68,6 +68,7 @@ export class BarChartComponent implements OnInit {
     this.getData().subscribe(response => {
       this.dataSource = response;
     });
+
     this.getData().subscribe(response => {
       this.dataset = Array.of(response);
       console.log('Original Dataset', this.dataset[0]);
@@ -82,19 +83,9 @@ export class BarChartComponent implements OnInit {
         ++count;
       });
 
-      console.log('xArray', this.xArray);
-      console.log('yArray', this.yArray);
-
-      console.log('mapped Array: item 1', this.mappedArray[0]);
-
-      console.log('Items in Mapped Array item 01');
       this.mappedArray[0].forEach(x => console.log(x[0] + ' : ' + x[1]));
-
       this.columnHeaders = this.mappedArray[0].map(x => x[0]);
       this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
-
-      console.log('Column Headers', this.columnHeaders);
-
     });
   }
 
@@ -110,7 +101,6 @@ export class BarChartComponent implements OnInit {
         this.xArray.push(x[this.generateGraphForm.value.xAxis]);
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
-      console.log('get values', +this.xArray);
       this.length = this.xArray.length;
       this.barChartsLabels = this.xArray.slice(0, 10);
       this.barChartData = [
@@ -144,7 +134,6 @@ export class BarChartComponent implements OnInit {
         this.xArray.push(x[this.generateGraphForm.value.xAxis]);
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
-      console.log('get values', +this.xArray);
       this.length = this.xArray.length;
       this.barChartsLabels = this.xArray.slice(start, end);
       this.barChartData = [
@@ -176,6 +165,5 @@ export class BarChartComponent implements OnInit {
     this.getValuesCustom(this.start, this.end);
     this.getValuesCustomSecond(this.start, this.end);
   }
-
 
 }
