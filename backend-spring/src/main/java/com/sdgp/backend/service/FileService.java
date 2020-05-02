@@ -11,11 +11,15 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +29,8 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 public class FileService {
 
     private static int number;
+
+    private static String UPLOADED_FOLDER = "..\\data-science//";
 
     @Autowired
     private DataSetRepository dataSetRepository;
@@ -55,8 +61,9 @@ public class FileService {
         return dataSets;
     }
 
-    public void bytesToJson(byte[] bytes, String datasetName) throws IOException {
-        ByteArrayInputStream inputFilestream = new ByteArrayInputStream(bytes);
+    public void bytesToJson(MultipartFile dataFile, String datasetName) throws IOException {
+
+        ByteArrayInputStream inputFilestream = new ByteArrayInputStream(dataFile.getBytes());
 
 //        creating a JsonObject of a dataset
         if (!mongoTemplate.collectionExists("mongo")){
@@ -94,6 +101,14 @@ public class FileService {
             System.out.println("inserted");
 
         }
+
+        byte[] bytes = dataFile.getBytes();
+        String dataSetName = "";
+        dataSetName = dataSetName + countString + ".csv";
+        System.out.println(dataFile.getOriginalFilename());
+        Path path = Paths.get(UPLOADED_FOLDER + dataSetName);
+        System.out.println(path.toAbsolutePath());
+        Files.write(path, bytes);
     }
 
 }
