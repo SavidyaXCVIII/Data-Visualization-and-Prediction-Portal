@@ -26,13 +26,17 @@ export class FeaturePredictionComponent implements OnInit {
   mappedArray: any[] = [];
   columnHeaders: string[];
   columnHeaderML: string[] = [];
-  private data: { prediction_column: string; dataset_name: string; column_list: string[]; algorithm: string; dataset_id: number };
+  private data: { prediction_column: string; column_list: string[]; algorithm: string; dataset_id: number };
   accuracy: any;
+  prediction: any;
   sendDataFormGroup: FormGroup;
   userInput: FormGroup;
   showAccuracy = false;
   showPrediction = false;
   showGetPrediction = false;
+  showPredictionResult = false;
+  linear = false;
+  svm = false;
 
 
   ngOnInit() {
@@ -67,11 +71,7 @@ export class FeaturePredictionComponent implements OnInit {
 
       this.columnHeaders = this.mappedArray[0].map(x => x[0]);
       this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
-
-      this.userInput = new FormGroup({});
-
-      this.columnHeaders.forEach(element => this.userInput.addControl(element, new FormControl(undefined, [Validators.required])));
-
+      this.columnHeaders.splice(0, 1);
     });
 
 
@@ -89,25 +89,37 @@ export class FeaturePredictionComponent implements OnInit {
     if (index !== -1) {
       this.columnHeaderML.splice(index, 1);
     }
+
+    this.userInput = new FormGroup({});
+
+    this.columnHeaderML.forEach(element => this.userInput.addControl(element, new FormControl(undefined, [Validators.required])));
+
     // delete this.columnHeaderML[this.sendDataFormGroup.value.column];
 
     this.data = {
-      dataset_id: 1,
-      dataset_name: 'Testing',
-      algorithm: 'linear',
-      prediction_column: 'fail_all_perc',
-      column_list: ['num_sat', 'pass_all', 'pass_all_perc', 'fail_all']
+      dataset_id: this.datasetId,
+      algorithm: this.sendDataFormGroup.value.selectAlgorithm,
+      prediction_column: this.sendDataFormGroup.value.column,
+      column_list: this.columnHeaders
     };
 
     this.getAccuracyResult().subscribe(response => {
       this.accuracy = response;
       this.showGetPrediction = true;
       this.showAccuracy = true;
+      if (this.data.algorithm === 'linear') {
+        this.linear = true;
+      } else if (this.data.algorithm === 'svm') {
+        this.svm = true;
+      } else if (this.data.algorithm === 'sf') {
+        this.svm = true;
+      }
     });
   }
 
   getAccuracyResult() {
     // tslint:disable-next-line:max-line-length
+    console.log(this.data.column_list);
     return this.http.get(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_id=' +
       this.data.dataset_id + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
       this.data.prediction_column + '&column_list=' + this.data.column_list);
@@ -117,11 +129,20 @@ export class FeaturePredictionComponent implements OnInit {
     this.showPrediction = true;
     let count = 0;
     const inputValues = [];
-    this.columnHeaders.forEach(element => {
+    this.columnHeaderML.forEach(element => {
       inputValues[count] = this.userInput.controls[element].value;
       ++count;
     });
     console.log(inputValues);
+    this.getPredication(inputValues);
+  }
+
+  getPredication(inputValues: number[]) {
+    this.http.get(this.ROOT_URL_FLASK + '/get_prediction?algorithm='
+      + this.data.algorithm + '&values=' + inputValues).subscribe(response => {
+      this.prediction = response;
+    });
+    this.showPredictionResult = true;
   }
 
 

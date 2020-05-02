@@ -9,7 +9,8 @@ import joblib
 #coefficients : these values indicates how much the predictor value will change per unit increase
 #standard erros : represents the average distance that the observed values fall from the regression line. Conveniently, it tells you how wrong the regression model is on average using the units of the response variable.
 #r squared : R-squared is a statistical measure of how close the data are to the fitted regression line.
-#t values :
+#t values : is a statistical measure of the variance of the given cases
+
 
 def linear_regression_anaylsis(x,y,dataset_id):
     dataframe_csv = pd.read_csv("../frontend/src/assets/"+str(dataset_id)+".csv")
@@ -38,22 +39,25 @@ def linear_regression_anaylsis(x,y,dataset_id):
     r_squared = est2.rsquared
 
     sd_errors = []
-    for i in range(est2.bse.shape[0]):
+    for i in range(1,est2.bse.shape[0]):
         sd_errors.append(float(est2.bse[i]))
 
+    cons_sd_error =float(est2.bse[0])
 
     t_values = []
-    for i in range(est2.tvalues.shape[0]):
+    for i in range(1,est2.tvalues.shape[0]):
         t_values.append(float(est2.tvalues[i]))
 
-
+    cons_t_value = float(est2.tvalues[0])
     results_array = {
         "score": score,
         "coef": coefficients,
         "intercept":  interecept,
         "rsquared": r_squared,
         "tvalues": t_values,
-        "sderrors": sd_errors
+        "sderrors": sd_errors,
+        "cons_t_value": cons_t_value,
+        "cons_sd_error": cons_sd_error
 
     }
     filename = 'model.sav'
