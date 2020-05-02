@@ -22,8 +22,6 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class FileController {
 
-    private static String UPLOADED_FOLDER = "F://temp//";
-
     private static String datasetId;
 
     public static byte[] bytes;
@@ -66,12 +64,9 @@ public class FileController {
                                             @RequestParam String description) {
 
         try {
-//            byte[] bytes = dataFile.getBytes();
-//            Path path = Paths.get(UPLOADED_FOLDER + dataFile.getOriginalFilename());
-//            System.out.println(path.toAbsolutePath());
-//            Files.write(path, bytes);
+
             bytes = dataFile.getBytes();
-            fileService.bytesToJson(bytes, datasetName);
+            fileService.bytesToJson(dataFile, datasetName);
             ByteArrayInputStream inputFilestream = new ByteArrayInputStream(bytes);
             BufferedReader br = new BufferedReader(new InputStreamReader(inputFilestream));
             DataSet dataSet = new DataSet();
@@ -81,7 +76,6 @@ public class FileController {
             dataSet.setReleasedDate(releasedDate);
             dataSet.setCategory(category);
             dataSet.setDescription(description);
-            dataSet.setDataFile(bytes);
             fileService.saveDataset(dataSet);
             System.out.println(dataSet);
 
