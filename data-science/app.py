@@ -97,7 +97,7 @@ def writeFile(dbName) :
 
         docs = docs.append(series_obj) #insert data
 
-    file_name = dbname + "_file.csv"
+    file_name = dbname + ".csv"
     docs.to_csv(file_name, ",")  # CSV delimited by commas
 
     df = pandas.read_csv(file_name) #read csv file
