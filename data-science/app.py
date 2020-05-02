@@ -126,9 +126,9 @@ def select():
     if(algorithm ==  "linear"):
          res = linear_regression_anaylsis(new_column_list,new_prediction_column,dataset_id)
     elif(algorithm == "svm"):
-         res = trainSVM(new_column_list,new_prediction_column)
+         res = trainSVM(new_column_list,new_prediction_column,dataset_id)
     elif(algorithm == "rf"):
-         res = train_random_forrest_model(new_column_list, new_prediction_column)
+         res = train_random_forrest_model(new_column_list, new_prediction_column,dataset_id)
     res = jsonify(res)
     res.status_code = 200
     return res
