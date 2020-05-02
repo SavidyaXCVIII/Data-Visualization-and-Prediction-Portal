@@ -8,6 +8,11 @@ mat-grid-tile {
   background: whitesmoke;
   border-radius: 10px;
 }
+mat-grid-tile:hover{
+  box-shadow: -1px 10px 29px 0 rgba(0,0,0,0.8);
+  transition:all 0.4s ease;
+  transform: scale(1.1);
+}
 
 mat-spinner {
   left: 45%;
@@ -46,7 +51,7 @@ mat-spinner {
  }
 
  .header {
-   background: #474747;
+   background: #D3D3D3;
    height: 50px;
 
  }
@@ -55,10 +60,6 @@ mat-spinner {
   padding-left: 2%;
   font-size: x-large;
   font-weight: 500;
-  color: white;
-}
-.datasetName:hover {
-  text-decoration: underline;
 }
 
 .description {
