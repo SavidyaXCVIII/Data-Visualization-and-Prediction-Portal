@@ -9,12 +9,17 @@ import {Dataset} from '../../../models/dataset';
 })
 export class ShowDatasetComponent implements OnInit {
 
-  constructor(private globalService: GlobalService) { }
-
+  constructor(private globalService: GlobalService) {
+  }
+  url = '../../../../assets/';
+  fileName: string;
   dataset = new Dataset();
 
   ngOnInit() {
     this.dataset = this.globalService.getSampleData();
+    this.fileName = '2018_AL';
+    console.log(this.dataset['id'].toString());
+    this.url = this.url + this.fileName + '.csv';
   }
-
 }
+

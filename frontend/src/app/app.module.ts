@@ -29,6 +29,7 @@ import { DataSetComponent } from './shared/components/data-set/data-set.componen
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {UploadSnackBarComponent} from './modules/upload-dataset/upload/upload-snack-bar/upload-snack-bar.component';
+import { SingnupSnackBarComponent } from './shared/components/create-account/singnup-snack-bar/singnup-snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {UploadSnackBarComponent} from './modules/upload-dataset/upload/upload-sn
     ShowDatasetComponent,
     FeaturePredictionComponent,
     DataSetComponent,
-    UploadSnackBarComponent
+    UploadSnackBarComponent,
+    SingnupSnackBarComponent
   ],
   entryComponents: [
     LogInComponent,
