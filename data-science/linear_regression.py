@@ -39,22 +39,25 @@ def linear_regression_anaylsis(x,y,dataset_id):
     r_squared = est2.rsquared
 
     sd_errors = []
-    for i in range(est2.bse.shape[0]):
+    for i in range(1,est2.bse.shape[0]):
         sd_errors.append(float(est2.bse[i]))
 
+    cons_sd_error =float(est2.bse[0])
 
     t_values = []
-    for i in range(est2.tvalues.shape[0]):
+    for i in range(1,est2.tvalues.shape[0]):
         t_values.append(float(est2.tvalues[i]))
 
-
+    cons_t_value = float(est2.tvalues[0])
     results_array = {
         "score": score,
         "coef": coefficients,
         "intercept":  interecept,
         "rsquared": r_squared,
         "tvalues": t_values,
-        "sderrors": sd_errors
+        "sderrors": sd_errors,
+        "cons_t_value": cons_t_value,
+        "cons_sd_error": cons_sd_error
 
     }
     filename = 'model.sav'
