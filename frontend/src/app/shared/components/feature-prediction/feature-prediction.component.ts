@@ -26,7 +26,7 @@ export class FeaturePredictionComponent implements OnInit {
   mappedArray: any[] = [];
   columnHeaders: string[];
   columnHeaderML: string[] = [];
-  private data: { prediction_column: string; dataset_name: string; column_list: string[]; algorithm: string; dataset_id: number };
+  private data: { prediction_column: string; column_list: string[]; algorithm: string; dataset_id: number };
   accuracy: any;
   sendDataFormGroup: FormGroup;
   userInput: FormGroup;
@@ -67,7 +67,7 @@ export class FeaturePredictionComponent implements OnInit {
 
       this.columnHeaders = this.mappedArray[0].map(x => x[0]);
       this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
-
+      this.columnHeaders.splice(0, 1);
       this.userInput = new FormGroup({});
 
       this.columnHeaders.forEach(element => this.userInput.addControl(element, new FormControl(undefined, [Validators.required])));
@@ -92,11 +92,10 @@ export class FeaturePredictionComponent implements OnInit {
     // delete this.columnHeaderML[this.sendDataFormGroup.value.column];
 
     this.data = {
-      dataset_id: 1,
-      dataset_name: 'Testing',
-      algorithm: 'linear',
-      prediction_column: 'fail_all_perc',
-      column_list: ['num_sat', 'pass_all', 'pass_all_perc', 'fail_all']
+      dataset_id: this.datasetId,
+      algorithm: this.sendDataFormGroup.value.selectAlgorithm,
+      prediction_column: this.sendDataFormGroup.value.column,
+      column_list: this.columnHeaders
     };
 
     this.getAccuracyResult().subscribe(response => {
@@ -108,6 +107,7 @@ export class FeaturePredictionComponent implements OnInit {
 
   getAccuracyResult() {
     // tslint:disable-next-line:max-line-length
+    console.log(this.data.column_list);
     return this.http.get(this.ROOT_URL_FLASK + '/select_features_predictors?dataset_id=' +
       this.data.dataset_id + '&algorithm=' + this.data.algorithm + '&prediction_column=' +
       this.data.prediction_column + '&column_list=' + this.data.column_list);
