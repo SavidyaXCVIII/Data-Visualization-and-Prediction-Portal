@@ -125,12 +125,12 @@ export class FeaturePredictionComponent implements OnInit {
       ++count;
     });
     console.log(inputValues);
-    this.getPredication();
+    this.getPredication(inputValues);
   }
 
-  getPredication() {
+  getPredication(inputValues: number[]) {
     this.http.get(this.ROOT_URL_FLASK + '/get_prediction?algorithm='
-      + this.data.algorithm + '&values=' + this.columnHeaderML).subscribe(response => {
+      + this.data.algorithm + '&values=' + inputValues).subscribe(response => {
       this.prediction = response;
     });
     this.showPredictionResult = true;
