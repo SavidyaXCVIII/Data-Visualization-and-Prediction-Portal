@@ -72,7 +72,36 @@ button{
 }
 
 .show-accuracy-result {
-
 }
-
-
+.result-div{
+  margin: auto;
+}
+.sub-heading{
+  color: #006286;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 45%;
+}
+.accuracy-result-sub{
+  width: 70%;
+  margin: auto;
+}
+.result{
+margin-right: 30px;
+  color: #006286;
+}
+table{
+  margin: auto;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #d9d9d9;
+  text-align: center;
+  padding: 8px;
+}
+.user-result mat-card{
+  text-align: center;
+  padding-bottom: 10vh;
+}
