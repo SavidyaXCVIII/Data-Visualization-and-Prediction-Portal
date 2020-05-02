@@ -3,7 +3,6 @@ import urllib
 import urllib.parse
 import pandas
 
-from blaze.compute.tests.test_mongo_compute import pymongo
 from flask import Flask,request, jsonify
 
 from flask import Flask, request, jsonify
@@ -26,7 +25,6 @@ from sklearn import svm
 from sklearn.preprocessing import StandardScaler
 
 from flask import Flask, request, url_for
-from flask_pymongo import PyMongo
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -116,7 +114,6 @@ def writeFile(dbName) :
 def select():
     dataset_id = request.args.get('dataset_id')
 
-    writeFile(dataset_id) # pass collection name to writeFile
 
     dataset_name = request.args.get('dataset_name')
     algorithm = request.args.get('algorithm')

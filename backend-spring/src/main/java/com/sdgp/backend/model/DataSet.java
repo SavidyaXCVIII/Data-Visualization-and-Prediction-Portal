@@ -26,19 +26,17 @@ public class DataSet {
     private String releasedDate;
     private String category;
     private String description;
-    private byte[] dataFile;
 
     @Override
     public String toString() {
         return "DataSet{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", datasetName='" + datasetName + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", year='" + year + '\'' +
                 ", releasedDate='" + releasedDate + '\'' +
                 ", category='" + category + '\'' +
                 ", description='" + description + '\'' +
-                ", dataFile=" + Arrays.toString(dataFile) +
                 '}';
     }
 }
