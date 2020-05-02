@@ -12,7 +12,7 @@ import joblib
 #t values :
 
 def linear_regression_anaylsis(x,y,dataset_id):
-    dataframe_csv = pd.read_csv("dataset"+str(dataset_id)+".csv")
+    dataframe_csv = pd.read_csv("../frontend/src/assets/"+str(dataset_id)+".csv")
     print(x)
     x = dataframe_csv[x]
     y = dataframe_csv[y]
