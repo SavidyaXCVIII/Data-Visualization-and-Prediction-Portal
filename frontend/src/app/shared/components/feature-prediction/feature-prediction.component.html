@@ -54,7 +54,7 @@
         <mat-card class="select-features">
           <mat-card-title>Selectddd features</mat-card-title>
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
-            {{columnHeaderML | json}}
+            {{this.accuracy | json}}
             <mat-form-field class="field" *ngFor="let columns of columnHeaderML">
               <mat-label>{{columns}}</mat-label>
               <input matInput [formControlName]="columns"/>
