@@ -7,7 +7,7 @@ from sklearn import metrics
 import joblib
 
 def trainSVM(x,y,dataset_id):
-    df = pd.read_csv("dataset"+str(dataset_id)+".csv")
+    df = pd.read_csv("../frontend/src/assets/"+str(dataset_id)+".csv")
     x = df[x].values
     x = np.nan_to_num(x)
     scaler = StandardScaler()
