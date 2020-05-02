@@ -1,15 +1,12 @@
 package com.sdgp.backend.controller;
 
+import com.sdgp.backend.dto.ResponseDTO;
 import com.sdgp.backend.model.User;
 import com.sdgp.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 
 @RestController
 public class UserController {
@@ -17,34 +14,24 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public ModelAndView signup() {
-        ModelAndView modelAndView = new ModelAndView();
+    @PostMapping("/signup")
+    ResponseEntity<ResponseDTO> saveDataset(@RequestParam String email,
+                                            @RequestParam String fullName,
+                                            @RequestParam String password,
+                                            @RequestParam String company,
+                                            @RequestParam int phone) {
+
+        userService.settingID();
         User user = new User();
-        modelAndView.addObject("user",user);
-        modelAndView.setViewName("signup");
-        return modelAndView;
-    }
+        user.setEmail(email);
+        user.setFullName(fullName);
+        user.setPassword(password);
+        user.setCompanyName(company);
+        user.setPhone(phone);
+        userService.saveUser(user);
+        System.out.println(user);
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findUser(user.getEmail());
-        if (userExists != null) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "There is already a user registered with the username provided");
-        }
-        if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("signup");
-        } else {
-            userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("login");
-
-        }
-        return modelAndView;
+        return ResponseEntity.ok(new ResponseDTO<>(Boolean.TRUE,"Successful"));
     }
 
 }
