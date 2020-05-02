@@ -1,43 +1,14 @@
-import csv
-import urllib
-import urllib.parse
-import pandas
 
-from flask import Flask,request, jsonify
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-import ast
 
-#from partd import pandas
-
-from mongodb_connection import MongoDBConnection
 app = Flask(__name__)
 
-import pandas as pd
+
 import numpy as np
-from sklearn import linear_model
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.linear_model import LinearRegression
-from sklearn import metrics
-import statsmodels.api as sm
-from sklearn import svm
-from sklearn.preprocessing import StandardScaler
-
 from flask import Flask, request, url_for
-
 CORS(app, resources={r"/*": {"origins": "*"}})
-
-
-from scipy import stats
-from sklearn import preprocessing
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder
-# from sklearn.compose import ColumnTransformer
-import statsmodels.api as sm
-from pandas.io.json import json_normalize
-
-
 from linear_regression import linear_regression_anaylsis,linear_model_prediction
 from support_vector_machine import trainSVM,svm_model_prediction
 from random_forrest import train_random_forrest_model,rf_model_prediction
