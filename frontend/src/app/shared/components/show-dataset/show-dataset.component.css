@@ -40,7 +40,7 @@ h1{
   text-align: left;
   border-collapse: collapse;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
  td, th {
    border: 1px solid #d9d9d9;
@@ -48,8 +48,7 @@ h1{
    padding: 8px;
 }
  th{
-   color: #006286;
-   font-size: 30px;
+   font-size: 25px;
  }
  ul{
    margin-top: 0;
@@ -91,3 +90,10 @@ button:hover{
   width: 100%;
   height: 90vh;
 }
+caption{
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 3vh;
+  color: #006286;
+}
+
