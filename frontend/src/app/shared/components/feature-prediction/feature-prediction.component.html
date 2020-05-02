@@ -52,17 +52,19 @@
     <div class="step-two-sub">
       <div class="user-input" *ngIf="showGetPrediction">
         <mat-card class="select-features">
-          <mat-card-title>Select features</mat-card-title>
+          <mat-card-title>Selectddd features</mat-card-title>
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
+            {{columnHeaderML | json}}
             <mat-form-field class="field" *ngFor="let columns of columnHeaderML">
               <mat-label>{{columns}}</mat-label>
-              <input matInput type="number" [formControlName]="columns"/>
+              <input matInput [formControlName]="columns"/>
             </mat-form-field>
+            {{userInput.value | json}}
           </form>
           <button mat-button (click)="onSubmitSendValues()" [disabled]="this.userInput.invalid">Submit</button>
         </mat-card>
       </div>
-      <div class="user-result" *ngIf="showPrediction">
+      <div class="user-result" *ngIf="showPredictionResult">
         <mat-card> <mat-card-title>User Result</mat-card-title><br></mat-card>
       </div>
     </div>

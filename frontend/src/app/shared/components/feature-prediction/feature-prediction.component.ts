@@ -28,11 +28,13 @@ export class FeaturePredictionComponent implements OnInit {
   columnHeaderML: string[] = [];
   private data: { prediction_column: string; column_list: string[]; algorithm: string; dataset_id: number };
   accuracy: any;
+  prediction: any;
   sendDataFormGroup: FormGroup;
   userInput: FormGroup;
   showAccuracy = false;
   showPrediction = false;
   showGetPrediction = false;
+  showPredictionResult = false;
 
 
   ngOnInit() {
@@ -68,10 +70,6 @@ export class FeaturePredictionComponent implements OnInit {
       this.columnHeaders = this.mappedArray[0].map(x => x[0]);
       this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
       this.columnHeaders.splice(0, 1);
-      this.userInput = new FormGroup({});
-
-      this.columnHeaders.forEach(element => this.userInput.addControl(element, new FormControl(undefined, [Validators.required])));
-
     });
 
 
@@ -89,6 +87,11 @@ export class FeaturePredictionComponent implements OnInit {
     if (index !== -1) {
       this.columnHeaderML.splice(index, 1);
     }
+
+    this.userInput = new FormGroup({});
+
+    this.columnHeaderML.forEach(element => this.userInput.addControl(element, new FormControl(undefined, [Validators.required])));
+
     // delete this.columnHeaderML[this.sendDataFormGroup.value.column];
 
     this.data = {
@@ -117,11 +120,20 @@ export class FeaturePredictionComponent implements OnInit {
     this.showPrediction = true;
     let count = 0;
     const inputValues = [];
-    this.columnHeaders.forEach(element => {
+    this.columnHeaderML.forEach(element => {
       inputValues[count] = this.userInput.controls[element].value;
       ++count;
     });
     console.log(inputValues);
+    this.getPredication();
+  }
+
+  getPredication() {
+    this.http.get(this.ROOT_URL_FLASK + '/get_prediction?algorithm='
+      + this.data.algorithm + '&values=' + this.columnHeaderML).subscribe(response => {
+      this.prediction = response;
+    });
+    this.showPredictionResult = true;
   }
 
 
