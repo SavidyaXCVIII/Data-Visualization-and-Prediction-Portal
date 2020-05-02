@@ -18,11 +18,10 @@ def trainSVM(x,y,dataset_id):
     predicted=clf.predict(x)
     results_array = {
         "accuracy" : str(metrics.accuracy_score(y, predicted)),
-        "f1 score macro": str(metrics.f1_score(y, predicted, average='macro')),
-        "f1 score micro": str(metrics.f1_score(y, predicted, average='micro')),
-        "precision score": str(metrics.precision_score(y, predicted, average='macro')),
-        "recall score": str(metrics.recall_score(y, predicted, average='macro')),
-        "hamming_loss": str(metrics.hamming_loss(y, predicted)),
+        "f1_score_macro": str(metrics.f1_score(y, predicted, average='macro')),
+        "f1_score_micro": str(metrics.f1_score(y, predicted, average='micro')),
+        "precision_score": str(metrics.precision_score(y, predicted, average='macro')),
+        "recall_score": str(metrics.recall_score(y, predicted, average='macro')),
     }
     filename = 'model.sav'
     joblib.dump(clf, filename)
