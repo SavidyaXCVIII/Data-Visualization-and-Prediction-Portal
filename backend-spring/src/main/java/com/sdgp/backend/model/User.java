@@ -3,26 +3,27 @@ package com.sdgp.backend.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Getter
 @Setter
 @Document("Users")
+@TypeAlias("Users")
 public class User {
     @Id
-    private Long id;
+    private int id;
     private String email;
     private String password;
     private String fullName;
     private String companyName;
-    private Long phone;
-    private String  role;
+    private int phone;
 
     public User() {
     }
 
-    public User(String email, String password, String fullName, String companyName, Long phone) {
+    public User(String email, String password, String fullName, String companyName, int phone) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
@@ -30,59 +31,15 @@ public class User {
         this.phone = phone;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public Long getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Long phone) {
-        this.phone = phone;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", phone=" + phone +
+                '}';
     }
 }
