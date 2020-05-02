@@ -32,7 +32,7 @@ export class CreateAccountComponent implements OnInit {
 
   registerUser() {
     this.user = {...this.createAccountFormGroup.value};
-    this.http.post('&email=' + this.user.email + '&name=' + this.user.fullname +
+    this.http.post('http://localhost:8080/signup=' + '&email=' + this.user.email + '&name=' + this.user.fullname +
       '&company=' + this.user.companyName + '&phone=' + this.user.phone +
       '&password=' + this.user.password, this.uploadFile).subscribe((val) => {
       console.log(val);
