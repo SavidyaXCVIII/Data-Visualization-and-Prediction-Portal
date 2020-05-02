@@ -30,7 +30,7 @@ public class FileService {
 
     private static int number;
 
-    private static String UPLOADED_FOLDER = "..\\data-science//";
+    private static String UPLOADED_FOLDER = "..\\frontend/src/assets/";
 
     @Autowired
     private DataSetRepository dataSetRepository;

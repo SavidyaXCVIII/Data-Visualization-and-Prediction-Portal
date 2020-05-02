@@ -17,8 +17,7 @@ export class ShowDatasetComponent implements OnInit {
 
   ngOnInit() {
     this.dataset = this.globalService.getSampleData();
-    this.fileName = '2018_AL';
-    console.log(this.dataset['id'].toString());
+    this.fileName = this.dataset['id'].toString();
     this.url = this.url + this.fileName + '.csv';
   }
 }
