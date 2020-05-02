@@ -34,17 +34,28 @@
     </div>
     <div class="show-accuracy-result" *ngIf="showAccuracy">
       <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br>
-        <p>Coefficient</p>
-        <p *ngFor="let coefNumbers of accuracy.coef">
-          {{coefNumbers}}
-        </p>
-        <p>Intercept : {{accuracy.intercept}}</p>
-        <p>R-squared : {{accuracy.rsquared}}</p>
-        <p>Score : {{accuracy.score}}</p>
-        <p>sderrros</p>
-        <p *ngFor="let errors of accuracy.sderrors">{{errors}}</p>
-        <p>tvalues</p>
-        <p *ngFor="let values of accuracy.tvalues">{{values}}</p>
+        <div class="linear" *ngIf="linear">
+          <p>Score : {{accuracy.score}}</p>
+          <p>Coefficient</p>
+          <p *ngFor="let coefNumbers of accuracy.coef; let i = index">
+            Column Name : {{this.columnHeaders[i]}}               Value - {{coefNumbers}}
+          </p>
+          <p>Intercept : {{accuracy.intercept}}</p>
+          <p>R-squared : {{accuracy.rsquared}}</p>
+          <p>Constant SD Error Value : {{accuracy.cons_sd_error}}</p>
+          <p>Constant T Value : {{accuracy.cons_t_value}}</p>
+          <p>sderrros</p>
+          <p *ngFor="let errors of accuracy.sderrors; let i = index">Column Name: {{this.columnHeaders[i]}} Value : {{errors}}</p>
+          <p>tvalues</p>
+          <p *ngFor="let values of accuracy.tvalues; let i = index">Column Name: {{this.columnHeaders[i]}} Value : {{values}}</p>
+        </div>
+        <div class="svm" *ngIf="svm">
+          <p>Accuracy : {{accuracy.accuracy}}</p>
+          <p>F1 Score Macro : {{accuracy.f1_score_macro}}</p>
+          <p>F1 Score Micro : {{accuracy.f1_score_micro}}</p>
+          <p>Precision Score : {{accuracy.precision_score}}</p>
+          <p>Recall Score : {{accuracy.recall_score}}</p>
+        </div>
       </mat-card>
     </div>
   </div>
@@ -52,7 +63,7 @@
     <div class="step-two-sub">
       <div class="user-input" *ngIf="showGetPrediction">
         <mat-card class="select-features">
-          <mat-card-title>Selected features</mat-card-title>
+          <mat-card-title>Select features</mat-card-title>
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
             {{this.accuracy | json}}
             <mat-form-field class="field" *ngFor="let columns of columnHeaderML">

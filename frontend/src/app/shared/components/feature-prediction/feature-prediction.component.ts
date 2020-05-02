@@ -35,6 +35,8 @@ export class FeaturePredictionComponent implements OnInit {
   showPrediction = false;
   showGetPrediction = false;
   showPredictionResult = false;
+  linear = false;
+  svm = false;
 
 
   ngOnInit() {
@@ -105,6 +107,13 @@ export class FeaturePredictionComponent implements OnInit {
       this.accuracy = response;
       this.showGetPrediction = true;
       this.showAccuracy = true;
+      if (this.data.algorithm === 'linear') {
+        this.linear = true;
+      } else if (this.data.algorithm === 'svm') {
+        this.svm = true;
+      } else if (this.data.algorithm === 'sf') {
+        this.svm = true;
+      }
     });
   }
 
