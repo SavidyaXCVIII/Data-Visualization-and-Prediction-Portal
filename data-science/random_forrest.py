@@ -2,6 +2,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import pandas as pd
 import numpy as np
+from sklearn import metrics
 import joblib
 
 def train_random_forrest_model(X, Y,dataset_id):
@@ -15,8 +16,12 @@ def train_random_forrest_model(X, Y,dataset_id):
     print(confusion_matrix(Y, y_pred))
     print(accuracy_score(Y, y_pred))
     results_array = {
-        "score": accuracy_score(Y, y_pred),
-
+        "accuracy" : str(metrics.accuracy_score(Y, y_pred)),
+        "f1 score macro": str(metrics.f1_score(Y, y_pred, average='macro')),
+        "f1 score micro": str(metrics.f1_score(Y, y_pred, average='micro')),
+        "precision score": str(metrics.precision_score(Y, y_pred, average='macro')),
+        "recall score": str(metrics.recall_score(Y, y_pred, average='macro')),
+        "hamming_loss": str(metrics.hamming_loss(Y, y_pred)),
     }
     return results_array
 

@@ -14,7 +14,7 @@ import ast
 from mongodb_connection import MongoDBConnection
 app = Flask(__name__)
 
-#import pandas as pd
+import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
@@ -51,63 +51,63 @@ def hello_world():
     # mongodb_connection.insert_record()
     return 'Hello World!'
 
-@app.route('/isuru')
-def testcsv():
-    mongodb_connection = MongoDBConnection()
-
-    cursor = mongodb_connection.testData.find({})
-
-    return 'Hello World! my name is Isuru! '
-
-    # mongodb_connection = MongoDBConnection()
-    # mongodb_connection.insert_record()
-    return 'Hello World!'
-
-@app.route('/writefile/<dbName>')
-def writeFile(dbName) :
-    print(dbName)
-
-    client = pymongo.MongoClient("mongodb+srv://user_91:sdgp@cluster0-zjhs0.mongodb.net/test?retryWrites=true&w=majority")
-    db = client.test
-
-    print("executing writeFile >>>")
-
-    dbname = dbName
-    cursor = db[dbname].find()
-
-    # extract the list of documents from cursor obj
-    mongo_docs = list(cursor)
-
-    # restrict the number of docs to export
-    mongo_docs = mongo_docs[:200]  # read first 200 lines
-    print("total data:", len(mongo_docs))
-
-    # create an empty DataFrame for storing documents
-    docs = pandas.DataFrame(columns=[]) #create DataFrame named docs
-
-    # iterate over the list of MongoDB dict documents
-    for num, doc in enumerate(mongo_docs):
-        doc["_id"] = str(doc["_id"])
-
-        doc_id = doc["_id"]
-
-        series_obj = pandas.Series(doc, name=doc_id)
-
-        docs = docs.append(series_obj) #insert data
-
-    file_name = dbname + "_file.csv"
-    docs.to_csv(file_name, ",")  # CSV delimited by commas
-
-    df = pandas.read_csv(file_name) #read csv file
-    first_column = df.columns[0]
-    df = df.drop([first_column], axis=1) #remove first column of csv file(unwanted column)
-    df.to_csv(file_name, index=False) #write updated file again to csv
-
-    # export MongoDB documents to CSV
-    # csv_export = docs.to_csv(sep=",")  # CSV delimited by commas
-    # print("\nCSV data:", csv_export) #print csv file in run
-
-    return 'Done!'
+# @app.route('/isuru')
+# def testcsv():
+#     mongodb_connection = MongoDBConnection()
+#
+#     cursor = mongodb_connection.testData.find({})
+#
+#     return 'Hello World! my name is Isuru! '
+#
+#     # mongodb_connection = MongoDBConnection()
+#     # mongodb_connection.insert_record()
+#     return 'Hello World!'
+#
+# @app.route('/writefile/<dbName>')
+# def writeFile(dbName) :
+#     print(dbName)
+#
+#     client = pymongo.MongoClient("mongodb+srv://user_91:sdgp@cluster0-zjhs0.mongodb.net/test?retryWrites=true&w=majority")
+#     db = client.test
+#
+#     print("executing writeFile >>>")
+#
+#     dbname = dbName
+#     cursor = db[dbname].find()
+#
+#     # extract the list of documents from cursor obj
+#     mongo_docs = list(cursor)
+#
+#     # restrict the number of docs to export
+#     mongo_docs = mongo_docs[:200]  # read first 200 lines
+#     print("total data:", len(mongo_docs))
+#
+#     # create an empty DataFrame for storing documents
+#     docs = pandas.DataFrame(columns=[]) #create DataFrame named docs
+#
+#     # iterate over the list of MongoDB dict documents
+#     for num, doc in enumerate(mongo_docs):
+#         doc["_id"] = str(doc["_id"])
+#
+#         doc_id = doc["_id"]
+#
+#         series_obj = pandas.Series(doc, name=doc_id)
+#
+#         docs = docs.append(series_obj) #insert data
+#
+#     file_name = dbname + "_file.csv"
+#     docs.to_csv(file_name, ",")  # CSV delimited by commas
+#
+#     df = pandas.read_csv(file_name) #read csv file
+#     first_column = df.columns[0]
+#     df = df.drop([first_column], axis=1) #remove first column of csv file(unwanted column)
+#     df.to_csv(file_name, index=False) #write updated file again to csv
+#
+#     # export MongoDB documents to CSV
+#     # csv_export = docs.to_csv(sep=",")  # CSV delimited by commas
+#     # print("\nCSV data:", csv_export) #print csv file in run
+#
+#     return 'Done!'
 
 @app.route('/select_features_predictors', methods=['GET'])
 @cross_origin()
@@ -115,7 +115,6 @@ def select():
     dataset_id = request.args.get('dataset_id')
 
 
-    dataset_name = request.args.get('dataset_name')
     algorithm = request.args.get('algorithm')
     prediction_column = request.args.get("prediction_column")
     column_list = request.args.get("column_list")
@@ -129,6 +128,7 @@ def select():
          res = trainSVM(new_column_list,new_prediction_column,dataset_id)
     elif(algorithm == "rf"):
          res = train_random_forrest_model(new_column_list, new_prediction_column,dataset_id)
+         print("running rf")
     res = jsonify(res)
     res.status_code = 200
     return res
