@@ -11,7 +11,7 @@ mat-grid-tile {
 mat-grid-tile:hover{
   box-shadow: -1px 10px 29px 0 rgba(0,0,0,0.8);
   transition:all 0.4s ease;
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 mat-spinner {
