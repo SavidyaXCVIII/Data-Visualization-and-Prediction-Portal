@@ -105,13 +105,12 @@ export class FeaturePredictionComponent implements OnInit {
 
     this.getAccuracyResult().subscribe(response => {
       this.accuracy = response;
+      console.log(response);
       this.showGetPrediction = true;
       this.showAccuracy = true;
       if (this.data.algorithm === 'linear') {
         this.linear = true;
-      } else if (this.data.algorithm === 'svm') {
-        this.svm = true;
-      } else if (this.data.algorithm === 'sf') {
+      } else if (this.data.algorithm === 'svm' || this.data.algorithm === 'rf') {
         this.svm = true;
       }
     });
