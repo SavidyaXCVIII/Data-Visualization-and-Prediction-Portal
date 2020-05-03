@@ -4,6 +4,7 @@ import com.sdgp.backend.dto.ResponseDTO;
 import com.sdgp.backend.model.User;
 import com.sdgp.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/login")
+    public User getAllDataSets(@RequestParam String mail) {
+        return userService.findUser(mail);
+    }
 
     @PostMapping("/signup")
     ResponseEntity<ResponseDTO> saveDataset(@RequestParam String email,

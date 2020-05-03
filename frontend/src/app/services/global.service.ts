@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Dataset} from '../models/dataset';
-import {User} from "../models/user";
+import {User} from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +15,10 @@ export class GlobalService {
   getSampleData() {
     return this.dataset;
   }
+
+  getUserData() {
+    return this.user.email;
+  }
+
+
 }
