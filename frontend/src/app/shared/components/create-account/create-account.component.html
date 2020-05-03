@@ -37,11 +37,11 @@
     <input type="password" matInput placeholder="Confirm Password" required formControlName="confirmPassword">
   </mat-form-field><br>
 
-  <mat-checkbox color="primary">I agree to the <b>Terms of User</b></mat-checkbox>
+  <mat-checkbox color="primary" required formControlName="checkbox">I agree to the <b>Terms of User</b></mat-checkbox>
   </form>
 </div>
 
-<button type="button" class="button signup" color="primary" (click)="registerUser()" mat-button mat-raised-button >Sign up</button>
+<button type="button" class="button signup" color="primary" (click)="registerUser()" mat-button mat-raised-button [disabled]="this.signInProgress || this.createAccountFormGroup.invalid">Sign up</button>
 <button class="button reset"  type="reset"  mat-button (click)="onReset()" mat-raised-button >Reset</button>
 <button type="button" class="button close" mat-button mat-raised-button (click)="onClose()" >Close</button>
 
