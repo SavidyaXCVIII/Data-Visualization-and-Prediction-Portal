@@ -12,16 +12,17 @@
         <form [formGroup]="sendDataFormGroup" (ngSubmit)="onSubmit()">
           <div class="select-algorithm">
             <label id="radio-group-label"> Select an algorithm</label><br>
-            <mat-radio-group class="radio-group" aria-label="Select an option" required formControlName="selectAlgorithm">
+            <mat-radio-group class="radio-group" aria-label="Select an option" required
+                             formControlName="selectAlgorithm">
               <mat-radio-button name="algorithm" value="svm">Support Vector Machine</mat-radio-button>
               <mat-radio-button name="algorithm" value="linear">Linear Regression</mat-radio-button>
               <mat-radio-button name="algorithm" value="rf">Random Forest</mat-radio-button>
             </mat-radio-group>
           </div>
           <div class="select-predictor">
-            <mat-form-field >
+            <mat-form-field>
               <mat-label>Select Predictor</mat-label>
-              <mat-select required formControlName="column" >
+              <mat-select required formControlName="column">
                 <mat-option *ngFor="let columns of columnHeaders" [value]="columns">
                   {{columns}}
                 </mat-option>
@@ -29,57 +30,62 @@
             </mat-form-field>
           </div>
         </form>
-        <button mat-button (click)="onSubmit()" [disabled]="this.sendDataFormGroup.invalid">Submit</button>
+        <button mat-button (click)="onSubmit(); scroll(hello)" [disabled]="this.sendDataFormGroup.invalid">Submit
+        </button>
       </mat-card>
     </div>
-    <div class="show-accuracy-result" *ngIf="showAccuracy">
-      <mat-card> <mat-card-title>Accuracy Result</mat-card-title><br>
-        <div class="linear" *ngIf="linear">
-          <div class="accuracy-result-sub">
-            <p><span class="result">Score :</span>{{accuracy.score}}</p>
-            <p><span class="sub-heading" >Coefficient</span></p>
-            <table class="dataTable">
-              <tr>
-                <th>Column Name</th>
-                <th>Value</th>
-              </tr>
-              <tr *ngFor="let coefNumbers of accuracy.coef; let i = index">
-                <td> {{this.columnHeaders[i]}} </td>
-                <td>{{coefNumbers}}</td>
-              </tr>
-            </table><br>
-            <div class="result-div">
-            <p><span class="result">Intercept : </span>{{accuracy.intercept}}</p>
-            <p><span class="result">R-squared : </span>{{accuracy.rsquared}}</p>
-            <p><span class="result">Constant SD Error Value : </span>{{accuracy.cons_sd_error}}</p>
-            <p><span class="result">Constant T Value : </span>{{accuracy.cons_t_value}}</p><br>
+    <div #hello>
+      <div class="show-accuracy-result" *ngIf="showAccuracy">
+        <mat-card>
+          <mat-card-title>Accuracy Result</mat-card-title>
+          <br>
+          <div class="linear" *ngIf="linear">
+            <div class="accuracy-result-sub">
+              <p><span class="result">Score :</span>{{accuracy.score}}</p>
+              <p><span class="sub-heading">Coefficient</span></p>
+              <table class="dataTable">
+                <tr>
+                  <th>Column Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr *ngFor="let coefNumbers of accuracy.coef; let i = index">
+                  <td> {{this.columnHeaders[i]}} </td>
+                  <td>{{coefNumbers}}</td>
+                </tr>
+              </table>
+              <br>
+              <div class="result-div">
+                <p><span class="result">Intercept : </span>{{accuracy.intercept}}</p>
+                <p><span class="result">R-squared : </span>{{accuracy.rsquared}}</p>
+                <p><span class="result">Constant SD Error Value : </span>{{accuracy.cons_sd_error}}</p>
+                <p><span class="result">Constant T Value : </span>{{accuracy.cons_t_value}}</p><br>
+              </div>
+              <p><span class="sub-heading">sderrros</span></p>
+              <table class="dataTable">
+                <tr>
+                  <th>Column Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr *ngFor="let errors of accuracy.sderrors; let i = index">
+                  <td> {{this.columnHeaders[i]}} </td>
+                  <td>{{errors}}</td>
+                </tr>
+              </table>
+              <p><span class="sub-heading">tvalues</span></p>
+              <table class="dataTable">
+                <tr>
+                  <th>Column Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr *ngFor="let values of accuracy.tvalues; let i = index">
+                  <td> {{this.columnHeaders[i]}} </td>
+                  <td> {{values}}</td>
+                </tr>
+              </table>
             </div>
-            <p><span class="sub-heading">sderrros</span></p>
-            <table class="dataTable">
-              <tr>
-                <th>Column Name</th>
-                <th>Value</th>
-              </tr>
-              <tr *ngFor="let errors of accuracy.sderrors; let i = index">
-                <td> {{this.columnHeaders[i]}} </td>
-                <td>{{errors}}</td>
-              </tr>
-            </table>
-            <p><span class="sub-heading">tvalues</span></p>
-            <table class="dataTable">
-              <tr>
-                <th>Column Name</th>
-                <th>Value</th>
-              </tr>
-              <tr *ngFor="let values of accuracy.tvalues; let i = index">
-                <td> {{this.columnHeaders[i]}} </td>
-                <td> {{values}}</td>
-              </tr>
-            </table>
-        </div>
-        </div>
+          </div>
           <div class="accuracy-result-sub">
-            <div class="svm" *ngIf="svm">
+            <div class="svm" *ngIf="svm" #acc>
               <p><span class="result">Accuracy : </span>{{accuracy.accuracy}}</p>
               <p><span class="result">F1 Score Macro : </span>{{accuracy.f1_score_macro}}</p>
               <p><span class="result">F1 Score Micro : </span>{{accuracy.f1_score_micro}}</p>
@@ -87,7 +93,8 @@
               <p><span class="result">Recall Score : </span>{{accuracy.recall_score}}</p>
             </div>
           </div>
-      </mat-card>
+        </mat-card>
+      </div>
     </div>
   </div>
   <div class="step-two">
@@ -98,23 +105,31 @@
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
             <mat-form-field class="field" *ngFor="let columns of columnHeaderML">
               <mat-label>{{columns}}</mat-label>
-              <input matInput [formControlName]="columns"/>
+              <input matInput type="number" [formControlName]="columns"/>
             </mat-form-field>
           </form>
-          <button mat-button (click)="onSubmitSendValues()" [disabled]="this.userInput.invalid">Submit</button>
+          <button mat-button (click)="onSubmitSendValues(); scroll(result)" [disabled]="this.userInput.invalid">Submit</button>
         </mat-card>
       </div>
-      <div class="user-result" *ngIf="showPredictionResult">
-        <mat-card>
-          <mat-card-title>Prediction Result</mat-card-title>
-          <p>Predicted value for {{this.data.prediction_column}} is : {{this.prediction}}</p>
-          <p>Used Algorithm : {{this.data.algorithm}}</p>
-          <div class="card-bottom">
-            <p>Download our python notebook to get a well developed model for the AL performance of Sri Lanka inclusive of detailed comments</p>
-            <button mat-button >Notebook 1</button>
-            <button mat-button >Notebook 2</button>
-          </div>
-        </mat-card>
+      <div #result>
+        <div class="user-result" *ngIf="showPredictionResult">
+          <mat-card>
+            <mat-card-title>Prediction Result</mat-card-title>
+            <p>Predicted value for {{this.data.prediction_column}} is : {{this.prediction}}</p>
+            <p>Used Algorithm : {{this.data.algorithm}}</p>
+            <div class="card-bottom">
+              <p>Download our python notebook to get a well developed model for the AL performance of Sri Lanka
+                inclusive
+                of detailed comments</p>
+              <a href="../../../../assets/AL.ipynb" target="_blank">
+                <button mat-button>Notebook 1</button>
+              </a>
+              <a href="../../../../assets/AL%20prediction_onehotenc.ipynb" target="_blank">
+                <button mat-button>Notebook 2</button>
+              </a>
+            </div>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>
