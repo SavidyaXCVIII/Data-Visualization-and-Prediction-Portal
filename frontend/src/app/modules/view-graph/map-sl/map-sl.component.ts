@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {DataModel} from 'src/app/models/dataset';
+import {DataModel, Dataset} from 'src/app/models/dataset';
 import {map} from 'rxjs/operators';
 import {GlobalService} from '../../../services/global.service';
 
@@ -334,6 +334,17 @@ export class MapSlComponent implements OnInit {
               builder = builder + ',\n';
             });
             this.Vavuniya = builder;
+          } else if (text.toLowerCase().trim() === 'Matara'.toLowerCase().trim()) {
+            let builder = '';
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Matara = builder;
           }
         });
         ++count;
