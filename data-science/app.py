@@ -19,7 +19,6 @@ from random_forrest import train_random_forrest_model,rf_model_prediction
 def select():
     dataset_id = request.args.get('dataset_id')
 
-
     algorithm = request.args.get('algorithm')
     prediction_column = request.args.get("prediction_column")
     column_list = request.args.get("column_list")
