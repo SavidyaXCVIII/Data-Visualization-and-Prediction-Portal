@@ -62,7 +62,6 @@ export class MapSlComponent implements OnInit {
     this.getData().subscribe(response => {
       this.dataset = Array.of(response);
       let count = 1;
-      let builder = '';
       this.dataset[0].forEach(x => {
         let keyValueArray: any[] = [];
         keyValueArray = Object.keys(x).map(key => [String(key), x[key]]);
@@ -72,6 +71,7 @@ export class MapSlComponent implements OnInit {
         testingArray.forEach(y => {
           const text: string = y;
           if (text.toLowerCase().trim() === 'Puttalam'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -82,6 +82,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Puttalam = builder;
           } else if (text.toLowerCase().trim() === 'Gampaha'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -92,6 +93,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Gampaha = builder;
           } else if (text.toLowerCase().trim() === 'Ratnapura'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -102,6 +104,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Ratnapura = builder;
           }  else if (text.toLowerCase().trim() === 'Mannar'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -112,6 +115,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Mannar = builder;
           }  else if (text.toLowerCase().trim() === 'Colombo'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -122,6 +126,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Colombo = builder;
           }  else if (text.toLowerCase().trim() === 'Jaffna'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -132,6 +137,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Jaffna = builder;
           }  else if (text.toLowerCase().trim() === 'Ampara'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -142,6 +148,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Ampara = builder;
           }  else if (text.toLowerCase().trim() === 'Anuradhapura'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -152,6 +159,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Anuradhapura = builder;
           }  else if (text.toLowerCase().trim() === 'Badulla'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -162,6 +170,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Badulla = builder;
           } else if (text.toLowerCase().trim() === 'Batticaloa'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -172,6 +181,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Batticaloa = builder;
           } else if (text.toLowerCase().trim() === 'Galle'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -182,6 +192,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Galle = builder;
           } else if (text.toLowerCase().trim() === 'Hambantota'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -192,6 +203,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Hambantota = builder;
           } else if (text.toLowerCase().trim() === 'Kalutara'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -202,6 +214,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Kalutara = builder;
           } else if (text.toLowerCase().trim() === 'Kandy'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -212,6 +225,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Kandy = builder;
           }  else if (text.toLowerCase().trim() === 'Kegalle'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -222,6 +236,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Kegalle = builder;
           } else if (text.toLowerCase().trim() === 'Kilinochchi'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -232,6 +247,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Kilinochchi = builder;
           } else if (text.toLowerCase().trim() === 'Kurunegala'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -242,6 +258,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Kurunegala = builder;
           } else if (text.toLowerCase().trim() === 'Matale'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -252,6 +269,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Matale = builder;
           } else if (text.toLowerCase().trim() === 'Monaragala'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -262,6 +280,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Monaragala = builder;
           }  else if (text.toLowerCase().trim() === 'Mullativu'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -272,6 +291,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Mullativu = builder;
           } else if (text.toLowerCase().trim() === 'Nuwara Eliya'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -282,6 +302,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Nuwara_Eliya = builder;
           } else if (text.toLowerCase().trim() === 'Polonnaruwa'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -292,6 +313,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Polonnaruwa = builder;
           } else if (text.toLowerCase().trim() === 'Trincomalee'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
@@ -302,6 +324,7 @@ export class MapSlComponent implements OnInit {
             });
             this.Trincomalee = builder;
           } else if (text.toLowerCase().trim() === 'Vavuniya'.toLowerCase().trim()) {
+            let builder = '';
             keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
             keyValueArray.forEach(a => {
               const valueArray: [] = a;
