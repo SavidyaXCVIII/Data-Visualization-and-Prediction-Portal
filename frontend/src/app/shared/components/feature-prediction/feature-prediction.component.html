@@ -37,7 +37,7 @@
         <div class="linear" *ngIf="linear">
           <div class="accuracy-result-sub">
             <p><span class="result">Score :</span>{{accuracy.score}}</p>
-          <p><span class="sub-heading" >Coefficient</span></p>
+            <p><span class="sub-heading" >Coefficient</span></p>
             <table class="dataTable">
               <tr>
                 <th>Column Name</th>
@@ -54,7 +54,7 @@
             <p><span class="result">Constant SD Error Value : </span>{{accuracy.cons_sd_error}}</p>
             <p><span class="result">Constant T Value : </span>{{accuracy.cons_t_value}}</p><br>
             </div>
-          <p><span class="sub-heading">sderrros</span></p>
+            <p><span class="sub-heading">sderrros</span></p>
             <table class="dataTable">
               <tr>
                 <th>Column Name</th>
@@ -65,7 +65,7 @@
                 <td>{{errors}}</td>
               </tr>
             </table>
-          <p><span class="sub-heading">tvalues</span></p>
+            <p><span class="sub-heading">tvalues</span></p>
             <table class="dataTable">
               <tr>
                 <th>Column Name</th>
@@ -77,6 +77,7 @@
               </tr>
             </table>
         </div>
+        </div>
           <div class="accuracy-result-sub">
             <div class="svm" *ngIf="svm">
               <p><span class="result">Accuracy : </span>{{accuracy.accuracy}}</p>
@@ -86,7 +87,6 @@
               <p><span class="result">Recall Score : </span>{{accuracy.recall_score}}</p>
             </div>
           </div>
-        </div>
       </mat-card>
     </div>
   </div>
