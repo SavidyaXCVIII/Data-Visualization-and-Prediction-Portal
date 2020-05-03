@@ -29,7 +29,7 @@ export class PieChartComponent implements OnInit {
   public pieChartType = 'pie';
   show = false;
   length: number;
-  pageSize = 10;
+  pageSize = 25;
   start: number;
   end: number;
   chosenDataset = new Dataset();
@@ -97,9 +97,9 @@ export class PieChartComponent implements OnInit {
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
       this.length = this.xArray.length;
-      this.pieChartsLabels = this.xArray.slice(0, 10);
+      this.pieChartsLabels = this.xArray;
       this.pieChartData = [
-        {data: this.yArray.slice(0, 10), label: this.generateGraphForm.value.yAxis}
+        {data: this.yArray, label: this.generateGraphForm.value.yAxis}
       ];
     }
   }
@@ -113,9 +113,9 @@ export class PieChartComponent implements OnInit {
         this.yArray.push(x[this.generateGraphForm.value.yAxis]);
       });
       this.length = this.xArray.length;
-      this.pieChartsLabels = this.xArray.slice(start, end);
+      this.pieChartsLabels = this.xArray;
       this.pieChartData = [
-        {data: this.yArray.slice(start, end), label: this.generateGraphForm.value.yAxis}
+        {data: this.yArray, label: this.generateGraphForm.value.yAxis}
       ];
     }
   }
