@@ -7,7 +7,7 @@
   </div>
   <div class="step-one">
     <div class="step-one-sub">
-      <mat-card class="train-model">
+      <mat-card class="train-model mat-elevation-z6">
         <mat-card-title>Train Model</mat-card-title>
         <form [formGroup]="sendDataFormGroup" (ngSubmit)="onSubmit()">
           <div class="select-algorithm">
@@ -36,7 +36,7 @@
     </div>
     <div #hello>
       <div class="show-accuracy-result" *ngIf="showAccuracy">
-        <mat-card>
+        <mat-card class="mat-elevation-z6">
           <mat-card-title>Accuracy Result</mat-card-title>
           <br>
           <div class="linear" *ngIf="linear">
@@ -100,7 +100,7 @@
   <div class="step-two">
     <div class="step-two-sub">
       <div class="user-input" *ngIf="showGetPrediction">
-        <mat-card class="select-features">
+        <mat-card class="select-features mat-elevation-z6">
           <mat-card-title>Select features</mat-card-title>
           <form class="user-input-form" [formGroup]="userInput" (ngSubmit)="onSubmitSendValues()">
             <mat-form-field class="field" *ngFor="let columns of columnHeaderML">
@@ -113,10 +113,10 @@
       </div>
       <div #result>
         <div class="user-result" *ngIf="showPredictionResult">
-          <mat-card>
+          <mat-card class="mat-elevation-z6">
             <mat-card-title>Prediction Result</mat-card-title>
-            <p>Predicted value for {{this.data.prediction_column}} is : {{this.prediction}}</p>
-            <p>Used Algorithm : {{this.data.algorithm}}</p>
+            <p>Predicted value for {{this.data.prediction_column}} is : <b>{{this.prediction}}</b></p>
+            <p>Used Algorithm : <b>{{this.data.algorithm}}</b></p>
             <div class="card-bottom">
               <p>Download our python notebook to get a well developed model for the AL performance of Sri Lanka
                 inclusive
