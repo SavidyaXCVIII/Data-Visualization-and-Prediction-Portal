@@ -91,6 +91,226 @@ export class MapSlComponent implements OnInit {
               builder = builder + ',\n';
             });
             this.Gampaha = builder;
+          } else if (text.toLowerCase().trim() === 'Ratnapura'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Ratnapura = builder;
+          }  else if (text.toLowerCase().trim() === 'Mannar'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Mannar = builder;
+          }  else if (text.toLowerCase().trim() === 'Colombo'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Colombo = builder;
+          }  else if (text.toLowerCase().trim() === 'Jaffna'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Jaffna = builder;
+          }  else if (text.toLowerCase().trim() === 'Ampara'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Ampara = builder;
+          }  else if (text.toLowerCase().trim() === 'Anuradhapura'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Anuradhapura = builder;
+          }  else if (text.toLowerCase().trim() === 'Badulla'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Badulla = builder;
+          } else if (text.toLowerCase().trim() === 'Batticaloa'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Batticaloa = builder;
+          } else if (text.toLowerCase().trim() === 'Galle'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Galle = builder;
+          } else if (text.toLowerCase().trim() === 'Hambantota'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Hambantota = builder;
+          } else if (text.toLowerCase().trim() === 'Kalutara'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Kalutara = builder;
+          } else if (text.toLowerCase().trim() === 'Kandy'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Kandy = builder;
+          }  else if (text.toLowerCase().trim() === 'Kegalle'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Kegalle = builder;
+          } else if (text.toLowerCase().trim() === 'Kilinochchi'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Kilinochchi = builder;
+          } else if (text.toLowerCase().trim() === 'Kurunegala'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Kurunegala = builder;
+          } else if (text.toLowerCase().trim() === 'Matale'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Matale = builder;
+          } else if (text.toLowerCase().trim() === 'Monaragala'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Monaragala = builder;
+          }  else if (text.toLowerCase().trim() === 'Mullativu'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Mullativu = builder;
+          } else if (text.toLowerCase().trim() === 'Nuwara Eliya'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Nuwara_Eliya = builder;
+          } else if (text.toLowerCase().trim() === 'Polonnaruwa'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Polonnaruwa = builder;
+          } else if (text.toLowerCase().trim() === 'Trincomalee'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Trincomalee = builder;
+          } else if (text.toLowerCase().trim() === 'Vavuniya'.toLowerCase().trim()) {
+            keyValueArray = keyValueArray.filter(z => z[0] !== '_id');
+            keyValueArray.forEach(a => {
+              const valueArray: [] = a;
+              valueArray.forEach(b => {
+                builder = builder + b + '  ';
+              });
+              builder = builder + ',\n';
+            });
+            this.Vavuniya = builder;
           }
         });
         ++count;
