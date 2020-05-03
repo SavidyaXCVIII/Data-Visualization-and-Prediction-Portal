@@ -18,13 +18,15 @@ export class CreateAccountComponent implements OnInit {
   uploadFile = new FormData();
   user = new User();
   /*constructor(private http: HttpClient,public dialog: MatDialogRef<CreateAccountComponent>) { }*/
-  constructor(private http: HttpClient, private snackBar: MatSnackBar, public dialog: MatDialogRef<CreateAccountComponent>) {
+  constructor(private http: HttpClient, public dialog: MatDialogRef<CreateAccountComponent>) {
   }
 
   ngOnInit() {
     this.createAccountFormGroup = new FormGroup({
-      name: new FormControl(undefined, Validators.required),
       email: new FormControl(undefined, Validators.required),
+      fullName: new FormControl(undefined, Validators.required),
+      companyName: new FormControl(undefined, Validators.required),
+      phone: new FormControl(undefined, Validators.required),
       password: new FormControl(undefined, Validators.required),
       confirmPassword: new FormControl(undefined, Validators.required)
     });
@@ -32,13 +34,13 @@ export class CreateAccountComponent implements OnInit {
 
   registerUser() {
     this.user = {...this.createAccountFormGroup.value};
-    this.http.post('http://localhost:8080/signup=' + '&email=' + this.user.email + '&name=' + this.user.fullname +
+    this.http.post('http://localhost:8080/signup?email=' + this.user.email + '&fullName=' + this.user.fullName +
       '&company=' + this.user.companyName + '&phone=' + this.user.phone +
       '&password=' + this.user.password, this.uploadFile).subscribe((val) => {
       console.log(val);
-      this.loadSnackBar();
       this.onReset();
     });
+    this.dialog.close();
   }
 
   onClose() {
@@ -49,9 +51,9 @@ export class CreateAccountComponent implements OnInit {
     this.createAccountFormGroup.reset();
   }
 
-  loadSnackBar() {
+  /*loadSnackBar() {
     this.snackBar.openFromComponent(SingnupSnackBarComponent, {
       duration: this.durationInSeconds * 1000
     });
-  }
+  }*/
 }
