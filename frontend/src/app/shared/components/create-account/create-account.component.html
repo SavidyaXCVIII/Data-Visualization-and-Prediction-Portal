@@ -4,7 +4,7 @@
   <mat-card-title class="form-title">Create Account</mat-card-title>
   <form [formGroup]="createAccountFormGroup">
   <mat-form-field class="example-full-width">
-    <input  matInput type="text" placeholder="Full Name" required formControlName="name">
+    <input  matInput type="text" placeholder="Full Name" required formControlName="fullName">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
@@ -15,7 +15,7 @@
   <table class="example-full-width" cellspacing="1"><tr>
     <td>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Company Name" required formControlName="company">
+        <input matInput placeholder="Company Name" required formControlName="companyName">
       </mat-form-field>
     </td>
     <td>
