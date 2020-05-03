@@ -144,5 +144,13 @@ export class FeaturePredictionComponent implements OnInit {
     this.showPredictionResult = true;
   }
 
+  scroll(el: HTMLElement) {
+    setTimeout(() => {
+      el.scrollIntoView(
+        { behavior: 'smooth' }
+      );
+    }, 500);
+  }
+
 
 }
