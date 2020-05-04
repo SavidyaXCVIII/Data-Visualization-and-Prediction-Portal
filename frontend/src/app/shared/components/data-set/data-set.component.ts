@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dataset} from '../../../models/dataset';
 import {GlobalService} from '../../../services/global.service';
@@ -52,7 +52,7 @@ export class DataSetComponent implements OnInit {
         yArray.push(x['1AB']);
       });
 
-      console.log( 'xArray', xArray);
+      console.log('xArray', xArray);
       console.log('yArray', yArray);
 
       console.log('mapped Array: item 1', this.mappedArray[0]);

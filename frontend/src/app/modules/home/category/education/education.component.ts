@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {GlobalService} from '../../../../services/global.service';
 import {Dataset} from '../../../../models/dataset';
@@ -17,17 +17,17 @@ export class EducationComponent implements OnInit, OnDestroy {
   showSpinner = true;
   dataset = new Dataset();
 
-getDataSets() {
-  return this.http.get(this.ROOT_URL + '/files');
-}
+  getDataSets() {
+    return this.http.get(this.ROOT_URL + '/files');
+  }
 
 
-ngOnInit() {
+  ngOnInit() {
 
-this.getDataSets().subscribe( response => {
-  this.dataSets = response;
-  this.showSpinner = false;
-});
+    this.getDataSets().subscribe(response => {
+      this.dataSets = response;
+      this.showSpinner = false;
+    });
 
   }
 

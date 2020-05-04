@@ -1,8 +1,9 @@
 
-.header{
+.header {
   top: 20vh;
 }
-h1{
+
+h1 {
   font-size: 2em;
   color: white;
   font-weight: 600;
@@ -10,13 +11,14 @@ h1{
   margin-left: 10%;
 }
 
-th{
+th {
   color: #006286;
   font-weight: bold;
   text-align: center !important;
   font-size: 1em;
 }
-tr{
+
+tr {
   align-content: center;
 }
 
@@ -24,7 +26,8 @@ table {
   padding: 10px;
   text-align: center !important;
 }
-.example-container{
+
+.example-container {
   display: flex;
   flex-direction: column;
   min-width: 300px;
@@ -34,11 +37,13 @@ table {
   width: 90%;
   border-radius: 5px;
 }
+
 .top {
   height: 70vh;
   background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
   position: relative;
 }
+
 .bottom {
   position: absolute;
   top: 10px;

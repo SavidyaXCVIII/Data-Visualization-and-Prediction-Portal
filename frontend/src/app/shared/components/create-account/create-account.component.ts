@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {User} from '../../../models/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -16,6 +16,7 @@ export class CreateAccountComponent implements OnInit {
   createAccountFormGroup: FormGroup;
   uploadFile = new FormData();
   user = new User();
+
   /*constructor(private http: HttpClient,public dialog: MatDialogRef<CreateAccountComponent>) { }*/
   constructor(private http: HttpClient, public dialog: MatDialogRef<CreateAccountComponent>, private snackBar: MatSnackBar) {
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GlobalService} from '../../../services/global.service';
 import {Dataset} from '../../../models/dataset';
 
@@ -11,6 +11,7 @@ export class ShowDatasetComponent implements OnInit {
 
   constructor(private globalService: GlobalService) {
   }
+
   url = '../../../../assets/';
   fileName: string;
   dataset = new Dataset();

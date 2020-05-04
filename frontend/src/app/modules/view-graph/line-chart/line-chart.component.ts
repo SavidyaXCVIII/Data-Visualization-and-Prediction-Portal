@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dataset} from '../../../models/dataset';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PageEvent} from '@angular/material/paginator';
@@ -88,9 +88,11 @@ export class LineChartComponent implements OnInit {
       this.columnHeaders = this.columnHeaders.filter(x => x !== '_id');
     });
   }
+
   getData() {
     return this.httpClient.get(this.ROOT_URL + '/filesArray?id=' + this.datasetId);
   }
+
   getValues() {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis) {
       this.xArray = [];
@@ -106,6 +108,7 @@ export class LineChartComponent implements OnInit {
       ];
     }
   }
+
   getValuesSecond() {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis && this.generateGraphForm.value.secondYAxis) {
       this.secondYArray = [];
@@ -122,6 +125,7 @@ export class LineChartComponent implements OnInit {
       ];
     }
   }
+
   getValuesCustom(start, end) {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis) {
       this.xArray = [];
@@ -137,6 +141,7 @@ export class LineChartComponent implements OnInit {
       ];
     }
   }
+
   getValuesCustomSecond(start, end) {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis && this.generateGraphForm.value.secondYAxis) {
       this.xArray = [];

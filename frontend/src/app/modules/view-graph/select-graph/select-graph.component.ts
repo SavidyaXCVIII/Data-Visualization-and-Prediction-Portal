@@ -22,6 +22,7 @@ export class SelectGraphComponent implements OnInit {
   constructor(private http: HttpClient, private globalService: GlobalService) {
     // this.data = this.http.get<DataModel>('./assets/data.json');
   }
+
   dataset = new Dataset();
 
   ngOnInit() {
@@ -85,7 +86,7 @@ export class SelectGraphComponent implements OnInit {
   scroll(el: HTMLElement) {
     setTimeout(() => {
       el.scrollIntoView(
-        { behavior: 'smooth' }
+        {behavior: 'smooth'}
       );
     }, 100);
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dataset} from '../../../models/dataset';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PageEvent} from '@angular/material/paginator';
@@ -91,6 +91,7 @@ export class RadarChartComponent implements OnInit {
   getData() {
     return this.httpClient.get(this.ROOT_URL + '/filesArray?id=' + this.datasetId);
   }
+
   getValues() {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis) {
       this.xArray = [];
@@ -106,6 +107,7 @@ export class RadarChartComponent implements OnInit {
       ];
     }
   }
+
   getValuesSecond() {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis && this.generateGraphForm.value.secondYAxis) {
       this.secondYArray = [];
@@ -122,6 +124,7 @@ export class RadarChartComponent implements OnInit {
       ];
     }
   }
+
   getValuesCustom(start, end) {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis) {
       this.xArray = [];
@@ -137,6 +140,7 @@ export class RadarChartComponent implements OnInit {
       ];
     }
   }
+
   getValuesCustomSecond(start, end) {
     if (this.generateGraphForm.value.xAxis && this.generateGraphForm.value.yAxis && this.generateGraphForm.value.secondYAxis) {
       this.xArray = [];

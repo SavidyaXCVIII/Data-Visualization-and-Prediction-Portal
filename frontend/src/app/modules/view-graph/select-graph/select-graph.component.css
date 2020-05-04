@@ -5,70 +5,86 @@
   background-color: #A9A9A9;
   background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
 }
+
 .bottom {
   position: absolute;
   top: 10vh;
   width: 100%;
   height: 90vh;
 }
-.header{
-   height: 10vh;
- }
-h1{
+
+.header {
+  height: 10vh;
+}
+
+h1 {
   color: white;
   font-weight: 600;
   text-align: left;
   margin-left: 5%;
   margin-top: 0;
 }
-.graph-type{
+
+.graph-type {
   display: flex;
 }
-.line-one, .line-two, .line-three{
+
+.line-one, .line-two, .line-three {
   max-width: 25%;
   flex-basis: 50%;
   margin: auto;
 }
-mat-card{
+
+mat-card {
   margin-bottom: 10vh;
   height: 15vh;
   cursor: pointer;
 }
-mat-card:hover{
-  box-shadow: -1px 10px 29px 0 rgba(0,0,0,0.8);
+
+mat-card:hover {
+  box-shadow: -1px 10px 29px 0 rgba(0, 0, 0, 0.8);
 }
 
-mat-card-title{
+mat-card-title {
   font-size: 3vh;
 }
-.icon{
+
+.icon {
   margin-left: 60%;
   margin-top: -10%;
 }
-mat-icon{
+
+mat-icon {
   font-size: 14vh;
 }
-.bar{
+
+.bar {
   color: #FF6384;
   font-size: 16vh;
 }
-.line{
+
+.line {
   color: #4BC0C0;
   font-size: 16vh;
 }
-.radar{
+
+.radar {
   color: #4BC0C0;
   font-size: 16vh;
 }
-.polar{
-  color: #36A2EB ;
+
+.polar {
+  color: #36A2EB;
 }
-.donut{
- color: #FFCD56;
+
+.donut {
+  color: #FFCD56;
 }
-.pie{
+
+.pie {
   color: #C9CBCF;
 }
+
 .show-graph {
   background: white;
 }

@@ -147,7 +147,7 @@ export class FeaturePredictionComponent implements OnInit {
   scroll(el: HTMLElement) {
     setTimeout(() => {
       el.scrollIntoView(
-        { behavior: 'smooth' }
+        {behavior: 'smooth'}
       );
     }, 500);
   }

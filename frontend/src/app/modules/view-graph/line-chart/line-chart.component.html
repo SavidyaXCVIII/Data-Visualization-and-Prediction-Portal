@@ -32,7 +32,7 @@
         <div class="select-column">
           <mat-form-field appearance="outline">
             <mat-label>y-Axis(Axis 1)</mat-label>
-            <mat-select required formControlName="yAxis"  (selectionChange)="getValues()">
+            <mat-select required formControlName="yAxis" (selectionChange)="getValues()">
               <mat-option *ngFor="let column of columnHeaders" [value]="column">
                 {{column}}
               </mat-option>
@@ -42,7 +42,7 @@
         <div class="select-column">
           <mat-form-field appearance="outline">
             <mat-label>y-Axis(Axis 2)</mat-label>
-            <mat-select required formControlName="secondYAxis"  (selectionChange)="getValuesSecond()">
+            <mat-select required formControlName="secondYAxis" (selectionChange)="getValuesSecond()">
               <mat-option *ngFor="let column2 of columnHeaders" [value]="column2">
                 {{column2}}
               </mat-option>

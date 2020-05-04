@@ -3,26 +3,29 @@
   margin: auto;
   height: 100vh;
 }
+
 .chart-main {
   width: 75%;
   float: left;
   margin-top: 10vh;
 }
 
-.chart-sub{
+.chart-sub {
   margin-left: 2%;
   float: left;
   width: 23%;
   margin-top: 10vh;
 }
 
-button{
+button {
   background-color: #189ad3;
   color: white;
 }
-mat-card{
+
+mat-card {
   height: 60vh;
 }
-mat-card-title{
+
+mat-card-title {
   text-align: center;
 }

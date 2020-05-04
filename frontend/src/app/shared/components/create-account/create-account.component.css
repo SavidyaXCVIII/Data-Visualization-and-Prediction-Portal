@@ -3,27 +3,30 @@
   flex-direction: column;
   padding: 20px;
 }
-.form-title{
+
+.form-title {
   text-align: center;
 }
 
 .example-full-width {
   width: 100%;
 }
+
 .button {
   margin-right: 10px;
 }
 
 .close {
-  color:black;
+  color: black;
 }
-.reset:hover{
+
+.reset:hover {
   background-color: seagreen;
   color: white;
 }
 
 .close:hover {
-  background-color: #000000  ;
+  background-color: #000000;
   color: white;
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
@@ -16,7 +16,8 @@ export class LogInComponent implements OnInit {
   chosenUser = new User();
   readonly ROOT_URL = 'http://localhost:8080';
 
-  constructor(private httpClient: HttpClient, public dialog: MatDialogRef<LogInComponent>, private snackBar: MatSnackBar) { }
+  constructor(private httpClient: HttpClient, public dialog: MatDialogRef<LogInComponent>, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.loginFormGroup = new FormGroup({
@@ -24,6 +25,7 @@ export class LogInComponent implements OnInit {
       password: new FormControl(undefined, Validators.required)
     });
   }
+
   onClose() {
     this.dialog.close();
   }

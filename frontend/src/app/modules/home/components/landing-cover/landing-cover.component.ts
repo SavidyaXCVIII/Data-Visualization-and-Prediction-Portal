@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 declare var particlesJS: any;
 
 @Component({
@@ -8,7 +9,8 @@ declare var particlesJS: any;
 })
 export class LandingCoverComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     particlesJS.load('particles-js', 'assets/data/particles.json', null);

@@ -4,14 +4,16 @@
   background-image: linear-gradient(to right, #006286 0%, #189ad3 100%);
   position: relative;
 }
-.image-top{
+
+.image-top {
   background: url("https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center;
   background-size: cover;
   height: 75vh;
   margin: auto;
   width: 100%;
-  opacity:0.2;
+  opacity: 0.2;
 }
+
 .top-text {
   position: absolute;
   bottom: 100px;
@@ -20,42 +22,50 @@
   font-size: 60px;
   text-align: end;
 }
+
 .heading {
   font-size: 50px;
   font-weight: bold;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  }
+}
+
 .mat-card {
   max-width: 400px;
-  }
-.header-image{
+}
+
+.header-image {
   display: block;
   width: 100%;
   border-radius: 4px;
-  }
-.description{
+}
+
+.description {
   padding: 20px;
   text-align: center;
   font-size: 28px;
 }
 
- table{
-    margin: auto;
-  }
- mat-card{
-   margin: 30px;
-   width: 30vh;
- }
- mat-card img{
-   height: 50vh;
- }
-.mat-card-title,.mat-card-subtitle{
-  text-align:center;
+table {
+  margin: auto;
 }
-.mat-card-subtitle{
-  font-size:25px;
+
+mat-card {
+  margin: 30px;
+  width: 30vh;
+}
+
+mat-card img {
+  height: 50vh;
+}
+
+.mat-card-title, .mat-card-subtitle {
+  text-align: center;
+}
+
+.mat-card-subtitle {
+  font-size: 25px;
 }
 
 .mat-card-image {
